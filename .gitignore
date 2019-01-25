@@ -1,3 +1,5 @@
 tmp
 venv
 test
+*.pyc
+*.swp
