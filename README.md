@@ -9,4 +9,4 @@ For now:
 python align.py <audiofile> <textfile>
 ```
 
-Needs `pocketsphinx` and the model of the language.
+Needs `pocketsphinx` install and also all the necessary resources for the language (acoustic model, language model, phonetic dictionary).
