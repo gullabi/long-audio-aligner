@@ -11,7 +11,8 @@ MODEL_PATH = os.path.join(PROJECT_PATH, '../cmusphinx-models/ca-es')
 DICT_PATH = os.path.join(MODEL_PATH, 'pronounciation-dictionary.dict')
 
 def main(audiofile, textfile):
-    align = Align(audiofile, textfile, DICT_PATH)
+    text = open(textfile).read().strip()
+    align = Align(audiofile, text, DICT_PATH)
     if not align.results_exist():
         align.create_textcorpus()
         align.create_lm()
