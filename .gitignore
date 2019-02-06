@@ -1,4 +1,4 @@
-tmp
+tmp*
 venv
 test
 *.pyc
