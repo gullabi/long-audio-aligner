@@ -1,6 +1,7 @@
 import sys
 import os
 import json
+import yaml
 
 from utils.align import Align, TMP
 from utils.sphinx import CMU
@@ -10,8 +11,9 @@ PROJECT_PATH = os.path.dirname(os.path.realpath(__file__))
 MODEL_PATH = os.path.join(PROJECT_PATH, '../cmusphinx-models/ca-es')
 DICT_PATH = os.path.join(MODEL_PATH, 'pronounciation-dictionary.dict')
 
-def main(audiofile, textfile):
-    text = open(textfile).read().strip()
+def main(audiofile, yamlfile):
+    intervention = yaml.load(open(yamlfile))
+    text = ' '.join([text for sp, text in intervention['text']])
     align = Align(audiofile, text, DICT_PATH)
     if not align.results_exist():
         align.create_textcorpus()
@@ -35,5 +37,5 @@ def main(audiofile, textfile):
 
 if __name__ == "__main__":
     audiofile = sys.argv[1]
-    textfile = sys.argv[2]
-    main(audiofile, textfile)
+    yamlfile = sys.argv[2]
+    main(audiofile, yamlfile)
