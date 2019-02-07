@@ -99,3 +99,4 @@ class Align(object):
             if os.stat(self.align_outfile).st_size != 0:
                 return True
         return False
+
