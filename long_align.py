@@ -6,6 +6,7 @@ import yaml
 from utils.align import Align, TMP
 from utils.sphinx import CMU
 from utils.text import Text
+from utils.map import Map
 
 PROJECT_PATH = os.path.dirname(os.path.realpath(__file__)) 
 MODEL_PATH = os.path.join(PROJECT_PATH, '../cmusphinx-models/ca-es')
@@ -31,9 +32,14 @@ def main(audiofile, yamlfile):
         # TODO call decode functions in Align object
         decode_align = Text(align.sentences, segs, align.align_outfile)
         decode_align.align()
+        alignment = decode_align.align_results
     else:
         msg = 'results already exist in %s'%align.align_outfile
         print(msg)
+        alignment = json.load(open(align.align_outfile))
+
+    m = Map(intervention, alignment)
+    m.prepare()
 
 if __name__ == "__main__":
     audiofile = sys.argv[1]
