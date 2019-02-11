@@ -1,9 +1,12 @@
+from utils.beam import Beam
+
 class Segmenter(object):
     def __init__(self, alignment):
         # TODO assert alignment object has target_speaker and punctuation
         self.alignment = alignment
         self.get_target_blocks()
         self.segments = []
+        self.best_segments = []
 
     def get_target_blocks(self):
         '''
@@ -70,8 +73,12 @@ class Segmenter(object):
                 segment['words'] += element['word']
                 segment['end'] = element['end']
                 unit_segments.append(segment)
-        return self.optimize(unit_segments)
+        return unit_segments
 
-    @staticmethod 
-    def optimize(segments):
-        return segments
+    def optimize(self, beam_width=10):
+        beam = Beam(beam_width)
+        for segment in self.segments:
+            beam.add(segment)
+        # sequences are ordered according to the score
+        # and the first element has the best score
+        self.best_segments = beam.sequences[0]

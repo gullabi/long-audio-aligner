@@ -40,23 +40,23 @@ def main(audiofile, yamlfile):
         print(msg)
         alignment = json.load(open(align.align_outfile))
 
-    m = Map(intervention, alignment)
-    m.prepare()
-
-    segments = beam_search(m.alignment, 10)
-    segment_out = os.path.join(TMP, align.audio_basename+'_beam_search.json')
+    segments = get_optimal_segments(intervention, alignment)
+    segment_out = os.path.join(TMP, align.audio_basename+'_beam_search00.json')
     with open(segment_out, 'w') as out:
         json.dump(segments, out, indent = 4)
 
-def beam_search(alignment, width):
-    segmenter = Segmenter(alignment)
+def get_optimal_segments(intervention, alignment):
+    # get punctuation and speaker information
+    m = Map(intervention, alignment)
+    m.prepare()
+
+    # get segments using silences
+    segmenter = Segmenter(m.alignment)
     segmenter.get_segments()
-    beam = Beam(width)
-    for segment in segmenter.segments:
-        beam.add(segment)
-    # sequences are ordered according to the score
-    # and the first element has the best score
-    return beam.sequences[0]
+
+    # optimize segments using punctuation
+    segmenter.optimize()
+    return segmenter.best_segments
 
 if __name__ == "__main__":
     audiofile = sys.argv[1]
