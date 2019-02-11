@@ -19,12 +19,13 @@ class GEval(object):
             score = self.evaluate_segment(segment)
 
     def evaluate_segment(self, segment):
-        basename = self.get_basename(segment)
-        self.create_jsgf(segment['words'], basename)
-        pass
+        self.create_jsgf(segment)
+        return 0
 
     @staticmethod
-    def create_jsgf(words, basename):
+    def create_jsgf(segment):
+        grammar_file = segment['segment_path'].replace('.wav','.jsgf')
+        words = segment['words']
         words_wkleene = ' '.join([word+'*' for word in words.split()])
-        with open(basename+'.jsgf', 'w') as out:
+        with open(grammar_file, 'w') as out:
             out.write(jsgf_string%words_wkleene)

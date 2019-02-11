@@ -91,6 +91,9 @@ class Segmenter(object):
         path = os.path.join(base_path, base_name[0], base_name[1])
         if not os.path.isdir(path):
             os.makedirs(path)
+        else:
+            args = ['rm', path+'/*_ws.wav']
+            subprocess.call(args)
 
         for segment in self.best_segments:
             self.segment_cue(audio_file, segment, path)
@@ -101,6 +104,10 @@ class Segmenter(object):
     @staticmethod
     def segment_cue(audio, cue, base_path):
         audio_tool = 'ffmpeg'
+        silence_filepath = 'utils/silence.wav'
+        if not os.path.isfile(silence_filepath):
+            msg = 'silence file needed for padding'
+            raise IOError(msg)
         seek = floor(cue['start'])
         start = cue['start'] - seek
         end = cue['end']
@@ -108,13 +115,19 @@ class Segmenter(object):
         basename = '.'.join(os.path.basename(audio).split('.')[:-1])
         cue['segment'] = '_'.join([basename, str(cue['start']), str(cue['end'])])
         cue['segment_path'] = os.path.join(base_path, cue['segment'])+'.wav'
+        intermediate_path = cue['segment_path'].replace('.wav', '_ws.wav')
         args = [audio_tool, '-hide_banner', '-loglevel', 'panic',\
                 '-ss', str(seek), '-i', audio, '-ss', str(start), \
-                '-t', str(duration), '-ac', '1', '-ar', '16000', cue['segment_path']]
+                '-t', str(duration), '-ac', '1', '-ar', '16000', intermediate_path]
+        # TODO put silence to an absolute path
+        args2 = ['sox', silence_filepath, intermediate_path, silence_filepath,
+                 cue['segment_path']]
         if os.path.isfile(cue['segment_path']):
             print("%s already exists skipping"%cue['segment'])
         else:
             subprocess.call(args)
+            subprocess.call(args2)
             if not os.path.isfile(cue['segment_path']):
                 raise IOError("File not created from ffmpeg(avconv) operation"
                               " %s"%cue['segment_path'])
+            subprocess.call(['rm', intermediate_path])
