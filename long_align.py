@@ -54,6 +54,8 @@ def beam_search(alignment, width):
     beam = Beam(width)
     for segment in segmenter.segments:
         beam.add(segment)
+    # sequences are ordered according to the score
+    # and the first element has the best score
     return beam.sequences[0]
 
 if __name__ == "__main__":

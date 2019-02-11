@@ -47,7 +47,7 @@ class Segmenter(object):
 
         # the block should start and with with a token with start (end) time
         indicies = [i for i, token in enumerate(block) if token.get('start')]
-        start_index, end_index = indicies[0], indicies[-1]
+        start_index, end_index = indicies[0], indicies[-1]+1
         cropped_block = block[start_index:end_index]
         unit_segments = []
         # first segment

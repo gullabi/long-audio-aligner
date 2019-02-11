@@ -75,7 +75,7 @@ class Beam(object):
         and normalizes by dividing to the number of segments
         '''
         # TODO consider alpha parameter for the normalization
-        alpha = 0.5
+        alpha = 0.7
         score = 0
         n_segment = len(sequence)
         for segment in sequence:
@@ -92,7 +92,7 @@ def P_segment(segment):
     # beta is an emprical parameter which makes the result 0.9 at t_min
     # for f_punctuation = 1 and t_min = 5; beta = 0.5
     beta = 0.5
-    t_max = 20
+    t_max = 19
     duration = segment['end'] - segment['start']
     if duration < 0:
         msg = 'duration cannot be negative'
