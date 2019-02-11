@@ -75,11 +75,12 @@ class Beam(object):
         and normalizes by dividing to the number of segments
         '''
         # TODO consider alpha parameter for the normalization
+        alpha = 0.5
         score = 0
         n_segment = len(sequence)
         for segment in sequence:
             score += log(P_segment(segment))
-        return score/n_segment
+        return score/n_segment**alpha
 
 def P_segment(segment):
     '''
@@ -98,7 +99,10 @@ def P_segment(segment):
         raise ValueError(msg)
 
     if segment.get('punctuation'):
-        f_punctuation = 1.0
+        if type(segment['punctuation']) == float:
+            f_punctuation = segment['punctuation']
+        else:
+            f_punctuation = 1.0
     else:
         f_punctuation = 0.5
     val = f_punctuation*exp(-beta/duration)

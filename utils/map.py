@@ -22,7 +22,8 @@ class Map(object):
 
         self.target_speaker = None
 
-        self.re_punc = re.compile('\.|,|:|;|\?|!')
+        self.re_stop = re.compile('\.|:|\?|!')
+        self.re_comma = re.compile(',|;')
 
     def prepare(self):
         self.check()
@@ -65,8 +66,12 @@ class Map(object):
                 token = {'word': word}
                 if speaker == self.target_speaker:
                     token['target_speaker'] = True
-                if self.re_punc.search(word):
-                    token['punctuation'] = True
+                # Punctuation weights are used in segmentation search algorithm
+                # commas get lower preference
+                if self.re_stop.search(word):
+                    token['punctuation'] = 1.0
+                elif self.re_comma.search(word):
+                    token['punctuation'] = 0.9
                 reference_dicts.append(token)
 
         # assuming they are of the same length
