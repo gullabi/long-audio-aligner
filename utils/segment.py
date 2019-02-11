@@ -1,9 +1,10 @@
 from utils.beam import Beam
 
 class Segmenter(object):
-    def __init__(self, alignment):
+    def __init__(self, alignment, silence = 0.099):
         # TODO assert alignment object has target_speaker and punctuation
         self.alignment = alignment
+        self.silence = silence
         self.get_target_blocks()
         self.segments = []
         self.best_segments = []
@@ -46,8 +47,6 @@ class Segmenter(object):
             self.segments += self.get_block_segments(block)
 
     def get_block_segments(self, block):
-        silence = 0.099
-
         # the block should start and with with a token with start (end) time
         indicies = [i for i, token in enumerate(block) if token.get('start')]
         start_index, end_index = indicies[0], indicies[-1]+1
@@ -61,7 +60,7 @@ class Segmenter(object):
                 next_element = cropped_block[i+1]
                 if element.get('end') and next_element.get('start'):
                     if (float(next_element['start'])-float(element['end'])) > \
-                                                                        silence:
+                                                                  self.silence:
                         segment['end'] = element['end']
                         segment['words'] = segment['words'].strip()
                         if element.get('punctuation'):
