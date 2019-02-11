@@ -9,6 +9,7 @@ from utils.text import Text
 from utils.map import Map
 from utils.segment import Segmenter
 from utils.beam import Beam
+from utils.geval import GEval
 
 PROJECT_PATH = os.path.dirname(os.path.realpath(__file__)) 
 MODEL_PATH = os.path.join(PROJECT_PATH, '../cmusphinx-models/ca-es')
@@ -40,10 +41,15 @@ def main(audiofile, yamlfile):
         print(msg)
         alignment = json.load(open(align.align_outfile))
 
-    segments = get_optimal_segments(intervention, alignment)
+    # unit segments from silences are combined into optimal segments btw 5-19 s
+    segmenter = get_optimal_segments(intervention, alignment)
+
+    # segment audiofile
+    segmenter.segment_audio('test/c3d9d2a15a76a9fbb591.mp3')
+
     segment_out = os.path.join(TMP, align.audio_basename+'_beam_search00.json')
     with open(segment_out, 'w') as out:
-        json.dump(segments, out, indent = 4)
+        json.dump(segmenter.best_segments, out, indent = 4)
 
 def get_optimal_segments(intervention, alignment):
     # get punctuation and speaker information
@@ -56,7 +62,7 @@ def get_optimal_segments(intervention, alignment):
 
     # optimize segments using punctuation
     segmenter.optimize()
-    return segmenter.best_segments
+    return segmenter
 
 if __name__ == "__main__":
     audiofile = sys.argv[1]

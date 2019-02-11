@@ -1,3 +1,7 @@
+import os
+import subprocess
+
+from math import floor
 from utils.beam import Beam
 
 class Segmenter(object):
@@ -81,3 +85,36 @@ class Segmenter(object):
         # sequences are ordered according to the score
         # and the first element has the best score
         self.best_segments = beam.sequences[0]
+
+    def segment_audio(self, audio_file, base_path='tmp'):
+        base_name = '.'.join(os.path.basename(audio_file).split('.')[:-1])
+        path = os.path.join(base_path, base_name[0], base_name[1])
+        if not os.path.isdir(path):
+            os.makedirs(path)
+
+        for segment in self.best_segments:
+            self.segment_cue(audio_file, segment, path)
+            if (float(segment['end']) - float(segment['start'])) > 15.:
+                msg = 'WARNING: %s longer than 15 s'%segment['segment_path']
+                print(msg)
+
+    @staticmethod
+    def segment_cue(audio, cue, base_path):
+        audio_tool = 'ffmpeg'
+        seek = floor(cue['start'])
+        start = cue['start'] - seek
+        end = cue['end']
+        duration = end - cue['start']
+        basename = '.'.join(os.path.basename(audio).split('.')[:-1])
+        cue['segment'] = '_'.join([basename, str(cue['start']), str(cue['end'])])
+        cue['segment_path'] = os.path.join(base_path, cue['segment'])+'.wav'
+        args = [audio_tool, '-hide_banner', '-loglevel', 'panic',\
+                '-ss', str(seek), '-i', audio, '-ss', str(start), \
+                '-t', str(duration), '-ac', '1', '-ar', '16000', cue['segment_path']]
+        if os.path.isfile(cue['segment_path']):
+            print("%s already exists skipping"%cue['segment'])
+        else:
+            subprocess.call(args)
+            if not os.path.isfile(cue['segment_path']):
+                raise IOError("File not created from ffmpeg(avconv) operation"
+                              " %s"%cue['segment_path'])
