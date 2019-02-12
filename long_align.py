@@ -46,11 +46,11 @@ def main(audiofile, yamlfile):
 
     # segment audiofile
     segmenter.segment_audio('test/c3d9d2a15a76a9fbb591.mp3')
-    '''
-    segment_out = os.path.join(TMP, align.audio_basename+'_beam_search00.json')
+    segment_out = os.path.join(TMP, align.audio_basename+'_beam_search.json')
     with open(segment_out, 'w') as out:
         json.dump(segmenter.best_segments, out, indent = 4)
-    '''
+
+    # grammar evaluate each segment
     geval = GEval(segmenter.best_segments, MODEL_PATH)
     geval.evaluate()
     segment_out = os.path.join(TMP, align.audio_basename+'_evaluated.json')
