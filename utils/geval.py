@@ -50,4 +50,4 @@ class GEval(object):
             elif '--' in [w1, w2]:
                 err_count += 1
         ref_count = len(segment['words'].split())
-        return err_count/ref_count
+        return (1.0 - err_count/ref_count)
