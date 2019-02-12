@@ -2,6 +2,9 @@
 
 Intends to reproduce the segmentation method of the [2015 Panayotov et al.](http://www.danielpovey.com/files/2015_icassp_librispeech.pdf) Librispeech paper.
 
+## Required tools
+`pocketspinx`, `ffmpeg` and `sox`.
+
 ## Use
 For now:
 
