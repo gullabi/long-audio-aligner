@@ -15,7 +15,7 @@ PROJECT_PATH = os.path.dirname(os.path.realpath(__file__))
 MODEL_PATH = os.path.join(PROJECT_PATH, '../cmusphinx-models/ca-es')
 DICT_PATH = os.path.join(MODEL_PATH, 'pronounciation-dictionary.dict')
 
-def main(audiofile, yamlfile):
+def single(audiofile, yamlfile):
     intervention = yaml.load(open(yamlfile))
     text = ' '.join([text for sp, text in intervention['text']])
     align = Align(audiofile, text, DICT_PATH)
@@ -26,6 +26,7 @@ def main(audiofile, yamlfile):
         decode_outfile = os.path.join(TMP, align.audio_basename+'_decode.json')
         if not os.path.isfile(decode_outfile):
             cs = CMU(MODEL_PATH)
+            print('decoding for long alignment')
             cs.decode(align.audio_raw, align.lm)
             segs = cs.segs
             with open(decode_outfile, 'w') as out:
@@ -45,7 +46,7 @@ def main(audiofile, yamlfile):
     segmenter = get_optimal_segments(intervention, alignment)
 
     # segment audiofile
-    segmenter.segment_audio('test/c3d9d2a15a76a9fbb591.mp3')
+    segmenter.segment_audio(audiofile)
     segment_out = os.path.join(TMP, align.audio_basename+'_beam_search.json')
     with open(segment_out, 'w') as out:
         json.dump(segmenter.best_segments, out, indent = 4)
@@ -71,6 +72,15 @@ def get_optimal_segments(intervention, alignment):
     return segmenter
 
 if __name__ == "__main__":
-    audiofile = sys.argv[1]
-    yamlfile = sys.argv[2]
-    main(audiofile, yamlfile)
+    if len(sys.argv) == 3:
+        audiofile = sys.argv[1]
+        yamlfile = sys.argv[2]
+        single(audiofile, yamlfile)
+    elif len(sys.argv) == 2:
+        jsonfile = sys.argv[1]
+        multiple(jsonfile)
+    else:
+        msg = 'long_align accepts either 2 (audio + yaml) or single file'\
+              ' (json with the local audio uri)'
+        print(msg)
+        sys.exit()

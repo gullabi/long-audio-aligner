@@ -41,7 +41,10 @@ class Align(object):
                                                   .difference(self.words))
                     self.sentences.append(cmu)
                     wout.write('<s> %s </s>\n'%cmu)
-        print(self.oov)
+        if self.oov:
+            msg = 'WARNING: oov words found for %s\n%s'%(audiofile,
+                                                         str(self.oov))
+            raise ValueError(msg)
         if os.stat(self.corpus).st_size == 0:
             msg = "corpus output %s empty"%self.corpus
             raise ValueError(msg)
@@ -65,12 +68,15 @@ class Align(object):
                 popen2.wait()
             args3 =  ['text2idngram', '-n', '2', '-vocab', tmp_vocab,
                       '-idngram', idngram]
-            popen3 = subprocess.Popen(args3, stdin=open(self.corpus))
+            popen3 = subprocess.Popen(args3, stdin=open(self.corpus),
+                                             stdout=subprocess.DEVNULL,
+                                             stderr=subprocess.STDOUT)
             popen3.wait()
             args4 = ['idngram2lm', '-n', '2', '-disc_ranges', '0', '0',
                      '-witten_bell', '-idngram', idngram,
                      '-vocab', tmp_vocab, '-arpa', self.lm]
-            popen4 = subprocess.call(args4)
+            popen4 = subprocess.call(args4, stdout=subprocess.DEVNULL,
+                                            stderr=subprocess.STDOUT)
         if not os.path.isfile(self.lm):
             msg = 'lm file %s not created'%self.lm
             raise IOError(msg)
