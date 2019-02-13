@@ -1,5 +1,5 @@
 tmp*
-segments*
+sessions*
 venv
 test
 *.pyc
