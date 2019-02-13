@@ -42,7 +42,7 @@ class Align(object):
                     self.sentences.append(cmu)
                     wout.write('<s> %s </s>\n'%cmu)
         if self.oov:
-            msg = 'WARNING: oov words found for %s\n%s'%(audiofile,
+            msg = 'WARNING: oov words found for %s\n%s'%(self.audio,
                                                          str(self.oov))
             raise ValueError(msg)
         if os.stat(self.corpus).st_size == 0:
