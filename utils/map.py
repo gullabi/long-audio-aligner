@@ -32,8 +32,27 @@ class Map(object):
 
     def check(self):
         if len(self.full_text.split()) != len(self.alignment):
-            msg = 'the original and cleaned text do not have equal tokens'
-            raise ValueError(msg)
+            msg = 'the original and cleaned text do not have equal tokens'\
+                  '\ncleaning the tokens not present in cmu cleaned text'
+            print(msg)
+            # remove the tokens not appearing in full_text
+            # assumes len(self.full_text.split()) > len(self.alignment)
+            # this might happen when symbols surrounded by white spaces
+            # appear in the full_text
+            i = 0
+            skip = 0
+            new_int_text = []
+            for speaker, text in self.intervention['text']:
+                int_text = ''
+                for word in text.split():
+                    if re.search(self.alignment[i+skip]['word'], word.lower()):
+                        int_text += ' %s'%word
+                    else:
+                        print(word)
+                        skip -= 1
+                    i += 1
+                new_int_text.append((speaker, int_text))
+            self.intervention['text'] = new_int_text
 
     def find_speaker(self):
         '''

@@ -1,7 +1,8 @@
 import os
 import subprocess
-
 import utils.clean as cl
+
+from utils.g2p import G2P
 
 PROJECT_PATH = os.path.dirname(os.path.realpath(__file__)) 
 TMP = os.path.join(PROJECT_PATH, '../tmp')
@@ -29,6 +30,7 @@ class Align(object):
         self.oov = set()
         self.words = set([line.split()[0] \
                          for line in open(self.dictfile).readlines()])
+        self.g2p = G2P()
 
     def create_textcorpus(self):
         with open(self.corpus, 'w') as wout:
@@ -44,7 +46,12 @@ class Align(object):
         if self.oov:
             msg = 'WARNING: oov words found for %s\n%s'%(self.audio,
                                                          str(self.oov))
-            raise ValueError(msg)
+            print(msg)
+            with open(self.dictfile, 'a') as out:
+                for word in self.oov:
+                    line = '%s\t%s\n'%(word, self.g2p.decode(word))
+                    out.write(line)
+                    self.words.add(word)
         if os.stat(self.corpus).st_size == 0:
             msg = "corpus output %s empty"%self.corpus
             raise ValueError(msg)

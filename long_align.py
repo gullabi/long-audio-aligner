@@ -90,7 +90,7 @@ def multiple(jsonfile, outdir):
                 text = ' '.join([text for sp, text in intervention['text']])
                 intervention['results'] = process_pipeline(intervention, outdir)
     with open(jsonfile.replace('.json','_res.json'), 'w') as out:
-        json.dump(sessions, out)
+        json.dump(sessions, out, indent=2)
 
 def process_pipeline(intervention, outdir):
     text = ' '.join([text for sp, text in intervention['text']])
