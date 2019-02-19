@@ -19,12 +19,20 @@ class Align(object):
 
         self.audio = audiofile
         self.audio_basename = '.'.join(os.path.basename(audiofile).split('.')[:-1])
-        self.audio_raw = os.path.join(TMP, self.audio_basename+'.raw')
+        tmp_base_dir = os.path.join(TMP,
+                                    self.audio_basename[0],
+                                    self.audio_basename[1])
+        if not os.path.isdir(tmp_base_dir):
+            os.makedirs(tmp_base_dir)
+        self.audio_raw = os.path.join(tmp_base_dir,
+                                      self.audio_basename+'.raw')
         self.audio_wav = self.audio_raw.replace('.raw', '.wav')
         self.text = text
-        self.corpus = os.path.join(TMP, self.audio_basename+'_cmu.txt')
+        self.corpus = os.path.join(tmp_base_dir,
+                                   self.audio_basename+'_cmu.txt')
         self.dictfile = dictfile
-        self.align_outfile =  os.path.join(TMP, self.audio_basename+'_align.json')
+        self.align_outfile =  os.path.join(tmp_base_dir,
+                                           self.audio_basename+'_align.json')
 
         self.sentences = []
         self.oov = set()
