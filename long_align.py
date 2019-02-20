@@ -11,6 +11,8 @@ from utils.map import Map
 from utils.segment import Segmenter
 from utils.beam import Beam
 from utils.geval import GEval
+from utils.db import ParlaDB
+from utils.convert import get_new_key
 
 PROJECT_PATH = os.path.dirname(os.path.realpath(__file__)) 
 MODEL_PATH = os.path.join(PROJECT_PATH, '../cmusphinx-models/ca-es')
@@ -79,18 +81,16 @@ def get_optimal_segments(intervention, alignment):
 
 def multiple(jsonfile, outdir):
     print('loading all speakers in all sessions')
-    sessions = json.load(open(jsonfile))
-    for ple_code, session in sessions.items():
-        for yaml, intervention in session.items():
-            if len(intervention['urls']) > 1:
-                print("%s multiple audio file, skipping"%intervention['urls'])
-            elif intervention['urls'][0][1] == None:
-                print('no audio uri for %s'%yaml)
-            else:
-                text = ' '.join([text for sp, text in intervention['text']])
-                intervention['results'] = process_pipeline(intervention, outdir)
+    interventions = json.load(open(jsonfile))
+    for int_code, intervention in interventions.items():
+        if len(intervention['urls']) > 1:
+            print("%s multiple audio file, skipping"%intervention['urls'])
+        elif intervention['urls'][0][1] == None:
+            print('no audio uri for %s'%yaml)
+        else:
+            intervention['results'] = process_pipeline(intervention, outdir)
     with open(jsonfile.replace('.json','_res.json'), 'w') as out:
-        json.dump(sessions, out, indent=2)
+        json.dump(interventions, out, indent=2)
 
 def process_pipeline(intervention, outdir):
     text = ' '.join([text for sp, text in intervention['text']])
@@ -132,6 +132,32 @@ def process_pipeline(intervention, outdir):
     subprocess.call('rm {0}*.jsgf {0}*.raw'.format(outpath), shell=True)
     return segmenter.best_segments
 
+def from_db(outdir):
+    db = ParlaDB()
+    db.connect()
+    print('loading the speakers from the db')
+    for value in db.collection.find():
+        ple_code = value['value']['ple_code']
+        int_code = get_new_key(ple_code, value['value']['source'])
+        intervention = value['value']
+        try:
+            print(intervention['urls'])
+        except Exception as e:
+            msg = 'dictionary does not have key urls, something wrong'\
+                  ' with the structure for the code for %s'%value['value']['source']
+            print(msg)
+            raise e
+        if len(intervention['urls']) > 1:
+            print("%s multiple audio file, skipping"%intervention['urls'])
+        elif intervention['urls'][0][1] == None:
+            print('no audio uri for %s'%yaml)
+        else:
+            if intervention.get('results'):
+                print('%s already processed in db, skipping'%yaml)
+            else:
+                intervention['results'] = process_pipeline(intervention, outdir)
+                db.insert_one(int_code, intervention, upsert=True)
+
 if __name__ == "__main__":
     if len(sys.argv) == 4:
         audiofile = sys.argv[1]
@@ -142,6 +168,9 @@ if __name__ == "__main__":
         jsonfile = sys.argv[1]
         outdir = sys.argv[2]
         multiple(jsonfile, outdir)
+    elif len(sys.argv) == 2:
+        outdir = sys.argv[1]
+        from_db(outdir)
     else:
         msg = 'long_align accepts either 3 (audio + yaml + outdir)'\
               ' or 2 (json with the local audio uri + outdir) options'
