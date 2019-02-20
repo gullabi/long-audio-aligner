@@ -4,6 +4,9 @@ import json
 import yaml
 import subprocess
 
+from itertools import repeat
+from multiprocessing.dummy import Pool
+from tqdm import tqdm
 from utils.align import Align, TMP
 from utils.sphinx import CMU
 from utils.text import Text
@@ -132,31 +135,50 @@ def process_pipeline(intervention, outdir):
     subprocess.call('rm {0}*.jsgf {0}*.raw'.format(outpath), shell=True)
     return segmenter.best_segments
 
-def from_db(outdir):
+def from_db(outdir, threads = 1):
+    if not os.path.isdir(outdir):
+        msg = '%s is not a directory'%outdir
+        raise IOError(msg)
     db = ParlaDB()
     db.connect()
     print('loading the speakers from the db')
+    process_list = []
     for value in db.collection.find():
         ple_code = value['value']['ple_code']
         int_code = get_new_key(ple_code, value['value']['source'])
         intervention = value['value']
-        try:
-            print(intervention['urls'])
-        except Exception as e:
+        if not intervention.get('urls'):
             msg = 'dictionary does not have key urls, something wrong'\
                   ' with the structure for the code for %s'%value['value']['source']
-            print(msg)
-            raise e
+            raise KeyError(msg)
         if len(intervention['urls']) > 1:
             print("%s multiple audio file, skipping"%intervention['urls'])
         elif intervention['urls'][0][1] == None:
-            print('no audio uri for %s'%yaml)
+            print('no audio uri for %s'%int_code)
         else:
             if intervention.get('results'):
-                print('%s already processed in db, skipping'%yaml)
+                print('%s already processed in db, skipping'%int_code)
             else:
-                intervention['results'] = process_pipeline(intervention, outdir)
-                db.insert_one(int_code, intervention, upsert=True)
+                process_list.append(intervention)
+    if threads == 1:
+        for intervention in process_list:
+            process_and_upsert(intervention, outdir, db)
+    else:
+        with Pool(threads) as pool:
+            with tqdm(total=len(process_list)) as pbar:
+                for i, _ in tqdm(enumerate(pool.imap(process_and_upsert_star,
+                                                     zip(process_list,
+                                                         repeat(outdir),
+                                                         repeat(db))))):
+                    pbar.update()
+
+def process_and_upsert_star(int_out_db):
+    return process_and_upsert(*int_out_db)
+
+def process_and_upsert(intervention, outdir, db):
+    int_code = get_new_key(intervention['ple_code'], intervention['source'])
+    intervention['results'] = process_pipeline(intervention, outdir)
+    db.insert_one(int_code, intervention, upsert=True)
 
 if __name__ == "__main__":
     if len(sys.argv) == 4:
@@ -170,7 +192,7 @@ if __name__ == "__main__":
         multiple(jsonfile, outdir)
     elif len(sys.argv) == 2:
         outdir = sys.argv[1]
-        from_db(outdir)
+        from_db(outdir, threads = 2)
     else:
         msg = 'long_align accepts either 3 (audio + yaml + outdir)'\
               ' or 2 (json with the local audio uri + outdir) options'
