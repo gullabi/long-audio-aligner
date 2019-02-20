@@ -1,2 +1,3 @@
 pocketsphinx==0.1.15
 PyYAML==3.13
+retrying==1.3.3
