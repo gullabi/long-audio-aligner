@@ -77,14 +77,18 @@ class Align(object):
         idngram = self.corpus+'.idngram'
         self.lm = self.corpus.replace('.txt','.lm')
         if not os.path.isfile(self.lm):
+            # for text2wfreq and wfreq2vocab the stderr is directed
+            # to devnull since they output their process info as stderr
             popen1 = subprocess.Popen(['text2wfreq'],
                                      stdin=open(self.corpus),
-                                     stdout=subprocess.PIPE)
+                                     stdout=subprocess.PIPE,
+                                     stderr=subprocess.DEVNULL)
             popen1.wait()
             with open(tmp_vocab, 'w') as out:
                 popen2 = subprocess.Popen(['wfreq2vocab'],
                                           stdin=popen1.stdout,
-                                          stdout=out)
+                                          stdout=out,
+                                          stderr=subprocess.DEVNULL)
                 popen2.wait()
             args3 =  ['text2idngram', '-n', '2', '-vocab', tmp_vocab,
                       '-idngram', idngram]
