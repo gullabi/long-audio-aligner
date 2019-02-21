@@ -112,7 +112,7 @@ class Align(object):
             log_subprocess_output(process.stdout)
 
     def convert_audio(self):
-        args = ['ffmpeg', '-hide_banner', '-loglevel', 'panic',\
+        args = ['ffmpeg', '-y', '-hide_banner', '-loglevel', 'panic',\
                 '-i', self.audio, '-ac', '1', '-ar', '16000',\
                 self.audio_wav]
         if not os.path.isfile(self.audio_wav): 

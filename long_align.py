@@ -8,6 +8,7 @@ import logging
 from itertools import repeat
 from multiprocessing.dummy import Pool
 from tqdm import tqdm
+from datetime import datetime
 from utils.align import Align, TMP
 from utils.sphinx import CMU
 from utils.text import Text
@@ -114,7 +115,13 @@ def process_pipeline(intervention, outdir):
     # run pocketsphinx
     cs = CMU(MODEL_PATH)
     logging.info('decoding for long alignment')
-    cs.decode(align.audio_raw, align.lm)
+    try:
+        cs.decode(align.audio_raw, align.lm)
+    except Exception as e:
+        msg = '%s decoding failed'%audiofile
+        logging.error(msg)
+        logging.error(str(e))
+        return []
     segs = cs.segs
 
     # TODO call decode functions in Align object
@@ -142,6 +149,7 @@ def from_db(outdir, threads = 1):
     if not os.path.isdir(outdir):
         msg = '%s is not a directory'%outdir
         raise IOError(msg)
+    start = datetime.now()
     db = ParlaDB()
     db.connect()
     logging.info('loading the speakers from the db')
@@ -167,6 +175,7 @@ def from_db(outdir, threads = 1):
             else:
                 process_list.append(intervention)
     if threads == 1:
+        print('starting single thread process')
         for intervention in process_list:
             process_and_upsert(intervention, outdir, db)
     else:
@@ -177,14 +186,18 @@ def from_db(outdir, threads = 1):
                                                          repeat(outdir),
                                                          repeat(db))))):
                     pbar.update()
+    end = datetime.now()
+    print("It took: %s"%(end-start))
 
 def process_and_upsert_star(int_out_db):
     return process_and_upsert(*int_out_db)
 
 def process_and_upsert(intervention, outdir, db):
     int_code = get_new_key(intervention['ple_code'], intervention['source'])
-    intervention['results'] = process_pipeline(intervention, outdir)
-    db.insert_one(int_code, intervention, upsert=True)
+    results = process_pipeline(intervention, outdir)
+    if results:
+        intervention['results'] = results
+        db.insert_one(int_code, intervention, upsert=True)
 
 if __name__ == "__main__":
     #TODO put argparse
@@ -207,7 +220,7 @@ if __name__ == "__main__":
         multiple(jsonfile, outdir)
     elif len(sys.argv) == 2:
         outdir = sys.argv[1]
-        from_db(outdir, threads = 2)
+        from_db(outdir, threads = 1)
     else:
         msg = 'long_align accepts either 3 (audio + yaml + outdir)'\
               ' or 2 (json with the local audio uri + outdir) options'

@@ -121,7 +121,7 @@ class Segmenter(object):
         cue['segment'] = '_'.join([basename, str(cue['start']), str(cue['end'])])
         cue['segment_path'] = os.path.join(base_path, cue['segment'])+'.wav'
         intermediate_path = cue['segment_path'].replace('.wav', '_ws.wav')
-        args = [audio_tool, '-hide_banner', '-loglevel', 'panic',\
+        args = [audio_tool, '-y', '-hide_banner', '-loglevel', 'panic',\
                 '-ss', str(seek), '-i', audio, '-ss', str(start), \
                 '-t', str(duration), '-ac', '1', '-ar', '16000', intermediate_path]
         # TODO put silence to an absolute path

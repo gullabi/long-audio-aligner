@@ -1,3 +1,5 @@
+import logging
+
 from utils.sphinx import CMU
 from utils.seq_aligner import needle
 
@@ -20,7 +22,13 @@ class GEval(object):
     def evaluate(self):
         # TODO implement multithreaded process here
         for segment in self.segments:
-            segment['score'], segment['decode'] = self.evaluate_segment(segment)
+            try:
+                score, decode = self.evaluate_segment(segment)
+            except Exception as e:
+                msg = 'failed to decode %s skipping'%segment['segment_path']
+                logging.error(msg)
+                score, decode = 0.0, ''
+            segment['score'], segment['decode'] = score, decode
 
     def evaluate_segment(self, segment):
         grammar_file = self.create_jsgf(segment)
