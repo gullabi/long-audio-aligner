@@ -14,7 +14,7 @@ def batch_insert(filename):
 class ParlaDB(object):
     def __init__(self):
         self.db_name = 'parlament'
-        self.collection_name = 'v1'
+        self.collection_name = 'v2'
 
     def connect(self):
         client = MongoClient('localhost',27017)

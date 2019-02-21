@@ -1,7 +1,9 @@
 import os
 import subprocess
+import logging
 import utils.clean as cl
 
+from utils.segment import log_subprocess_output
 from utils.g2p import G2P
 
 PROJECT_PATH = os.path.dirname(os.path.realpath(__file__)) 
@@ -11,10 +13,12 @@ class Align(object):
     def __init__(self, audiofile, text, dictfile):
         if not os.path.isfile(audiofile):
             msg = '%s does not exist'%audiofile
+            logging.error(msg)
             raise IOError(msg)
 
         if not text:
             msg = 'input text is empy'
+            logging.error(msg)
             raise IOError(msg)
 
         self.audio = audiofile
@@ -52,9 +56,8 @@ class Align(object):
                     self.sentences.append(cmu)
                     wout.write('<s> %s </s>\n'%cmu)
         if self.oov:
-            msg = 'WARNING: oov words found for %s\n%s'%(self.audio,
-                                                         str(self.oov))
-            print(msg)
+            msg = 'oov words found for %s\n%s'%(self.audio, str(self.oov))
+            logging.warning(msg)
             with open(self.dictfile, 'a') as out:
                 for word in self.oov:
                     line = '%s\t%s\n'%(word, self.g2p.decode(word))
@@ -62,11 +65,13 @@ class Align(object):
                     self.words.add(word)
         if os.stat(self.corpus).st_size == 0:
             msg = "corpus output %s empty"%self.corpus
+            logging.error(msg)
             raise ValueError(msg)
 
     def create_lm(self):
         if os.stat(self.corpus).st_size == 0:
             msg = "can not build lm with empty corpus %s"%self.corpus
+            logging.error(msg)
             raise IOError(msg)
         tmp_vocab = self.corpus+'_tmp.vocab'
         idngram = self.corpus+'.idngram'
@@ -94,11 +99,17 @@ class Align(object):
                                             stderr=subprocess.STDOUT)
         if not os.path.isfile(self.lm):
             msg = 'lm file %s not created'%self.lm
+            logging.error(msg)
             raise IOError(msg)
         if os.stat(self.lm).st_size == 0:
             msg = "lm file %s empty"%self.lm
+            logging.error(msg)
             raise IOError(msg)
-        subprocess.Popen(['rm', idngram, tmp_vocab, self.corpus])
+        process = subprocess.Popen(['rm', idngram, tmp_vocab, self.corpus],
+                                   stdout=subprocess.PIPE,
+                                   stderr=subprocess.STDOUT)
+        with process.stdout:
+            log_subprocess_output(process.stdout)
 
     def convert_audio(self):
         args = ['ffmpeg', '-hide_banner', '-loglevel', 'panic',\
@@ -111,13 +122,17 @@ class Align(object):
         if not os.path.isfile(self.audio_raw):
             subprocess.call(args)
         if not os.path.isfile(self.audio_raw):
-           msg =  '%s does not exist. conversion failed'%self.audio_raw
-           raise IOError(msg)
-        subprocess.Popen(['rm',self.audio_wav])
+            msg =  '%s does not exist. conversion failed'%self.audio_raw
+            logging.error(msg)
+            raise IOError(msg)
+        process = subprocess.Popen(['rm',self.audio_wav],
+                                   stdout=subprocess.PIPE,
+                                   stderr=subprocess.STDOUT)
+        with process.stdout:
+            log_subprocess_output(process.stdout)
 
     def results_exist(self):
         if os.path.isfile(self.align_outfile):
             if os.stat(self.align_outfile).st_size != 0:
                 return True
         return False
-

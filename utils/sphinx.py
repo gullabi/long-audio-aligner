@@ -1,5 +1,6 @@
 import os
 import sys
+import logging
 import subprocess
 import pocketsphinx.pocketsphinx as ps
 
@@ -17,6 +18,7 @@ class CMU(object):
         for f in [raw, lm_file]:
             if not os.path.isfile(f):
                 msg = '%s does not exist'
+                logging.error(msg)
                 raise IOError(msg)
         self.init_lm(lm_file)
         self.stream_decode(raw)
@@ -32,7 +34,7 @@ class CMU(object):
     def stream_decode(self, raw):
         if raw.endswith('.wav') and not os.path.isfile(raw.replace('.wav','.raw')):
                 msg = 'converting %s to raw'%raw
-                print(msg)
+                logging.info(msg)
                 self.convert2raw(raw)
                 raw = raw.replace('.wav','.raw')
         self.segs = []
@@ -52,7 +54,6 @@ class CMU(object):
                             self.segs.append([seg.word,
                                               seg.start_frame/100,
                                               seg.end_frame/100])
-                            #print(self.segs[-1])
                         decoder.start_utt()
             else:
                 # the last buffered stream
@@ -60,7 +61,6 @@ class CMU(object):
                     self.segs.append([seg.word,
                                       seg.start_frame/100,
                                       seg.end_frame/100])
-                    #print(self.segs[-1])
                 break
         decoder.end_utt()
 

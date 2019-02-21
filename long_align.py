@@ -3,6 +3,7 @@ import os
 import json
 import yaml
 import subprocess
+import logging
 
 from itertools import repeat
 from multiprocessing.dummy import Pool
@@ -32,7 +33,7 @@ def single(audiofile, yamlfile, outdir):
         decode_outfile = os.path.join(TMP, align.audio_basename+'_decode.json')
         if not os.path.isfile(decode_outfile):
             cs = CMU(MODEL_PATH)
-            print('decoding for long alignment')
+            logging.info('decoding for long alignment')
             cs.decode(align.audio_raw, align.lm)
             segs = cs.segs
             with open(decode_outfile, 'w') as out:
@@ -45,7 +46,7 @@ def single(audiofile, yamlfile, outdir):
         alignment = decode_align.align_results
     else:
         msg = 'results already exist in %s'%align.align_outfile
-        print(msg)
+        logging.info(msg)
         alignment = json.load(open(align.align_outfile))
 
     # unit segments from silences are combined into optimal segments btw 5-19 s
@@ -83,13 +84,15 @@ def get_optimal_segments(intervention, alignment):
     return segmenter
 
 def multiple(jsonfile, outdir):
-    print('loading all speakers in all sessions')
+    logging.info('loading all speakers in all sessions')
     interventions = json.load(open(jsonfile))
     for int_code, intervention in interventions.items():
         if len(intervention['urls']) > 1:
-            print("%s multiple audio file, skipping"%intervention['urls'])
+            msg = "%s multiple audio file, skipping"%intervention['urls']
+            logging.info(msg)
         elif intervention['urls'][0][1] == None:
-            print('no audio uri for %s'%yaml)
+            msg = 'no audio uri for %s'%int_code
+            logging.info(msg)
         else:
             intervention['results'] = process_pipeline(intervention, outdir)
     with open(jsonfile.replace('.json','_res.json'), 'w') as out:
@@ -100,7 +103,7 @@ def process_pipeline(intervention, outdir):
 
     # assumes there is a single audio uri
     audiofile = intervention['urls'][0][1]
-    print('* %s'%audiofile)
+    logging.info('* %s'%audiofile)
 
     # create lm and convert audio
     align = Align(audiofile, text, DICT_PATH)
@@ -110,7 +113,7 @@ def process_pipeline(intervention, outdir):
 
     # run pocketsphinx
     cs = CMU(MODEL_PATH)
-    print('decoding for long alignment')
+    logging.info('decoding for long alignment')
     cs.decode(align.audio_raw, align.lm)
     segs = cs.segs
 
@@ -141,7 +144,7 @@ def from_db(outdir, threads = 1):
         raise IOError(msg)
     db = ParlaDB()
     db.connect()
-    print('loading the speakers from the db')
+    logging.info('loading the speakers from the db')
     process_list = []
     for value in db.collection.find():
         ple_code = value['value']['ple_code']
@@ -152,12 +155,15 @@ def from_db(outdir, threads = 1):
                   ' with the structure for the code for %s'%value['value']['source']
             raise KeyError(msg)
         if len(intervention['urls']) > 1:
-            print("%s multiple audio file, skipping"%intervention['urls'])
+            msg = "%s multiple audio file, skipping"%intervention['urls']
+            logging.info(msg)
         elif intervention['urls'][0][1] == None:
-            print('no audio uri for %s'%int_code)
+            msg = 'no audio uri for %s'%int_code
+            logging.info(msg)
         else:
             if intervention.get('results'):
-                print('%s already processed in db, skipping'%int_code)
+                msg = '%s already processed in db, skipping'%int_code
+                logging.info(msg)
             else:
                 process_list.append(intervention)
     if threads == 1:
@@ -181,6 +187,15 @@ def process_and_upsert(intervention, outdir, db):
     db.insert_one(int_code, intervention, upsert=True)
 
 if __name__ == "__main__":
+    #TODO put argparse
+
+    logging_level = logging.INFO
+    log_file = 'long_align.log'
+    logging.basicConfig(filename=log_file,
+                        format="%(asctime)s-%(levelname)s: %(message)s",
+                        level=logging_level,
+                        filemode='a')
+
     if len(sys.argv) == 4:
         audiofile = sys.argv[1]
         yamlfile = sys.argv[2]
@@ -198,7 +213,3 @@ if __name__ == "__main__":
               ' or 2 (json with the local audio uri + outdir) options'
         print(msg)
         sys.exit()
-
-    if not os.path.isdir(outdir):
-        msg = '%s does not exist or is not dir'%outdir
-        raise IOError(msg)
