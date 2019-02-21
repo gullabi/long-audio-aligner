@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 import sys
 import re
-#from normalizer import Normalizer
 
 token_sign = "(\.\.\.|!\"|!'|!|\?\"|\?'|\?|\.'|\.\"|\.)(?=( {1,}[A-ZÀÉÈÜÚÍÏÓÒÇ]|[A-ZÀÉÈÜÚÍÏÓÒÇ]))"
 re_token_limits = re.compile(token_sign)
@@ -21,7 +20,6 @@ valid = '[a-zA-Z0-9àáéèüúíïóòçÀÁÉÈÜÚÍÏÓÒÇ .!\-,;:\'"?·$°
 reject = re.compile("[^a-z0-9àèáéúíóòüöñïç·\-/'+ ]")
 
 def main(filename):
-    #n = Normalizer()
     with open(filename,'r') as corpus,\
          open('clean_sentences.txt','w') as wout:
         for line in corpus.readlines():
@@ -29,10 +27,7 @@ def main(filename):
             for token in tokenize(clean_paragraph):
                 if token:
                     token = punctuation_normalize(token)
-                    #if correct_orthography(token):
-                    #    wout.write('%s\n'%n.normalize(token))
                     wout.write('%s\n'%token)
-
 
 def structure_clean(text):
     text = text.replace('\xa0',' ')

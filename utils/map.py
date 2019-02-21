@@ -1,5 +1,6 @@
 import operator
 import re
+import logging
 
 class Map(object):
     '''
@@ -34,7 +35,7 @@ class Map(object):
         if len(self.full_text.split()) != len(self.alignment):
             msg = 'the original and cleaned text do not have equal tokens'\
                   '\ncleaning the tokens not present in cmu cleaned text'
-            print(msg)
+            logging.warning(msg)
             # remove the tokens not appearing in full_text
             # assumes len(self.full_text.split()) > len(self.alignment)
             # this might happen when symbols surrounded by white spaces
@@ -48,7 +49,8 @@ class Map(object):
                     if re.search(self.alignment[i+skip]['word'], word.lower()):
                         int_text += ' %s'%word
                     else:
-                        print(word)
+                        msg = "%s does not appear in clean text"%word
+                        logging.warning(msg)
                         skip -= 1
                     i += 1
                 new_int_text.append((speaker, int_text))
@@ -66,9 +68,9 @@ class Map(object):
         speakers_sorted = sorted(self.speaker_stats.items(), key=operator.itemgetter(1))
         self.target_speaker = speakers_sorted[-1][0]
         if 'president' in self.target_speaker.lower():
-            msg = 'WARNING: could the target speaker be mesa?\n' + \
+            msg = 'could the target speaker be mesa?\n' + \
                   str(list(self.speaker_stats.keys()))
-            print(msg)
+            logging.warning(msg)
 
     def enrich_alignment(self):
         '''
@@ -78,8 +80,9 @@ class Map(object):
         # create equivalent alignment dictionary from intervention dict
         reference_dicts = []
         if self.target_speaker == None:
-            msg = ''
-            raise ValueError()
+            msg = 'non existent target speaker in mapping'
+            logging.error(msg)
+            raise ValueError(msg)
         for speaker, text in self.intervention['text']:
             for word in text.split():
                 token = {'word': word}
@@ -96,9 +99,9 @@ class Map(object):
         # assuming they are of the same length
         for reference, target in zip(reference_dicts, self.alignment):
             if not re.search(target['word'], reference['word'].lower()):
-                msg = 'WARNING: %s vs %s target not in reference'\
+                msg = '%s vs %s target not in reference'\
                       %(target['word'], reference['word'])
-                print(msg)
+                logging.warning(msg)
             for key in ['target_speaker', 'punctuation']:
                 if reference.get(key):
                     target[key] = reference[key]

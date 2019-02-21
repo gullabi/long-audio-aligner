@@ -1,3 +1,5 @@
+import logging
+
 from math import exp, log
 from copy import deepcopy
 from operator import itemgetter
@@ -52,7 +54,7 @@ class Beam(object):
                  'start': first['start'],
                  'end': second['end']}
         except Exception as e:
-            print(first, second)
+            logging.error(first, second)
             raise e
         if second.get('punctuation'):
             added['punctuation'] = second['punctuation']

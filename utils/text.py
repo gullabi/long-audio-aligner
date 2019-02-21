@@ -1,5 +1,6 @@
 import os
 import json
+import logging
 
 import utils.seq_aligner as seq
 
@@ -74,8 +75,9 @@ class Text(object):
                 token = cl_decode[0]
                 if w2 != token[0]:
                     msg = 'timestamp of word "%s" cannot be found'%w2
-                    print(token[0])
-                    print(cl_decode)
+                    info = '%s\n%s'%(token[0], str(cl_decode))
+                    logging.warning(info)
+                    logging.error(msg)
                     raise ValueError(msg)
                 w['start'] = token[1]
                 w['end'] = token[2]
@@ -87,6 +89,7 @@ class Text(object):
                 self.align_results.append(w)
             else:
                 msg = 'unexpected alignment result: %s vs %s'%(w1, w2) 
+                logging.error(msg)
                 raise ValueError(msg)
         with open(self.align_outfile, 'w') as out:
             json.dump(self.align_results, out, indent=4)

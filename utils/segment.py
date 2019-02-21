@@ -1,5 +1,6 @@
 import os
 import subprocess
+import logging
 
 from math import floor
 from utils.beam import Beam
@@ -42,8 +43,8 @@ class Segmenter(object):
         # for now it gives a warning
         for token in self.alignment[end:]:
             if token.get('target_speaker'):
-                msg = 'WARNING: target speaker found past last speaker block'
-                print(msg)
+                msg = 'target speaker found past last speaker block'
+                logging.warning(msg)
         self.alignment_blocks = [self.alignment[start:end]]
 
     def get_segments(self):
@@ -93,13 +94,16 @@ class Segmenter(object):
             os.makedirs(path)
         else:
             args = ['rm', path+'/*_ws.wav']
-            subprocess.call(args)
+            process = subprocess.Popen(args, stdout=subprocess.PIPE,
+                                             stderr=subprocess.STDOUT)
+            with process.stdout:
+                log_subprocess_output(process.stdout)
 
         for segment in self.best_segments:
             self.segment_cue(audio_file, segment, path)
             if (float(segment['end']) - float(segment['start'])) > 15.:
-                msg = 'WARNING: %s longer than 15 s'%segment['segment_path']
-                print(msg)
+                msg = '%s longer than 15 s'%segment['segment_path']
+                logging.info(msg)
 
     @staticmethod
     def segment_cue(audio, cue, base_path):
@@ -107,6 +111,7 @@ class Segmenter(object):
         silence_filepath = 'utils/silence.wav'
         if not os.path.isfile(silence_filepath):
             msg = 'silence file needed for padding'
+            logging.error(msg)
             raise IOError(msg)
         seek = floor(cue['start'])
         start = cue['start'] - seek
@@ -123,11 +128,21 @@ class Segmenter(object):
         args2 = ['sox', silence_filepath, intermediate_path, silence_filepath,
                  cue['segment_path']]
         if os.path.isfile(cue['segment_path']):
-            print("%s already exists skipping"%cue['segment'])
+            logging.info("%s already exists skipping"%cue['segment'])
         else:
             subprocess.call(args)
             subprocess.call(args2)
             if not os.path.isfile(cue['segment_path']):
-                raise IOError("File not created from ffmpeg(avconv) operation"
-                              " %s"%cue['segment_path'])
-            subprocess.call(['rm', intermediate_path])
+                msg = "File not created from ffmpeg operation %s"\
+                       %cue['segment_path']
+                logging.error(msg)
+                raise IOError(msg)
+            process = subprocess.Popen(['rm', intermediate_path],
+                                       stdout=subprocess.PIPE,
+                                       stderr=subprocess.STDOUT)
+            with process.stdout:
+                log_subprocess_output(process.stdout)
+
+def log_subprocess_output(pipe):
+    for line in iter(pipe.readline, b''): # b'\n'-separated lines
+        logging.info('subprocess stderr: %r', line)
