@@ -54,6 +54,10 @@ def multiple(jsonfile, outdir):
 def process_pipeline(intervention, outdir):
     text = ' '.join([text for sp, text in intervention['text']])
 
+    if not text:
+        msg = '%s has empty text'%audiofile
+        logging.error(msg)
+        return []
     # assumes there is a single audio uri
     audiofile = intervention['urls'][0][1]
     logging.info('* %s'%audiofile)
