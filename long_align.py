@@ -54,13 +54,13 @@ def multiple(jsonfile, outdir):
 def process_pipeline(intervention, outdir):
     text = ' '.join([text for sp, text in intervention['text']])
 
+    # assumes there is a single audio uri
+    audiofile = intervention['urls'][0][1]
+    logging.info('* %s'%audiofile)
     if not text:
         msg = '%s has empty text'%audiofile
         logging.error(msg)
         return []
-    # assumes there is a single audio uri
-    audiofile = intervention['urls'][0][1]
-    logging.info('* %s'%audiofile)
 
     # create lm and convert audio
     align = Align(audiofile, text, DICT_PATH)
