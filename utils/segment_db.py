@@ -4,15 +4,15 @@ import sys
 
 from pymongo import MongoClient
 
-def batch_insert(filename, db_name, collection):
-    sdb = SegmentDb(db_name, collection)
+def batch_insert(filename, collection):
+    sdb = SegmentDB(collection)
     sdb.connect()
     segments = json.load(open(filename))
     sdb.insert(segments)
 
-class SegmentDb(object):
-    def __init__(self, db_name, collection):
-        self.db_name = db_name
+class SegmentDB(object):
+    def __init__(self, collection):
+        self.db_name = 'segments'
         self.collection_name = collection
 
     def connect(self):
@@ -46,12 +46,11 @@ class SegmentDb(object):
             return None
 
 if __name__ == "__main__":
-    if len(sys.argv) < 4:
+    if len(sys.argv) < 3:
         print('usage: utils/segment_db.py <filename> <db_name> <collection>')
         msg = 'one of the arguments missing'
         raise ValueError(msg)
        
     filename = sys.argv[1]
-    db_name = sys.argv[2]
-    collection = sys.argv[3]
-    batch_insert(filename, db_name, collection)
+    collection = sys.argv[2]
+    batch_insert(filename, collection)

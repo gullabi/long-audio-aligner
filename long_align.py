@@ -4,6 +4,7 @@ import json
 import yaml
 import subprocess
 import logging
+import argparse
 
 from itertools import repeat
 from multiprocessing.dummy import Pool
@@ -17,6 +18,7 @@ from utils.segment import Segmenter
 from utils.beam import Beam
 from utils.geval import GEval
 from utils.db import ParlaDB
+from utils.segment_db import SegmentDB
 from utils.convert import get_new_key
 
 PROJECT_PATH = os.path.dirname(os.path.realpath(__file__)) 
@@ -164,8 +166,80 @@ def process_and_upsert(intervention, outdir, db):
         intervention['results'] = results
         db.insert_one(int_code, intervention, upsert=True)
 
+def segments_db(collection, threads = 1):
+    start = datetime.now()
+    db = SegmentDB(collection)
+    db.connect()
+    logging.info('loading the segments from the db')
+    process_list = []
+    for segment in db.collection.find():
+        segment_id = segment['_id']
+        value = segment['value']
+        if not value.get('segment_path'):
+            msg = 'dictionary does not have key a path, something wrong'\
+                  ' with the structure for the code for %s'%segment_id
+            raise KeyError(msg)
+        if value.get('score'):
+            msg = '%s already processed in db, skipping'%segment_id
+            logging.info(msg)
+        else:
+            process_list.append(segment)
+    if threads == 1:
+        print('starting single thread process')
+        for segment in process_list:
+            gevaluate_and_upsert(segment, db)
+    else:
+        with Pool(threads) as pool:
+            with tqdm(total=len(process_list)) as pbar:
+                for i, _ in tqdm(enumerate(pool.imap(gevaluate_and_upsert_star,
+                                                     zip(process_list,
+                                                         repeat(db))))):
+                    pbar.update()
+    end = datetime.now()
+    print("It took: %s"%(end-start))
+
+def gevaluate_and_upsert_star(in_db):
+    return gevaluate_and_upsert(*in_db)
+
+def gevaluate_and_upsert(segment, db):
+    segment_id = segment['_id']
+    results = gevaluate_pipeline(segment)
+    if results:
+        segment['value'] = {**segment['value'], **results}
+        db.insert_one(segment_id, segment['value'], upsert=True)
+
+def gevaluate_pipeline(segment):
+    # grammar evaluate each segment
+    geval = GEval([segment['value']], MODEL_PATH)
+    geval.evaluate()
+
+    # clean
+    baseaudio = os.path.basename(segment['value']['segment_path'])
+    outdir = os.path.dirname(segment['value']['segment_path'])
+    outpath = os.path.join(outdir, baseaudio[:-4])
+    subprocess.call('rm {0}*.jsgf {0}*.raw'.format(outpath), shell=True)
+    return geval.segments[0]
+
 if __name__ == "__main__":
-    #TODO put argparse
+    usage = 'usage: %(prog)s [options]'
+    parser = argparse.ArgumentParser(description='long audio aligner',
+                                     usage=usage)
+    parser.add_argument("-o", "--outdir", dest="outdir", default=None,\
+                        help="output directory", type=str)
+    parser.add_argument("-f", "--file", dest="jsonfile", default=None,\
+                        help="input file (json)", type=str)
+    parser.add_argument("-s", "-segment_collection", dest="collection",\
+                        default=None,
+                        help="collection name for the db segments",
+                        type=str)
+
+    args = parser.parse_args()
+    if args.collection and args.jsonfile:
+        msg = "cannot have both collection and jsonfile"
+        raise ValueError(msg)
+    if not args.collection and not args.outdir:
+        msg = 'output dir is needed for processing'
+        raise ValueError(msg)
 
     logging_level = logging.INFO
     log_file = 'long_align.log'
@@ -173,21 +247,10 @@ if __name__ == "__main__":
                         format="%(asctime)s-%(levelname)s: %(message)s",
                         level=logging_level,
                         filemode='a')
-
-    if len(sys.argv) == 4:
-        audiofile = sys.argv[1]
-        yamlfile = sys.argv[2]
-        outdir = sys.argv[3]
-        single(audiofile, yamlfile, outdir)
-    elif len(sys.argv) == 3:
-        jsonfile = sys.argv[1]
-        outdir = sys.argv[2]
-        multiple(jsonfile, outdir)
-    elif len(sys.argv) == 2:
-        outdir = sys.argv[1]
-        from_db(outdir, threads = 1)
-    else:
-        msg = 'long_align accepts either 3 (audio + yaml + outdir)'\
-              ' or 2 (json with the local audio uri + outdir) options'
-        print(msg)
-        sys.exit()
+    if args.outdir:
+        if args.jsonfile:
+            multiple(args.jsonfile, args.outdir)
+        else:
+            from_db(args.outdir, threads = 1)
+    elif args.collection:
+        segments_db(args.collection, threads = 3)
