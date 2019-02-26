@@ -47,7 +47,7 @@ class SegmentDB(object):
 
 if __name__ == "__main__":
     if len(sys.argv) < 3:
-        print('usage: utils/segment_db.py <filename> <db_name> <collection>')
+        print('usage: utils/segment_db.py <filename> <collection>')
         msg = 'one of the arguments missing'
         raise ValueError(msg)
        
