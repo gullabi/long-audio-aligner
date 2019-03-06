@@ -1,7 +1,9 @@
 tmp*
 sessions*
+db_results*
 venv
 test
 *.pyc
 *.swp
 *.log
+*.tar.gz
