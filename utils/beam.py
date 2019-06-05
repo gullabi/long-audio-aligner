@@ -94,7 +94,7 @@ def P_segment(segment):
     # beta is an emprical parameter which makes the result 0.9 at t_min
     # for f_punctuation = 1 and t_min = 5; beta = 0.5
     beta = 0.5
-    t_max = 19
+    t_max = 10
     duration = segment['end'] - segment['start']
     if duration < 0:
         msg = 'duration cannot be negative'

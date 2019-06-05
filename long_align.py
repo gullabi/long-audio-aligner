@@ -166,15 +166,20 @@ def process_and_upsert(intervention, outdir, db):
         intervention['results'] = results
         db.insert_one(int_code, intervention, upsert=True)
 
-def segments_db(collection, threads = 1):
+def segments_db(collection, threads = 1, option='parlament'):
     start = datetime.now()
-    db = SegmentDB(collection)
+    db = SegmentDB(collection, db_name=option)
     db.connect()
+    count = db.collection.find().count()
+    logging.info('%i segments found in collection'%count)
     logging.info('loading the segments from the db')
     process_list = []
     for segment in db.collection.find():
         segment_id = segment['_id']
-        value = segment['value']
+        if option == 'parlament':
+            value = segment['Innerfield']
+        else:
+            value = segment['value']
         if not value.get('segment_path'):
             msg = 'dictionary does not have key a path, something wrong'\
                   ' with the structure for the code for %s'%segment_id

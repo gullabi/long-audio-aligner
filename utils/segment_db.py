@@ -11,8 +11,8 @@ def batch_insert(filename, collection):
     sdb.insert(segments)
 
 class SegmentDB(object):
-    def __init__(self, collection):
-        self.db_name = 'segments'
+    def __init__(self, collection, db_name='segments'):
+        self.db_name = db_name
         self.collection_name = collection
 
     def connect(self):
