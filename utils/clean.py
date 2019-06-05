@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 import sys
 import re
+import logging
 
 token_sign = "(\.\.\.|!\"|!'|!|\?\"|\?'|\?|\.'|\.\"|\.)(?=( {1,}[A-ZÀÉÈÜÚÍÏÓÒÇ]|[A-ZÀÉÈÜÚÍÏÓÒÇ]))"
 re_token_limits = re.compile(token_sign)
@@ -17,6 +18,7 @@ ex_apostrophes = re.compile("'{1,}")
 quotes = re.compile('“|”|«|»|"')
 
 valid = '[a-zA-Z0-9àáéèüúíïóòçÀÁÉÈÜÚÍÏÓÒÇ .!\-,;:\'"?·$°£€%]+'
+valid_word = '[a-zA-Z0-9àáéèüúíïóòçÀÁÉÈÜÚÍÏÓÒÇ\-\']+'
 reject = re.compile("[^a-z0-9àèáéúíóòüöñïç·\-/'+ ]")
 
 def main(filename):
@@ -86,6 +88,33 @@ def correct_orthography(text):
         print("Warning:\n %s"%text)
         return False
     return True 
+
+def hyphenfix(text, lexicon_set):
+    '''Fixes non-grammar hyphens
+       The text needs to be clean before the fix
+    '''
+    replace_tasks = {}
+    for word in text.strip().split():
+        #clean_word = re.sub(token_clean, '', word)
+        m = re.search('.+-.+', word)
+        if m:
+            clean_match = re.search(valid_word, word)
+            if clean_match:
+                # this way we save the punctuation and change only the word
+                # when and if we need to replace
+                clean_word = clean_match.group()
+            else:
+                logging.warning('%s is not a valid word?'%word)
+            replaced = clean_word.replace('-','').lower()
+            if clean_word.lower() in lexicon_set:
+                continue
+            elif replaced in lexicon_set:
+                replace_tasks[clean_word] = replaced
+            else:
+                logging.info("unknown hyphen %s"%word)
+    for key, value in replace_tasks.items():
+        text = text.replace(key,replace_tasks[key])
+    return text
 
 if __name__ == "__main__":
     filename = sys.argv[1]
