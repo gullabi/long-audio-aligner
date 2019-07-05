@@ -9,23 +9,29 @@ from pymongo import MongoClient
 from multiprocessing.dummy import Pool
 from tqdm import tqdm
 
-from long_align import get_optimal_segments
+from long_align import get_optimal_segments,\
+                       GEval,\
+                       MODEL_PATH
 
 def main():
     db = db_connect()
-    outdir = './'
-    threads = 1
+    outdir = './sessions_mas'
+    threads = 4
     process_list = []
     for element in db.find():
         #if not element['value'].get('words'):
-        process_list.append(element)
+        if element['value'].get('results'):
+            for result in element['value'].get('results'):
+                if not result.get('score'):
+                    process_list.append(element)
+                    break
 
     logging.info('sending the list to be processed')
     if threads == 1:
         for element in process_list:
             logging.info(element['value']['ple_code'])
             try:
-                commit(element, db)
+                commit(element, db, outdir)
             except Exception as e:
                 logging.error(e)
     else:
@@ -50,12 +56,39 @@ def get_file(uri):
     base = os.path.join('tmp', '/'.join(uri.split('/')[-3:]))
     return base.replace('.mp3','_align.json')
 
-def commit(element, db):
-    alignment = element['value']['words']
-    segmenter = get_optimal_segments(element['value'], alignment)
-    element['value']['results'] = segmenter.best_segments
-    db.update({'_id': element['_id']},
-              element, upsert=True)
+def commit(element, db, outdir):
+    intervention = element['value']
+    alignment = intervention['words']
+    audiofile = intervention['urls'][0][1]
+
+    # unit segments from silences are combined into optimal segments btw 5-10 s
+    # exception handling needed since multiple block per speaker not implemented
+    # if the speaker does not speak most of his/her text in the first block it
+    # is possible to end up with 0 segments
+    try:
+        segmenter = get_optimal_segments(intervention, alignment)
+    except Exception as e:
+        msg = 'segmentation not possible for %s'%audiofile
+        logging.error(msg)
+        logging.error(str(e))
+        segmenter = []
+
+    if segmenter:
+        # segment audiofile
+        segmenter.segment_audio(audiofile, base_path=outdir)
+
+        # grammar evaluate each segment
+        geval = GEval(segmenter.best_segments, MODEL_PATH)
+        geval.evaluate()
+
+        # clean
+        baseaudio = os.path.basename(audiofile)
+        outpath = os.path.join(outdir, baseaudio[0], baseaudio[1], baseaudio[:-4])
+        subprocess.call('rm {0}*.jsgf {0}*.raw'.format(outpath), shell=True)
+
+        element['value']['results'] = segmenter.best_segments
+        db.update({'_id': element['_id']},
+                  element, upsert=True)
 
 def commit_all_star(process_outdir):
     return commit(*process_outdir)
