@@ -122,8 +122,6 @@ class Segmenter(object):
                        %cue['segment_path']
                 logging.error(msg)
                 raise IOError(msg)
-            with process.stdout:
-                log_subprocess_output(process.stdout)
 
 def log_subprocess_output(pipe):
     for line in iter(pipe.readline, b''): # b'\n'-separated lines
