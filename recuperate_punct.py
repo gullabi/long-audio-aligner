@@ -10,6 +10,8 @@ from utils.seq_aligner import needle, water
 #from pymongo import MongoClient
 
 DOT = re.compile('(?<=[^l])·(?=[^l])')
+PUNC = re.compile('[,.;:!?–]+$')
+DASH = re.compile('^–')
 
 def main():
     '''
@@ -27,9 +29,10 @@ def main():
         re_intervention[id_int]['segments'].append(segment)
     '''
 
-    #output()
+    #output('test.yml', re_intervention)
     re_intervention = yaml.load(open('scripts/test.yml'), yaml.FullLoader)
     recuperate(re_intervention)
+    output('scripts/recuparate.yml', re_intervention)
 
 def db_connect(col='aggregate_mas'):
     client = MongoClient('localhost',27017)
@@ -38,8 +41,8 @@ def db_connect(col='aggregate_mas'):
     db = client[dbname]
     return db[colname]
 
-def output():
-    with open('test.yml', 'w') as out:
+def output(filename, re_intervention):
+    with open(filename, 'w') as out:
         yaml.dump(re_intervention, out)
 
 def recuperate(interventions):
@@ -137,17 +140,39 @@ def get_original_segments(segments, aligned_tuples):
         original_words = []
         original_words_clean = []
         for word in segment['words'].split():
+            # first check if there are missing alignments
+            # if so merge them
+            if aligned_tuples[0][1] == '--':
+                print('** new implementation for')
+                print(segment['words'], aligned_tuples[:5])
+                # merge all the non-matched tokens into one
+                # first create the merged 
+                for i, tup in enumerate(aligned_tuples):
+                    merged_original = aligned_tuples[0][0]
+                    if i != 0:
+                        merged_original += tup[0]
+                        if tup[1] != '--':
+                            merge_index = i
+                            aligned_tuples[i] = (merged_original, tup[1])
+                            break
+                # remove the empty alignment token tuples
+                for i in range(merge_index):
+                    aligned_tuples.pop(0)
+                print('result ', aligned_tuples[:5])
+            # now check for correspondance
             if word == aligned_tuples[0][1]:
                 original_words.append(aligned_tuples[0][0])
                 original_words_clean.append(recover_punc(aligned_tuples[0][0],
                                                          word))
-                #print(aligned_tuples[0][0], word)
+                if aligned_tuples[0][0] != original_words_clean[-1]:
+                    print(original_words_clean[-1], aligned_tuples[0][0])
                 aligned_tuples.pop(0)
+
             else:
-                print(segments, aligned_tuples[:5])
+                print(segment['words'], aligned_tuples[:5])
                 raise ValueError('word not found in the following index')
-        segment['original_words'] = ' '.join(original_words)
-        print('%s\n%s'%(segment['words'],segment['original_words']))
+        segment['original_words'] = ' '.join(original_words_clean)
+        #print('%s\n%s'%(segment['words'],segment['original_words']))
 
 def recover_punc(original, clean):
     # recovers punctuation from aligned tokens
@@ -155,7 +180,24 @@ def recover_punc(original, clean):
     # punctuation signs: , . ... ! ? : ; –
     # first letter capitalized
     # all letters capitalized
-    pass
+
+    # get the punctuations at the end of the token
+    p_match = PUNC.search(original)
+    if p_match:
+        # add punctuation to the end
+        clean += p_match.group()
+    # get initial dash
+    d_match = DASH.search(original)
+    if d_match:
+        clean = '–'+clean
+    # get capitalization
+    c_match = re.search('[A-ZÀÁÉÈÜÚÍÏÓÒÇ]{1,}',original)
+    if c_match:
+        capitalized = c_match.group()
+        lower = clean[c_match.start():c_match.end()]
+        if lower == capitalized.lower():
+            clean = clean[:c_match.start()]+capitalized+clean[c_match.end():]
+    return clean
 
 if __name__ == "__main__":
     logging_level = logging.INFO
