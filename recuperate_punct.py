@@ -6,18 +6,18 @@ import operator
 import utils.clean as cl
 from utils.seq_aligner import needle, water
 
-#from itertools import repeat
-#from pymongo import MongoClient
+from pymongo import MongoClient
+from bson.objectid import ObjectId
 
 DOT = re.compile('(?<=[^l])·(?=[^l])')
 PUNC = re.compile('[,.;:!?–]+$')
 DASH = re.compile('^–')
 
 def main():
-    '''
     db = db_connect()
     db_int = db_connect(col='mas')
     re_intervention = {} 
+    # reassociate segments with the interventions
     for element in db.find():
         id_int = element['field_id']
         if not re_intervention.get(id_int):
@@ -26,11 +26,11 @@ def main():
             re_intervention[id_int]['segments'] = []
         keys = ['start','end','words']
         segment = {key:element['Innerfield'][key] for key in keys}
+        segment['segment_id'] = element['_id']
         re_intervention[id_int]['segments'].append(segment)
-    '''
 
-    #output('test.yml', re_intervention)
-    re_intervention = yaml.load(open('scripts/test.yml'), yaml.FullLoader)
+    #output('scripts/new.yml', re_intervention)
+    #re_intervention = yaml.load(open('scripts/test.yml'), yaml.FullLoader)
     recuperate(re_intervention)
     output('scripts/recuparate.yml', re_intervention)
 
