@@ -46,5 +46,11 @@ class AlignerTestCase(unittest.TestCase):
         # decode
         self.cs.decode(self.aligner.audio_raw, self.aligner.lm)
         self.assertTrue(len(self.cs.segs) > 1, msg="decode did not yield results")
-        #with open(self.decode_outfile, 'w') as out:
-        #    json.dump(self.cs.segs, out, indent=2)
+        '''
+        with open(self.decode_outfile, 'w') as out:
+            json.dump(self.cs.segs, out, indent=2)
+        with open(self.decode_outfile.replace('_decode.json',
+                                              '_sentences.txt'), 'w') as out:
+            for sentence in self.aligner.sentences:
+                out.write('%s\n'%sentence)
+        '''

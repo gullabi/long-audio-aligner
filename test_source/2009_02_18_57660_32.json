@@ -1,0 +1,24 @@
+{
+    "2009_02_18_57660_32": {
+        "ple_code": "2009_02_18_57660",
+        "urls": [
+            [
+                [
+                    "M. H. Sr. Artur Mas i Gavarr\u00f3\u00a0(Membre) "
+                ],
+                "/home/baybars/repositories/parlament-scrape/audio/f/e/fe1c36c2ea6a2f3c26c9.mp3"
+            ]
+        ],
+        "text": [
+            [
+                "<b>El president</b>",
+                "La seg\u00fcent pregunta......la formula, en nom del Grup Parlamentari de Conver\u00adg\u00e8ncia i Uni\u00f3, l'honorable senyor Artur Mas."
+            ],
+            [
+                "<b>El Sr. Mas i Gavarr\u00f3</b>",
+                "Gr\u00e0cies, senyor president. Senyor president de la Ge\u00adneralitat, fa quinze dies, en aquest mateix Parlament, jo li vaig demanar fins a quin punt vost\u00e8 estava disposat a concertar i acordar mesures en l'\u00e0mbit de superar la crisi econ\u00f2mica amb el Grup de Converg\u00e8ncia i Uni\u00f3. Vost\u00e8 em va dir que no en sabia res, d'aquestes mesures. Ja va ser una resposta bastant alarmant, perqu\u00e8 han estat reiteradament reiterades a tots els parlaments, tamb\u00e9 en aquest. Li vaig enviar un escrit on li resumia desenes d'aquestes propostes. Han passat quinze dies, vost\u00e8s no ens n'ha dit re, i, per tant, a mi m'agradaria saber si aquesta oferta de di\u00e0leg i de consens de Converg\u00e8ncia i Uni\u00f3, en el tema de la situaci\u00f3 econ\u00f2mica, vost\u00e8 qu\u00e8 pensa fer, si \u00e9s que pensa fer alguna cosa."
+            ]
+        ],
+        "source": "sessions/2009_02_18_57660/text/32.yaml"
+    }
+}

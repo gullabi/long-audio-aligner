@@ -1,0 +1,2187 @@
+[
+  {
+    "word": "per"
+  },
+  {
+    "word": "repreguntar",
+    "punctuation": 0.9
+  },
+  {
+    "word": "t\u00e9"
+  },
+  {
+    "end": 2.48,
+    "start": 2.29,
+    "word": "la"
+  },
+  {
+    "end": 2.93,
+    "start": 2.49,
+    "word": "paraula"
+  },
+  {
+    "word": "l'il\u00b7lustre"
+  },
+  {
+    "word": "senyor"
+  },
+  {
+    "word": "diputat",
+    "punctuation": 1.0
+  },
+  {
+    "end": 6.3,
+    "start": 6.09,
+    "word": "miri",
+    "target_speaker": true,
+    "punctuation": 0.9
+  },
+  {
+    "end": 6.82,
+    "start": 6.31,
+    "word": "conseller",
+    "target_speaker": true,
+    "punctuation": 0.9
+  },
+  {
+    "word": "en",
+    "target_speaker": true
+  },
+  {
+    "word": "el",
+    "target_speaker": true
+  },
+  {
+    "end": 7.54,
+    "start": 7.31,
+    "word": "darrer",
+    "target_speaker": true
+  },
+  {
+    "end": 7.8,
+    "start": 7.55,
+    "word": "ple",
+    "target_speaker": true
+  },
+  {
+    "end": 8.07,
+    "start": 7.81,
+    "word": "vost\u00e8",
+    "target_speaker": true
+  },
+  {
+    "end": 8.19,
+    "start": 8.08,
+    "word": "va",
+    "target_speaker": true
+  },
+  {
+    "end": 8.85,
+    "start": 8.2,
+    "word": "compartir",
+    "target_speaker": true
+  },
+  {
+    "end": 9.01,
+    "start": 8.86,
+    "word": "que",
+    "target_speaker": true
+  },
+  {
+    "end": 9.44,
+    "start": 9.02,
+    "word": "s'aprov\u00e9s",
+    "target_speaker": true
+  },
+  {
+    "end": 9.5,
+    "start": 9.45,
+    "word": "el",
+    "target_speaker": true
+  },
+  {
+    "end": 9.85,
+    "start": 9.51,
+    "word": "seg\u00fcent",
+    "target_speaker": true
+  },
+  {
+    "word": "acord",
+    "target_speaker": true,
+    "punctuation": 1.0
+  },
+  {
+    "word": "prohibir",
+    "target_speaker": true
+  },
+  {
+    "end": 10.98,
+    "start": 10.87,
+    "word": "de",
+    "target_speaker": true
+  },
+  {
+    "end": 11.31,
+    "start": 10.99,
+    "word": "manera",
+    "target_speaker": true
+  },
+  {
+    "end": 12.13,
+    "start": 11.32,
+    "word": "immediata",
+    "target_speaker": true
+  },
+  {
+    "end": 12.27,
+    "start": 12.14,
+    "word": "els",
+    "target_speaker": true
+  },
+  {
+    "end": 13.01,
+    "start": 12.28,
+    "word": "sometents",
+    "target_speaker": true,
+    "punctuation": 1.0
+  },
+  {
+    "word": "ens",
+    "target_speaker": true
+  },
+  {
+    "end": 14.15,
+    "start": 13.66,
+    "word": "referim",
+    "target_speaker": true
+  },
+  {
+    "word": "a",
+    "target_speaker": true
+  },
+  {
+    "end": 14.44,
+    "start": 14.16,
+    "word": "aquells",
+    "target_speaker": true
+  },
+  {
+    "end": 14.94,
+    "start": 14.45,
+    "word": "pagesos",
+    "target_speaker": true
+  },
+  {
+    "word": "que",
+    "target_speaker": true
+  },
+  {
+    "end": 15.09,
+    "start": 14.95,
+    "word": "de",
+    "target_speaker": true
+  },
+  {
+    "end": 15.38,
+    "start": 15.1,
+    "word": "forma",
+    "target_speaker": true
+  },
+  {
+    "end": 16.0,
+    "start": 15.39,
+    "word": "peri\u00f2dica",
+    "target_speaker": true
+  },
+  {
+    "end": 16.79,
+    "start": 16.65,
+    "word": "els",
+    "target_speaker": true
+  },
+  {
+    "end": 17.07,
+    "start": 16.8,
+    "word": "roben",
+    "target_speaker": true
+  },
+  {
+    "end": 17.14,
+    "start": 17.08,
+    "word": "en",
+    "target_speaker": true
+  },
+  {
+    "end": 17.27,
+    "start": 17.15,
+    "word": "les",
+    "target_speaker": true
+  },
+  {
+    "end": 17.52,
+    "start": 17.28,
+    "word": "seves",
+    "target_speaker": true
+  },
+  {
+    "end": 18.61,
+    "start": 17.53,
+    "word": "propietats",
+    "target_speaker": true
+  },
+  {
+    "end": 18.71,
+    "start": 18.62,
+    "word": "i",
+    "target_speaker": true
+  },
+  {
+    "end": 18.85,
+    "start": 18.72,
+    "word": "que",
+    "target_speaker": true
+  },
+  {
+    "end": 19.09,
+    "start": 18.86,
+    "word": "volen",
+    "target_speaker": true
+  },
+  {
+    "end": 19.54,
+    "start": 19.1,
+    "word": "col\u00b7laborar",
+    "target_speaker": true
+  },
+  {
+    "end": 19.64,
+    "start": 19.55,
+    "word": "amb",
+    "target_speaker": true
+  },
+  {
+    "end": 19.75,
+    "start": 19.65,
+    "word": "els",
+    "target_speaker": true
+  },
+  {
+    "end": 20.01,
+    "start": 19.76,
+    "word": "mossos",
+    "target_speaker": true
+  },
+  {
+    "end": 20.64,
+    "start": 20.02,
+    "word": "d'esquadra",
+    "target_speaker": true
+  },
+  {
+    "end": 21.16,
+    "start": 20.65,
+    "word": "per",
+    "target_speaker": true
+  },
+  {
+    "end": 21.63,
+    "start": 21.17,
+    "word": "evitar",
+    "target_speaker": true
+  },
+  {
+    "end": 22.05,
+    "start": 21.64,
+    "word": "precisament",
+    "target_speaker": true
+  },
+  {
+    "end": 22.47,
+    "start": 22.06,
+    "word": "aix\u00f2",
+    "target_speaker": true,
+    "punctuation": 0.9
+  },
+  {
+    "end": 22.6,
+    "start": 22.48,
+    "word": "que",
+    "target_speaker": true
+  },
+  {
+    "end": 22.71,
+    "start": 22.61,
+    "word": "els",
+    "target_speaker": true
+  },
+  {
+    "end": 23.34,
+    "start": 22.72,
+    "word": "robin",
+    "target_speaker": true,
+    "punctuation": 1.0
+  },
+  {
+    "end": 24.27,
+    "start": 24.06,
+    "word": "miri",
+    "target_speaker": true,
+    "punctuation": 0.9
+  },
+  {
+    "end": 24.7,
+    "start": 24.28,
+    "word": "conseller",
+    "target_speaker": true,
+    "punctuation": 0.9
+  },
+  {
+    "end": 24.86,
+    "start": 24.71,
+    "word": "la",
+    "target_speaker": true
+  },
+  {
+    "end": 25.29,
+    "start": 24.87,
+    "word": "policia",
+    "target_speaker": true
+  },
+  {
+    "end": 25.51,
+    "start": 25.3,
+    "word": "est\u00e0",
+    "target_speaker": true
+  },
+  {
+    "end": 25.65,
+    "start": 25.52,
+    "word": "per",
+    "target_speaker": true
+  },
+  {
+    "end": 26.04,
+    "start": 25.66,
+    "word": "enxampar",
+    "target_speaker": true
+  },
+  {
+    "end": 26.17,
+    "start": 26.05,
+    "word": "els",
+    "target_speaker": true
+  },
+  {
+    "end": 26.79,
+    "start": 26.18,
+    "word": "lladres",
+    "target_speaker": true
+  },
+  {
+    "end": 26.94,
+    "start": 26.83,
+    "word": "i",
+    "target_speaker": true
+  },
+  {
+    "end": 27.54,
+    "start": 26.95,
+    "word": "evitar",
+    "target_speaker": true
+  },
+  {
+    "word": "els",
+    "target_speaker": true
+  },
+  {
+    "end": 28.78,
+    "start": 27.55,
+    "word": "robatoris",
+    "target_speaker": true,
+    "punctuation": 0.9
+  },
+  {
+    "end": 28.85,
+    "start": 28.79,
+    "word": "i",
+    "target_speaker": true
+  },
+  {
+    "end": 29.41,
+    "start": 28.86,
+    "word": "vost\u00e8",
+    "target_speaker": true,
+    "punctuation": 0.9
+  },
+  {
+    "end": 29.61,
+    "start": 29.48,
+    "word": "amb",
+    "target_speaker": true
+  },
+  {
+    "end": 29.67,
+    "start": 29.62,
+    "word": "la",
+    "target_speaker": true
+  },
+  {
+    "end": 29.99,
+    "start": 29.68,
+    "word": "seva",
+    "target_speaker": true
+  },
+  {
+    "end": 31.44,
+    "start": 30.41,
+    "word": "decisi\u00f3",
+    "target_speaker": true,
+    "punctuation": 0.9
+  },
+  {
+    "end": 31.92,
+    "start": 31.51,
+    "word": "dedicar\u00e0",
+    "target_speaker": true
+  },
+  {
+    "end": 32.03,
+    "start": 31.93,
+    "word": "els",
+    "target_speaker": true
+  },
+  {
+    "end": 32.25,
+    "start": 32.04,
+    "word": "mossos",
+    "target_speaker": true
+  },
+  {
+    "end": 33.01,
+    "start": 32.26,
+    "word": "d'esquadra",
+    "target_speaker": true
+  },
+  {
+    "end": 33.09,
+    "start": 33.02,
+    "word": "a",
+    "target_speaker": true
+  },
+  {
+    "end": 33.41,
+    "start": 33.1,
+    "word": "vigilar",
+    "target_speaker": true
+  },
+  {
+    "end": 33.56,
+    "start": 33.42,
+    "word": "els",
+    "target_speaker": true
+  },
+  {
+    "end": 34.22,
+    "start": 33.57,
+    "word": "pagesos",
+    "target_speaker": true,
+    "punctuation": 0.9
+  },
+  {
+    "end": 34.66,
+    "start": 34.38,
+    "word": "que",
+    "target_speaker": true
+  },
+  {
+    "end": 35.01,
+    "start": 34.67,
+    "word": "nom\u00e9s",
+    "target_speaker": true
+  },
+  {
+    "end": 35.58,
+    "start": 35.02,
+    "word": "demanen",
+    "target_speaker": true
+  },
+  {
+    "end": 35.83,
+    "start": 35.59,
+    "word": "que",
+    "target_speaker": true
+  },
+  {
+    "end": 35.94,
+    "start": 35.84,
+    "word": "no",
+    "target_speaker": true
+  },
+  {
+    "end": 36.1,
+    "start": 35.95,
+    "word": "els",
+    "target_speaker": true
+  },
+  {
+    "end": 36.38,
+    "start": 36.11,
+    "word": "robin",
+    "target_speaker": true,
+    "punctuation": 1.0
+  },
+  {
+    "word": "tots",
+    "target_speaker": true
+  },
+  {
+    "word": "els",
+    "target_speaker": true
+  },
+  {
+    "end": 37.57,
+    "start": 37.39,
+    "word": "grups",
+    "target_speaker": true
+  },
+  {
+    "end": 38.45,
+    "start": 37.58,
+    "word": "parlamentaris",
+    "target_speaker": true,
+    "punctuation": 0.9
+  },
+  {
+    "end": 39.45,
+    "start": 39.09,
+    "word": "excepte",
+    "target_speaker": true
+  },
+  {
+    "end": 39.53,
+    "start": 39.46,
+    "word": "el",
+    "target_speaker": true
+  },
+  {
+    "end": 39.81,
+    "start": 39.54,
+    "word": "partit",
+    "target_speaker": true
+  },
+  {
+    "end": 40.67,
+    "start": 39.82,
+    "word": "popular",
+    "target_speaker": true,
+    "punctuation": 0.9
+  },
+  {
+    "end": 40.85,
+    "start": 40.76,
+    "word": "es",
+    "target_speaker": true
+  },
+  {
+    "end": 41.29,
+    "start": 40.86,
+    "word": "preocupen",
+    "target_speaker": true
+  },
+  {
+    "end": 41.65,
+    "start": 41.3,
+    "word": "molt",
+    "target_speaker": true
+  },
+  {
+    "end": 41.74,
+    "start": 41.66,
+    "word": "de",
+    "target_speaker": true
+  },
+  {
+    "end": 42.3,
+    "start": 41.75,
+    "word": "criminalitzar",
+    "target_speaker": true
+  },
+  {
+    "end": 42.43,
+    "start": 42.31,
+    "word": "els",
+    "target_speaker": true
+  },
+  {
+    "end": 43.11,
+    "start": 42.44,
+    "word": "pagesos",
+    "target_speaker": true
+  },
+  {
+    "end": 43.55,
+    "start": 43.12,
+    "word": "per\u00f2",
+    "target_speaker": true
+  },
+  {
+    "end": 43.85,
+    "start": 43.56,
+    "word": "parlen",
+    "target_speaker": true
+  },
+  {
+    "end": 44.12,
+    "start": 43.86,
+    "word": "molt",
+    "target_speaker": true
+  },
+  {
+    "end": 44.58,
+    "start": 44.13,
+    "word": "poc",
+    "target_speaker": true
+  },
+  {
+    "end": 44.77,
+    "start": 44.59,
+    "word": "dels",
+    "target_speaker": true
+  },
+  {
+    "end": 45.54,
+    "start": 44.78,
+    "word": "lladres",
+    "target_speaker": true
+  },
+  {
+    "end": 45.62,
+    "start": 45.55,
+    "word": "i",
+    "target_speaker": true
+  },
+  {
+    "end": 45.75,
+    "start": 45.63,
+    "word": "del",
+    "target_speaker": true
+  },
+  {
+    "end": 45.88,
+    "start": 45.76,
+    "word": "que",
+    "target_speaker": true
+  },
+  {
+    "word": "hem",
+    "target_speaker": true
+  },
+  {
+    "end": 46.03,
+    "start": 45.89,
+    "word": "de",
+    "target_speaker": true
+  },
+  {
+    "end": 46.31,
+    "start": 46.04,
+    "word": "fer",
+    "target_speaker": true
+  },
+  {
+    "end": 46.84,
+    "start": 46.32,
+    "word": "perqu\u00e8",
+    "target_speaker": true
+  },
+  {
+    "end": 47.1,
+    "start": 46.85,
+    "word": "aquests",
+    "target_speaker": true
+  },
+  {
+    "end": 47.46,
+    "start": 47.11,
+    "word": "vagin",
+    "target_speaker": true
+  },
+  {
+    "word": "a",
+    "target_speaker": true
+  },
+  {
+    "end": 47.73,
+    "start": 47.65,
+    "word": "la",
+    "target_speaker": true
+  },
+  {
+    "end": 48.35,
+    "start": 47.74,
+    "word": "pres\u00f3",
+    "target_speaker": true,
+    "punctuation": 1.0
+  },
+  {
+    "end": 49.04,
+    "start": 48.81,
+    "word": "ara",
+    "target_speaker": true
+  },
+  {
+    "end": 49.6,
+    "start": 49.05,
+    "word": "resulta",
+    "target_speaker": true
+  },
+  {
+    "end": 49.7,
+    "start": 49.61,
+    "word": "que",
+    "target_speaker": true
+  },
+  {
+    "end": 49.8,
+    "start": 49.71,
+    "word": "els",
+    "target_speaker": true
+  },
+  {
+    "end": 50.25,
+    "start": 49.81,
+    "word": "dolents",
+    "target_speaker": true
+  },
+  {
+    "end": 50.41,
+    "start": 50.26,
+    "word": "s\u00f3n",
+    "target_speaker": true
+  },
+  {
+    "end": 50.54,
+    "start": 50.42,
+    "word": "els",
+    "target_speaker": true
+  },
+  {
+    "end": 51.23,
+    "start": 50.55,
+    "word": "pagesos",
+    "target_speaker": true,
+    "punctuation": 1.0
+  },
+  {
+    "end": 52.09,
+    "start": 51.61,
+    "word": "miri",
+    "target_speaker": true,
+    "punctuation": 0.9
+  },
+  {
+    "end": 52.22,
+    "start": 52.1,
+    "word": "el",
+    "target_speaker": true
+  },
+  {
+    "end": 52.6,
+    "start": 52.23,
+    "word": "m\u00f3n",
+    "target_speaker": true
+  },
+  {
+    "end": 52.85,
+    "start": 52.71,
+    "word": "al",
+    "target_speaker": true
+  },
+  {
+    "end": 53.55,
+    "start": 52.86,
+    "word": "rev\u00e9s",
+    "target_speaker": true,
+    "punctuation": 1.0
+  },
+  {
+    "end": 54.46,
+    "start": 54.08,
+    "word": "tornen",
+    "target_speaker": true
+  },
+  {
+    "end": 54.65,
+    "start": 54.47,
+    "word": "les",
+    "target_speaker": true
+  },
+  {
+    "end": 55.18,
+    "start": 54.66,
+    "word": "pol\u00edtiques",
+    "target_speaker": true
+  },
+  {
+    "end": 55.24,
+    "start": 55.19,
+    "word": "de",
+    "target_speaker": true
+  },
+  {
+    "end": 56.03,
+    "start": 55.25,
+    "word": "seguretat",
+    "target_speaker": true
+  },
+  {
+    "end": 56.33,
+    "start": 56.04,
+    "word": "del",
+    "target_speaker": true
+  },
+  {
+    "end": 57.13,
+    "start": 56.34,
+    "word": "tripartit",
+    "target_speaker": true,
+    "punctuation": 1.0
+  },
+  {
+    "end": 58.48,
+    "start": 57.86,
+    "word": "conseller",
+    "target_speaker": true,
+    "punctuation": 0.9
+  },
+  {
+    "end": 58.99,
+    "start": 58.49,
+    "word": "vost\u00e8",
+    "target_speaker": true
+  },
+  {
+    "end": 59.32,
+    "start": 59.09,
+    "word": "pren",
+    "target_speaker": true
+  },
+  {
+    "end": 59.85,
+    "start": 59.33,
+    "word": "decisions",
+    "target_speaker": true
+  },
+  {
+    "end": 60.16,
+    "start": 59.86,
+    "word": "molt",
+    "target_speaker": true
+  },
+  {
+    "end": 60.69,
+    "start": 60.17,
+    "word": "r\u00e0pidament",
+    "target_speaker": true
+  },
+  {
+    "word": "perqu\u00e8",
+    "target_speaker": true
+  },
+  {
+    "end": 61.42,
+    "start": 61.3,
+    "word": "es",
+    "target_speaker": true
+  },
+  {
+    "end": 61.71,
+    "start": 61.43,
+    "word": "vegi",
+    "target_speaker": true
+  },
+  {
+    "end": 61.78,
+    "start": 61.72,
+    "word": "que",
+    "target_speaker": true
+  },
+  {
+    "end": 62.11,
+    "start": 61.79,
+    "word": "adopta",
+    "target_speaker": true
+  },
+  {
+    "end": 62.75,
+    "start": 62.12,
+    "word": "pol\u00edtiques",
+    "target_speaker": true
+  },
+  {
+    "end": 64.02,
+    "start": 62.76,
+    "word": "contr\u00e0ries",
+    "target_speaker": true
+  },
+  {
+    "word": "a",
+    "target_speaker": true
+  },
+  {
+    "end": 64.35,
+    "start": 64.17,
+    "word": "les",
+    "target_speaker": true
+  },
+  {
+    "end": 64.68,
+    "start": 64.36,
+    "word": "que",
+    "target_speaker": true
+  },
+  {
+    "end": 65.22,
+    "start": 64.69,
+    "word": "va",
+    "target_speaker": true
+  },
+  {
+    "end": 65.94,
+    "start": 65.23,
+    "word": "impulsar",
+    "target_speaker": true
+  },
+  {
+    "end": 66.05,
+    "start": 65.95,
+    "word": "el",
+    "target_speaker": true
+  },
+  {
+    "end": 66.51,
+    "start": 66.06,
+    "word": "conseller",
+    "target_speaker": true
+  },
+  {
+    "end": 67.23,
+    "start": 66.52,
+    "word": "puig",
+    "target_speaker": true,
+    "punctuation": 1.0
+  },
+  {
+    "end": 67.75,
+    "start": 67.5,
+    "word": "vost\u00e8",
+    "target_speaker": true
+  },
+  {
+    "end": 68.23,
+    "start": 67.76,
+    "word": "s'apropa",
+    "target_speaker": true
+  },
+  {
+    "end": 68.41,
+    "start": 68.24,
+    "word": "a",
+    "target_speaker": true
+  },
+  {
+    "end": 68.64,
+    "start": 68.42,
+    "word": "les",
+    "target_speaker": true
+  },
+  {
+    "end": 69.07,
+    "start": 68.65,
+    "word": "pol\u00edtiques",
+    "target_speaker": true
+  },
+  {
+    "end": 69.16,
+    "start": 69.08,
+    "word": "del",
+    "target_speaker": true
+  },
+  {
+    "end": 69.52,
+    "start": 69.17,
+    "word": "conseller",
+    "target_speaker": true
+  },
+  {
+    "end": 70.33,
+    "start": 69.53,
+    "word": "saura",
+    "target_speaker": true
+  },
+  {
+    "end": 70.45,
+    "start": 70.34,
+    "word": "i",
+    "target_speaker": true
+  },
+  {
+    "word": "fuig",
+    "target_speaker": true
+  },
+  {
+    "end": 72.71,
+    "start": 72.47,
+    "word": "com",
+    "target_speaker": true
+  },
+  {
+    "end": 72.9,
+    "start": 72.72,
+    "word": "gat",
+    "target_speaker": true
+  },
+  {
+    "end": 73.78,
+    "start": 72.91,
+    "word": "escaldat",
+    "target_speaker": true
+  },
+  {
+    "word": "de",
+    "target_speaker": true
+  },
+  {
+    "end": 74.04,
+    "start": 73.88,
+    "word": "les",
+    "target_speaker": true
+  },
+  {
+    "end": 74.58,
+    "start": 74.05,
+    "word": "pol\u00edtiques",
+    "target_speaker": true
+  },
+  {
+    "end": 74.78,
+    "start": 74.59,
+    "word": "del",
+    "target_speaker": true
+  },
+  {
+    "end": 75.16,
+    "start": 74.79,
+    "word": "conseller",
+    "target_speaker": true
+  },
+  {
+    "end": 75.92,
+    "start": 75.17,
+    "word": "puig",
+    "target_speaker": true,
+    "punctuation": 1.0
+  },
+  {
+    "end": 76.6,
+    "start": 76.12,
+    "word": "compartim",
+    "target_speaker": true
+  },
+  {
+    "word": "que",
+    "target_speaker": true
+  },
+  {
+    "end": 76.71,
+    "start": 76.61,
+    "word": "la",
+    "target_speaker": true
+  },
+  {
+    "end": 77.32,
+    "start": 76.72,
+    "word": "responsabilitat",
+    "target_speaker": true
+  },
+  {
+    "end": 77.39,
+    "start": 77.33,
+    "word": "de",
+    "target_speaker": true
+  },
+  {
+    "end": 77.46,
+    "start": 77.4,
+    "word": "la",
+    "target_speaker": true
+  },
+  {
+    "end": 78.09,
+    "start": 77.47,
+    "word": "seguretat",
+    "target_speaker": true
+  },
+  {
+    "end": 78.18,
+    "start": 78.1,
+    "word": "\u00e9s",
+    "target_speaker": true
+  },
+  {
+    "end": 78.27,
+    "start": 78.19,
+    "word": "de",
+    "target_speaker": true
+  },
+  {
+    "end": 78.34,
+    "start": 78.28,
+    "word": "la",
+    "target_speaker": true
+  },
+  {
+    "end": 78.94,
+    "start": 78.35,
+    "word": "policia",
+    "target_speaker": true,
+    "punctuation": 0.9
+  },
+  {
+    "end": 79.36,
+    "start": 78.95,
+    "word": "que",
+    "target_speaker": true
+  },
+  {
+    "end": 79.79,
+    "start": 79.37,
+    "word": "cal",
+    "target_speaker": true
+  },
+  {
+    "end": 80.9,
+    "start": 79.8,
+    "word": "incrementar",
+    "target_speaker": true
+  },
+  {
+    "word": "els",
+    "target_speaker": true
+  },
+  {
+    "end": 81.88,
+    "start": 81.64,
+    "word": "agents",
+    "target_speaker": true
+  },
+  {
+    "end": 82.37,
+    "start": 81.89,
+    "word": "destinats",
+    "target_speaker": true
+  },
+  {
+    "end": 82.45,
+    "start": 82.38,
+    "word": "a",
+    "target_speaker": true
+  },
+  {
+    "end": 82.75,
+    "start": 82.46,
+    "word": "l'\u00e0mbit",
+    "target_speaker": true
+  },
+  {
+    "end": 83.1,
+    "start": 82.76,
+    "word": "rural",
+    "target_speaker": true,
+    "punctuation": 0.9
+  },
+  {
+    "end": 83.83,
+    "start": 83.71,
+    "word": "que",
+    "target_speaker": true
+  },
+  {
+    "end": 83.95,
+    "start": 83.84,
+    "word": "\u00e9s",
+    "target_speaker": true
+  },
+  {
+    "end": 84.51,
+    "start": 83.96,
+    "word": "imprescindible",
+    "target_speaker": true
+  },
+  {
+    "end": 84.63,
+    "start": 84.52,
+    "word": "una",
+    "target_speaker": true
+  },
+  {
+    "end": 85.0,
+    "start": 84.64,
+    "word": "actuaci\u00f3",
+    "target_speaker": true
+  },
+  {
+    "end": 85.79,
+    "start": 85.01,
+    "word": "preventiva",
+    "target_speaker": true
+  },
+  {
+    "end": 85.88,
+    "start": 85.8,
+    "word": "i",
+    "target_speaker": true
+  },
+  {
+    "end": 86.0,
+    "start": 85.89,
+    "word": "no",
+    "target_speaker": true
+  },
+  {
+    "end": 86.5,
+    "start": 86.01,
+    "word": "nom\u00e9s",
+    "target_speaker": true
+  },
+  {
+    "end": 87.53,
+    "start": 86.51,
+    "word": "reactiva",
+    "target_speaker": true,
+    "punctuation": 0.9
+  },
+  {
+    "end": 88.0,
+    "start": 87.83,
+    "word": "per\u00f2",
+    "target_speaker": true
+  },
+  {
+    "end": 88.16,
+    "start": 88.01,
+    "word": "no",
+    "target_speaker": true
+  },
+  {
+    "end": 88.71,
+    "start": 88.17,
+    "word": "compartim",
+    "target_speaker": true,
+    "punctuation": 0.9
+  },
+  {
+    "end": 89.18,
+    "start": 88.72,
+    "word": "conseller",
+    "target_speaker": true,
+    "punctuation": 0.9
+  },
+  {
+    "word": "que",
+    "target_speaker": true
+  },
+  {
+    "word": "els",
+    "target_speaker": true
+  },
+  {
+    "end": 89.76,
+    "start": 89.35,
+    "word": "ciutadans",
+    "target_speaker": true
+  },
+  {
+    "end": 89.83,
+    "start": 89.77,
+    "word": "no",
+    "target_speaker": true
+  },
+  {
+    "end": 90.1,
+    "start": 89.84,
+    "word": "puguin",
+    "target_speaker": true
+  },
+  {
+    "end": 90.88,
+    "start": 90.11,
+    "word": "vetllar",
+    "target_speaker": true
+  },
+  {
+    "word": "perqu\u00e8",
+    "target_speaker": true
+  },
+  {
+    "end": 91.42,
+    "start": 91.33,
+    "word": "no",
+    "target_speaker": true
+  },
+  {
+    "end": 91.55,
+    "start": 91.43,
+    "word": "els",
+    "target_speaker": true
+  },
+  {
+    "end": 91.98,
+    "start": 91.56,
+    "word": "robin",
+    "target_speaker": true,
+    "punctuation": 1.0
+  },
+  {
+    "end": 92.71,
+    "start": 92.55,
+    "word": "no",
+    "target_speaker": true
+  },
+  {
+    "end": 93.16,
+    "start": 92.72,
+    "word": "compartim",
+    "target_speaker": true
+  },
+  {
+    "end": 93.24,
+    "start": 93.17,
+    "word": "que",
+    "target_speaker": true
+  },
+  {
+    "end": 93.35,
+    "start": 93.25,
+    "word": "no",
+    "target_speaker": true
+  },
+  {
+    "end": 93.59,
+    "start": 93.36,
+    "word": "puguin",
+    "target_speaker": true
+  },
+  {
+    "end": 94.14,
+    "start": 93.6,
+    "word": "col\u00b7laborar",
+    "target_speaker": true
+  },
+  {
+    "end": 94.27,
+    "start": 94.15,
+    "word": "amb",
+    "target_speaker": true
+  },
+  {
+    "end": 94.38,
+    "start": 94.28,
+    "word": "els",
+    "target_speaker": true
+  },
+  {
+    "end": 94.69,
+    "start": 94.39,
+    "word": "mossos",
+    "target_speaker": true
+  },
+  {
+    "end": 94.97,
+    "start": 94.7,
+    "word": "d'acord",
+    "target_speaker": true
+  },
+  {
+    "end": 95.08,
+    "start": 94.98,
+    "word": "amb",
+    "target_speaker": true
+  },
+  {
+    "end": 95.14,
+    "start": 95.09,
+    "word": "la",
+    "target_speaker": true
+  },
+  {
+    "end": 95.75,
+    "start": 95.15,
+    "word": "llei",
+    "target_speaker": true
+  },
+  {
+    "word": "per",
+    "target_speaker": true
+  },
+  {
+    "end": 96.5,
+    "start": 95.79,
+    "word": "evitar",
+    "target_speaker": true
+  },
+  {
+    "end": 97.41,
+    "start": 96.51,
+    "word": "robatoris",
+    "target_speaker": true,
+    "punctuation": 1.0
+  },
+  {
+    "word": "el",
+    "target_speaker": true
+  },
+  {
+    "end": 98.38,
+    "start": 98.14,
+    "word": "partit",
+    "target_speaker": true
+  },
+  {
+    "end": 98.79,
+    "start": 98.39,
+    "word": "popular",
+    "target_speaker": true
+  },
+  {
+    "end": 98.96,
+    "start": 98.8,
+    "word": "no",
+    "target_speaker": true
+  },
+  {
+    "end": 99.18,
+    "start": 98.97,
+    "word": "dir\u00e0",
+    "target_speaker": true
+  },
+  {
+    "end": 99.44,
+    "start": 99.19,
+    "word": "mai",
+    "target_speaker": true
+  },
+  {
+    "end": 99.56,
+    "start": 99.45,
+    "word": "als",
+    "target_speaker": true
+  },
+  {
+    "end": 100.23,
+    "start": 99.57,
+    "word": "ciutadans",
+    "target_speaker": true
+  },
+  {
+    "end": 100.42,
+    "start": 100.24,
+    "word": "que",
+    "target_speaker": true
+  },
+  {
+    "word": "han",
+    "target_speaker": true
+  },
+  {
+    "end": 100.92,
+    "start": 100.43,
+    "word": "d'aguantar",
+    "target_speaker": true
+  },
+  {
+    "end": 101.02,
+    "start": 100.93,
+    "word": "que",
+    "target_speaker": true
+  },
+  {
+    "end": 101.13,
+    "start": 101.03,
+    "word": "els",
+    "target_speaker": true
+  },
+  {
+    "end": 101.49,
+    "start": 101.14,
+    "word": "robin",
+    "target_speaker": true
+  },
+  {
+    "end": 101.73,
+    "start": 101.5,
+    "word": "sense",
+    "target_speaker": true
+  },
+  {
+    "end": 101.87,
+    "start": 101.74,
+    "word": "fer",
+    "target_speaker": true
+  },
+  {
+    "end": 102.66,
+    "start": 101.88,
+    "word": "res",
+    "target_speaker": true
+  },
+  {
+    "end": 102.76,
+    "start": 102.67,
+    "word": "i",
+    "target_speaker": true
+  },
+  {
+    "end": 102.87,
+    "start": 102.77,
+    "word": "que",
+    "target_speaker": true
+  },
+  {
+    "end": 103.02,
+    "start": 102.88,
+    "word": "s'ho",
+    "target_speaker": true
+  },
+  {
+    "end": 103.48,
+    "start": 103.03,
+    "word": "quedin",
+    "target_speaker": true
+  },
+  {
+    "end": 104.21,
+    "start": 103.49,
+    "word": "mirant",
+    "target_speaker": true,
+    "punctuation": 1.0
+  },
+  {
+    "end": 104.89,
+    "start": 104.53,
+    "word": "direm",
+    "target_speaker": true
+  },
+  {
+    "word": "als",
+    "target_speaker": true
+  },
+  {
+    "end": 105.95,
+    "start": 105.3,
+    "word": "pagesos",
+    "target_speaker": true
+  },
+  {
+    "end": 106.06,
+    "start": 105.96,
+    "word": "que",
+    "target_speaker": true,
+    "punctuation": 0.9
+  },
+  {
+    "end": 106.35,
+    "start": 106.07,
+    "word": "d'acord",
+    "target_speaker": true
+  },
+  {
+    "end": 106.47,
+    "start": 106.36,
+    "word": "amb",
+    "target_speaker": true
+  },
+  {
+    "end": 106.54,
+    "start": 106.48,
+    "word": "la",
+    "target_speaker": true
+  },
+  {
+    "end": 106.81,
+    "start": 106.55,
+    "word": "llei",
+    "target_speaker": true,
+    "punctuation": 0.9
+  },
+  {
+    "end": 107.56,
+    "start": 106.82,
+    "word": "col\u00b7laborin",
+    "target_speaker": true
+  },
+  {
+    "end": 107.7,
+    "start": 107.57,
+    "word": "amb",
+    "target_speaker": true
+  },
+  {
+    "end": 107.81,
+    "start": 107.71,
+    "word": "la",
+    "target_speaker": true
+  },
+  {
+    "end": 108.45,
+    "start": 107.82,
+    "word": "policia",
+    "target_speaker": true
+  },
+  {
+    "end": 108.8,
+    "start": 108.46,
+    "word": "per",
+    "target_speaker": true
+  },
+  {
+    "end": 109.71,
+    "start": 108.81,
+    "word": "evitar",
+    "target_speaker": true
+  },
+  {
+    "end": 110.0,
+    "start": 109.83,
+    "word": "els",
+    "target_speaker": true
+  },
+  {
+    "end": 111.08,
+    "start": 110.01,
+    "word": "robatoris",
+    "target_speaker": true,
+    "punctuation": 0.9
+  },
+  {
+    "end": 111.19,
+    "start": 111.09,
+    "word": "i",
+    "target_speaker": true
+  },
+  {
+    "end": 111.29,
+    "start": 111.2,
+    "word": "al",
+    "target_speaker": true
+  },
+  {
+    "end": 111.81,
+    "start": 111.3,
+    "word": "govern",
+    "target_speaker": true
+  },
+  {
+    "end": 111.92,
+    "start": 111.82,
+    "word": "li",
+    "target_speaker": true
+  },
+  {
+    "end": 112.71,
+    "start": 111.93,
+    "word": "exigirem",
+    "target_speaker": true
+  },
+  {
+    "end": 113.39,
+    "start": 113.27,
+    "word": "que",
+    "target_speaker": true
+  },
+  {
+    "end": 113.8,
+    "start": 113.4,
+    "word": "augmenti",
+    "target_speaker": true
+  },
+  {
+    "end": 114.44,
+    "start": 114.32,
+    "word": "els",
+    "target_speaker": true
+  },
+  {
+    "end": 114.84,
+    "start": 114.45,
+    "word": "agents",
+    "target_speaker": true
+  },
+  {
+    "end": 114.98,
+    "start": 114.85,
+    "word": "que",
+    "target_speaker": true
+  },
+  {
+    "end": 115.43,
+    "start": 114.99,
+    "word": "destina",
+    "target_speaker": true
+  },
+  {
+    "end": 115.46,
+    "start": 115.44,
+    "word": "a",
+    "target_speaker": true
+  },
+  {
+    "end": 115.77,
+    "start": 115.47,
+    "word": "l'\u00e0mbit",
+    "target_speaker": true
+  },
+  {
+    "end": 116.38,
+    "start": 115.78,
+    "word": "rural",
+    "target_speaker": true,
+    "punctuation": 0.9
+  },
+  {
+    "word": "que",
+    "target_speaker": true
+  },
+  {
+    "end": 117.08,
+    "start": 116.58,
+    "word": "incrementi",
+    "target_speaker": true
+  },
+  {
+    "end": 117.2,
+    "start": 117.09,
+    "word": "les",
+    "target_speaker": true
+  },
+  {
+    "end": 117.68,
+    "start": 117.21,
+    "word": "actuacions",
+    "target_speaker": true
+  },
+  {
+    "end": 118.94,
+    "start": 117.69,
+    "word": "preventives",
+    "target_speaker": true
+  },
+  {
+    "end": 119.05,
+    "start": 118.95,
+    "word": "i",
+    "target_speaker": true
+  },
+  {
+    "end": 119.17,
+    "start": 119.06,
+    "word": "que",
+    "target_speaker": true
+  },
+  {
+    "end": 119.75,
+    "start": 119.18,
+    "word": "garanteixi",
+    "target_speaker": true
+  },
+  {
+    "end": 119.83,
+    "start": 119.76,
+    "word": "la",
+    "target_speaker": true
+  },
+  {
+    "end": 120.34,
+    "start": 119.84,
+    "word": "seguretat",
+    "target_speaker": true,
+    "punctuation": 0.9
+  },
+  {
+    "end": 120.4,
+    "start": 120.35,
+    "word": "que",
+    "target_speaker": true
+  },
+  {
+    "end": 120.69,
+    "start": 120.41,
+    "word": "aquesta",
+    "target_speaker": true
+  },
+  {
+    "word": "\u00e9s",
+    "target_speaker": true
+  },
+  {
+    "end": 120.79,
+    "start": 120.7,
+    "word": "la",
+    "target_speaker": true
+  },
+  {
+    "end": 121.27,
+    "start": 120.8,
+    "word": "seva",
+    "target_speaker": true
+  },
+  {
+    "end": 122.5,
+    "start": 121.28,
+    "word": "responsabilitat",
+    "target_speaker": true,
+    "punctuation": 1.0
+  },
+  {
+    "end": 123.58,
+    "start": 123.13,
+    "word": "mirin",
+    "target_speaker": true,
+    "punctuation": 0.9
+  },
+  {
+    "end": 123.93,
+    "start": 123.62,
+    "word": "quan",
+    "target_speaker": true
+  },
+  {
+    "end": 124.03,
+    "start": 123.94,
+    "word": "han",
+    "target_speaker": true
+  },
+  {
+    "end": 124.36,
+    "start": 124.04,
+    "word": "treballat",
+    "target_speaker": true
+  },
+  {
+    "end": 125.45,
+    "start": 124.37,
+    "word": "conjuntament",
+    "target_speaker": true
+  },
+  {
+    "end": 125.83,
+    "start": 125.61,
+    "word": "dins",
+    "target_speaker": true
+  },
+  {
+    "end": 125.95,
+    "start": 125.84,
+    "word": "la",
+    "target_speaker": true
+  },
+  {
+    "end": 126.38,
+    "start": 125.96,
+    "word": "legalitat",
+    "target_speaker": true
+  },
+  {
+    "end": 126.47,
+    "start": 126.39,
+    "word": "la",
+    "target_speaker": true
+  },
+  {
+    "end": 126.92,
+    "start": 126.48,
+    "word": "policia",
+    "target_speaker": true
+  },
+  {
+    "end": 126.97,
+    "start": 126.93,
+    "word": "i",
+    "target_speaker": true
+  },
+  {
+    "end": 127.11,
+    "start": 126.98,
+    "word": "els",
+    "target_speaker": true
+  },
+  {
+    "end": 127.65,
+    "start": 127.12,
+    "word": "pagesos",
+    "target_speaker": true,
+    "punctuation": 0.9
+  },
+  {
+    "end": 127.85,
+    "start": 127.69,
+    "word": "les",
+    "target_speaker": true
+  },
+  {
+    "end": 128.1,
+    "start": 127.86,
+    "word": "coses",
+    "target_speaker": true
+  },
+  {
+    "end": 128.22,
+    "start": 128.11,
+    "word": "han",
+    "target_speaker": true
+  },
+  {
+    "end": 128.66,
+    "start": 128.23,
+    "word": "millorat",
+    "target_speaker": true
+  },
+  {
+    "end": 129.68,
+    "start": 128.67,
+    "word": "substancialment",
+    "target_speaker": true,
+    "punctuation": 1.0
+  },
+  {
+    "end": 130.28,
+    "start": 129.69,
+    "word": "per",
+    "target_speaker": true
+  },
+  {
+    "end": 130.73,
+    "start": 130.29,
+    "word": "aix\u00f2",
+    "target_speaker": true,
+    "punctuation": 0.9
+  },
+  {
+    "end": 130.87,
+    "start": 130.74,
+    "word": "la",
+    "target_speaker": true
+  },
+  {
+    "end": 131.3,
+    "start": 130.88,
+    "word": "pregunta",
+    "target_speaker": true
+  },
+  {
+    "end": 131.45,
+    "start": 131.31,
+    "word": "\u00e9s",
+    "target_speaker": true
+  },
+  {
+    "end": 132.07,
+    "start": 131.46,
+    "word": "clara",
+    "target_speaker": true,
+    "punctuation": 1.0
+  },
+  {
+    "end": 132.48,
+    "start": 132.31,
+    "word": "per",
+    "target_speaker": true
+  },
+  {
+    "end": 132.65,
+    "start": 132.49,
+    "word": "qu\u00e8",
+    "target_speaker": true
+  },
+  {
+    "end": 133.33,
+    "start": 132.66,
+    "word": "prohibeixen",
+    "target_speaker": true
+  },
+  {
+    "end": 133.57,
+    "start": 133.34,
+    "word": "als",
+    "target_speaker": true
+  },
+  {
+    "end": 134.18,
+    "start": 133.58,
+    "word": "pagesos",
+    "target_speaker": true
+  },
+  {
+    "end": 134.33,
+    "start": 134.19,
+    "word": "que",
+    "target_speaker": true
+  },
+  {
+    "end": 134.81,
+    "start": 134.34,
+    "word": "col\u00b7laborin",
+    "target_speaker": true
+  },
+  {
+    "end": 134.94,
+    "start": 134.82,
+    "word": "amb",
+    "target_speaker": true
+  },
+  {
+    "end": 135.03,
+    "start": 134.95,
+    "word": "la",
+    "target_speaker": true
+  },
+  {
+    "end": 135.61,
+    "start": 135.04,
+    "word": "policia",
+    "target_speaker": true
+  },
+  {
+    "end": 136.13,
+    "start": 135.62,
+    "word": "per",
+    "target_speaker": true
+  },
+  {
+    "end": 136.75,
+    "start": 136.14,
+    "word": "evitar",
+    "target_speaker": true
+  },
+  {
+    "end": 137.91,
+    "start": 136.76,
+    "word": "robatoris",
+    "target_speaker": true,
+    "punctuation": 1.0
+  },
+  {
+    "end": 138.2,
+    "start": 137.98,
+    "word": "mentre",
+    "target_speaker": true
+  },
+  {
+    "word": "els",
+    "target_speaker": true
+  },
+  {
+    "end": 138.69,
+    "start": 138.31,
+    "word": "pagesos",
+    "target_speaker": true
+  },
+  {
+    "end": 138.81,
+    "start": 138.7,
+    "word": "els",
+    "target_speaker": true
+  },
+  {
+    "end": 139.22,
+    "start": 138.82,
+    "word": "reclamen",
+    "target_speaker": true
+  },
+  {
+    "end": 139.58,
+    "start": 139.23,
+    "word": "di\u00e0leg",
+    "target_speaker": true
+  },
+  {
+    "end": 139.93,
+    "start": 139.8,
+    "word": "li",
+    "target_speaker": true
+  },
+  {
+    "end": 140.34,
+    "start": 139.94,
+    "word": "reclamen",
+    "target_speaker": true
+  },
+  {
+    "end": 140.64,
+    "start": 140.35,
+    "word": "di\u00e0leg",
+    "target_speaker": true,
+    "punctuation": 0.9
+  },
+  {
+    "end": 141.09,
+    "start": 140.65,
+    "word": "conseller",
+    "target_speaker": true,
+    "punctuation": 0.9
+  },
+  {
+    "word": "a",
+    "target_speaker": true
+  },
+  {
+    "end": 141.55,
+    "start": 141.1,
+    "word": "vost\u00e8",
+    "target_speaker": true,
+    "punctuation": 0.9
+  },
+  {
+    "end": 142.62,
+    "start": 142.01,
+    "word": "vost\u00e8s",
+    "target_speaker": true
+  },
+  {
+    "end": 142.78,
+    "start": 142.63,
+    "word": "els",
+    "target_speaker": true
+  },
+  {
+    "word": "el",
+    "target_speaker": true
+  },
+  {
+    "end": 143.39,
+    "start": 142.79,
+    "word": "prohibeixen",
+    "target_speaker": true,
+    "punctuation": 1.0
+  },
+  {
+    "end": 143.72,
+    "start": 143.43,
+    "word": "gr\u00e0cies",
+    "target_speaker": true,
+    "punctuation": 0.9
+  },
+  {
+    "end": 143.97,
+    "start": 143.73,
+    "word": "senyora",
+    "target_speaker": true
+  },
+  {
+    "end": 144.79,
+    "start": 143.98,
+    "word": "presidenta",
+    "target_speaker": true,
+    "punctuation": 1.0
+  }
+]
