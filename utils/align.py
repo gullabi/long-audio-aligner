@@ -10,7 +10,7 @@ PROJECT_PATH = os.path.dirname(os.path.realpath(__file__))
 TMP = os.path.join(PROJECT_PATH, '../tmp')
 
 class Align(object):
-    def __init__(self, audiofile, text, dictfile):
+    def __init__(self, audiofile, text, dictfile, tmp = TMP):
         if not os.path.isfile(audiofile):
             msg = '%s does not exist'%audiofile
             logging.error(msg)
@@ -23,7 +23,7 @@ class Align(object):
 
         self.audio = audiofile
         self.audio_basename = '.'.join(os.path.basename(audiofile).split('.')[:-1])
-        tmp_base_dir = os.path.join(TMP,
+        tmp_base_dir = os.path.join(tmp,
                                     self.audio_basename[0],
                                     self.audio_basename[1])
         if not os.path.isdir(tmp_base_dir):
