@@ -23,8 +23,7 @@ class TextTestCase(unittest.TestCase):
             os.mkdir(TMP_PATH)
 
     def tearDown(self):
-        pass
-        #os.popen('rm smt')
+        os.popen('rm %s/*.*'%TMP_PATH)
 
     def test_text_aligner(self):
 

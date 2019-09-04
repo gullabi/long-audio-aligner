@@ -13,22 +13,19 @@ TMP_PATH = os.path.join(TEST_PATH, '../tmp_test')
 
 class AlignerTestCase(unittest.TestCase):
     def setUp(self):
-        #test_aligner = Align()
-        #align_test_wav = os.path.join(TEST_FILES_PATH,
-        #                              'c3d9d2a15a76a9fbb591.mp3')
-        #with open(os.path.join(TEST_FILES_PATH,
-        #            '2013_06_05_57807-14-c3d9d2a15a76a9fbb591.txt')) as infile:
-        #    align_test_text = infile.read()
-        align_test_wav = os.path.join(TEST_FILES_PATH,
-                                      '28fd6d0874eecbfdff35.mp3')
-        with open(os.path.join(TEST_FILES_PATH,
-                    '2015_02_04_57900_59.txt')) as infile:
+        audio_file = 'c3d9d2a15a76a9fbb591.mp3'
+        text_file = '2013_06_05_57807-14-c3d9d2a15a76a9fbb591.txt'
+        #audio_file = '28fd6d0874eecbfdff35.mp3'
+        #text_file = '2015_02_04_57900_59.txt'
+
+        align_test_wav = os.path.join(TEST_FILES_PATH, audio_file)
+        with open(os.path.join(TEST_FILES_PATH, text_file)) as infile:
             align_test_text = infile.read()
 
         self.aligner = Align(align_test_wav, align_test_text, DICT_PATH, TMP_PATH)
         self.decode_outfile = self.aligner.align_outfile.replace('_align','_decode')
         self.cs = CMU(MODEL_PATH)
-        # get files
+
         if not os.path.exists(TMP_PATH):
             os.mkdir(TMP_PATH)
 

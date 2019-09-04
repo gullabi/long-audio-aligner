@@ -14,18 +14,23 @@ class SegmenterTestCase(unittest.TestCase):
         self.test_files_list = [['2013_06_05_57807-14-c3d9d2a15a76a9fbb591.json',
                                  'c3d9d2a15a76a9fbb591_align.json',
                                  'c3d9d2a15a76a9fbb591_mapped_align.json',
-                                 'c3d9d2a15a76a9fbb591_best_segments.json'],
+                                 'c3d9d2a15a76a9fbb591_best_segments.json',
+                                 0.94],
                                 ['2015_06_03_59079_47.json',
                                  'd96ee006b62213506a07_align.json',
                                  'd96ee006b62213506a07_mapped_align.json',
-                                 'd96ee006b62213506a07_best_segments.json'],
+                                 'd96ee006b62213506a07_best_segments.json',
+                                  0.94],
                                 ['2015_02_04_57900_59.json',
                                  '28fd6d0874eecbfdff35_align.json',
                                  '28fd6d0874eecbfdff35_mapped_align.json',
-                                 '28fd6d0874eecbfdff35_best_segments.json']]
+                                 '28fd6d0874eecbfdff35_best_segments.json',
+                                 0.80]]
+        if not os.path.exists(TMP_PATH):
+            os.mkdir(TMP_PATH)
 
     def tearDown(self):
-        pass
+        os.popen('rm %s/*.*'%TMP_PATH)
 
     def test_segmenter(self):
 
@@ -38,6 +43,7 @@ class SegmenterTestCase(unittest.TestCase):
                 self.comparison_mapped_alignment = json.load(infile)
             self.base_segments_file = os.path.join(TEST_FILES_PATH,
                                                    test_files[3])
+            tmp_segments_file = os.path.join(TMP_PATH, test_files[3])
 
             # get beginning and end of the target speaker segments
             for token in self.comparison_mapped_alignment:
@@ -81,10 +87,11 @@ class SegmenterTestCase(unittest.TestCase):
 
             # optimize segments
             segmenter.optimize()
-            segmenter.best_segments
+            with open(tmp_segments_file, 'w') as out:
+                json.dump(segmenter.best_segments, out, indent=2)
 
             # check if optimized segments are > 94% of the whole duration
-            target_fraction = 0.94
+            target_fraction = test_files[4]
             segment_duration = 0
             for segment in segmenter.best_segments:
                 segment_duration += (segment['end'] - segment['start'])
@@ -92,8 +99,9 @@ class SegmenterTestCase(unittest.TestCase):
             segment_fraction = segment_duration/total_duration
             self.assertTrue(segment_fraction > target_fraction,
                             msg = 'total optimized segment duration is smaller than'\
-                                  ' %1.2f: %1.2f'%(target_fraction,
-                                                    segment_fraction))
+                                  ' %1.2f: %1.2f for %s'%(target_fraction,
+                                                          segment_fraction,
+                                                          test_files[3]))
 
             #with open(self.base_segments_file, 'w') as out:
             #    json.dump(segmenter.best_segments, out, indent=2)
