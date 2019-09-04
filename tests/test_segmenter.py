@@ -15,7 +15,7 @@ class SegmenterTestCase(unittest.TestCase):
                                  'c3d9d2a15a76a9fbb591_align.json',
                                  'c3d9d2a15a76a9fbb591_mapped_align.json',
                                  'c3d9d2a15a76a9fbb591_best_segments.json',
-                                 0.94],
+                                 0.93],
                                 ['2015_06_03_59079_47.json',
                                  'd96ee006b62213506a07_align.json',
                                  'd96ee006b62213506a07_mapped_align.json',
@@ -43,7 +43,9 @@ class SegmenterTestCase(unittest.TestCase):
                 self.comparison_mapped_alignment = json.load(infile)
             self.base_segments_file = os.path.join(TEST_FILES_PATH,
                                                    test_files[3])
-            tmp_segments_file = os.path.join(TMP_PATH, test_files[3])
+            tmp_segments_file = os.path.join(TMP_PATH,
+                                             test_files[3].replace('_best',''))
+            tmp_best_segments_file = os.path.join(TMP_PATH, test_files[3])
 
             # get beginning and end of the target speaker segments
             for token in self.comparison_mapped_alignment:
@@ -85,9 +87,13 @@ class SegmenterTestCase(unittest.TestCase):
                                  'intervention probably bsc of multiple '\
                                  'blocks of the speaker'%test_files[0])
 
+            # get segments before optimization
+            with open(tmp_segments_file, 'w') as out:
+                json.dump(segmenter.segments, out, indent=2)
+
             # optimize segments
             segmenter.optimize()
-            with open(tmp_segments_file, 'w') as out:
+            with open(tmp_best_segments_file, 'w') as out:
                 json.dump(segmenter.best_segments, out, indent=2)
 
             # check if optimized segments are > 94% of the whole duration
@@ -103,5 +109,14 @@ class SegmenterTestCase(unittest.TestCase):
                                                           segment_fraction,
                                                           test_files[3]))
 
-            #with open(self.base_segments_file, 'w') as out:
-            #    json.dump(segmenter.best_segments, out, indent=2)
+            # check if there are unreasonably long segments
+            max_unoptimized_length = max([segment['end']-segment['start']\
+                                    for segment in segmenter.segments])
+            max_length = max([segment['end']-segment['start']\
+                              for segment in segmenter.best_segments])
+            reference_length = max(30, max_unoptimized_length)
+            self.assertTrue(max_length < reference_length,
+                            msg="unreasonably long optimized segments are "\
+                                "present in %s with %f seconds wrt %f"%(test_files[3],
+                                                                 max_length,
+                                                                 reference_length))
