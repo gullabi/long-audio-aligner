@@ -63,6 +63,11 @@ class Segmenter(object):
             self.segments += self.get_block_segments(block)
 
     def get_block_segments(self, block):
+        '''
+        calculates the minimum length segments based on adjacent tokens
+        with timestamps and silences between them
+        '''
+
         # the block should start and with with a token with start (end) time
         indicies = [i for i, token in enumerate(block) if token.get('start')]
         start_index, end_index = indicies[0], indicies[-1]+1
