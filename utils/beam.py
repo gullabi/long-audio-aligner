@@ -89,7 +89,6 @@ def P_segment(segment):
     Accepts a dict with keys words, start, end, punctuation returns a value
     between [0,1]
     '''
-    # TODO punctuation values should be a multiplication factor between [0,1]
     # TODO input t_min, t_max
     # beta is an emprical parameter which makes the result 0.9 at t_min
     # for f_punctuation = 1 and t_min = 5; beta = 0.5
@@ -100,15 +99,19 @@ def P_segment(segment):
         msg = 'duration cannot be negative'
         raise ValueError(msg)
 
-    if segment.get('punctuation'):
-        if type(segment['punctuation']) == float:
-            f_punctuation = segment['punctuation']
-        else:
-            f_punctuation = 1.0
-    else:
-        f_punctuation = 0.5
+    f_punctuation = 0.5
+    if duration < t_max:
+        if segment.get('punctuation'):
+            if type(segment['punctuation']) == float:
+                f_punctuation = segment['punctuation']
+            else:
+                f_punctuation = 1.0
+        #else:
+        #    f_punctuation = 0.5
+    #else:
+    #    f_punctuation = 0.5
     val = f_punctuation*exp(-beta/duration)
     # Step function to reject segments with durations > t_max
     if duration > t_max:
-        val *= 0.01
+        val *= 0.005
     return val
