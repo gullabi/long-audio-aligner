@@ -20,32 +20,43 @@ class Segmenter(object):
         there is only one single speaker block
         '''
         target_found = False
+        search_beginning = True
+        block_tuples = []
         start = -1
         end = 0
-        for i, token in enumerate(self.alignment):
-            if not target_found:
-                # find the beginning of the speaker block
-                if token.get('target_speaker'):
-                    start = i
-                    target_found = True
-            else:
-                if not token.get('target_speaker'):
-                    end = i
-                    break
-        if start == -1:
-            msg = 'starting index not found smt wrong'
-            raise ValueError(msg)
-        elif start != -1 and end == 0:
-            # start index found but not the end index
-            end = len(self.alignment)
 
-        # TODO implement multiple block processing
-        # for now it gives a warning
-        for token in self.alignment[end:]:
-            if token.get('target_speaker'):
-                msg = 'target speaker found past last speaker block'
-                logging.warning(msg)
-        self.alignment_blocks = [self.alignment[start:end]]
+        for i, token in enumerate(self.alignment):
+            if i > end:
+                if search_beginning:
+                    if token.get('target_speaker'):
+                        start = i
+                        search_beginning = False
+                else:
+                    if not token.get('target_speaker'):
+                        end = i-1
+                        block_tuples.append((start, end))
+                        search_beginning = True
+        # if end is not found for the last block, it means
+        # target speaker block is the last block and
+        # needs to be added to the block_tuples
+        if not block_tuples:
+            if start != -1:
+                # there is a single block that ends with the
+                # target speaker
+                block_tuples.append((start,i))
+            else:
+                msg = 'no target speaker block was found'
+                logging.error(msg)
+                raise ValueError(msg)
+        else:
+            # for multiple blocks ending with the target speaker
+            if end == block_tuples[-1][1] and\
+               start != block_tuples[-1][0]:
+                block_tuples.append((start,i))
+
+        self.alignment_blocks = []
+        for start, end in block_tuples:
+            self.alignment_blocks.append(self.alignment[start:end+1])
 
     def get_segments(self):
         for block in self.alignment_blocks:
