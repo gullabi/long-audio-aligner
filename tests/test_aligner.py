@@ -14,11 +14,17 @@ TMP_PATH = os.path.join(TEST_PATH, '../tmp_test')
 class AlignerTestCase(unittest.TestCase):
     def setUp(self):
         #test_aligner = Align()
+        #align_test_wav = os.path.join(TEST_FILES_PATH,
+        #                              'c3d9d2a15a76a9fbb591.mp3')
+        #with open(os.path.join(TEST_FILES_PATH,
+        #            '2013_06_05_57807-14-c3d9d2a15a76a9fbb591.txt')) as infile:
+        #    align_test_text = infile.read()
         align_test_wav = os.path.join(TEST_FILES_PATH,
-                                      'c3d9d2a15a76a9fbb591.mp3')
+                                      '28fd6d0874eecbfdff35.mp3')
         with open(os.path.join(TEST_FILES_PATH,
-                    '2013_06_05_57807-14-c3d9d2a15a76a9fbb591.txt')) as infile:
+                    '2015_02_04_57900_59.txt')) as infile:
             align_test_text = infile.read()
+
         self.aligner = Align(align_test_wav, align_test_text, DICT_PATH, TMP_PATH)
         self.decode_outfile = self.aligner.align_outfile.replace('_align','_decode')
         self.cs = CMU(MODEL_PATH)
@@ -50,11 +56,9 @@ class AlignerTestCase(unittest.TestCase):
         self.cs.decode(self.aligner.audio_raw, self.aligner.lm)
         self.assertTrue(len(self.cs.segs) > 1, msg="decode did not yield results")
 
-        '''
         with open(self.decode_outfile, 'w') as out:
             json.dump(self.cs.segs, out, indent=2)
         with open(self.decode_outfile.replace('_decode.json',
                                               '_sentences.txt'), 'w') as out:
             for sentence in self.aligner.sentences:
                 out.write('%s\n'%sentence)
-        '''

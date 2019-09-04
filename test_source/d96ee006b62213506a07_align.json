@@ -1,0 +1,1604 @@
+[
+    {
+        "word": "t\u00e9",
+        "end": 0.11,
+        "start": 0.03
+    },
+    {
+        "word": "la",
+        "end": 0.22,
+        "start": 0.12
+    },
+    {
+        "word": "paraula",
+        "end": 0.7,
+        "start": 0.23
+    },
+    {
+        "word": "per",
+        "end": 0.82,
+        "start": 0.71
+    },
+    {
+        "word": "respondre",
+        "end": 1.33,
+        "start": 0.83
+    },
+    {
+        "word": "el",
+        "end": 1.44,
+        "start": 1.34
+    },
+    {
+        "word": "president",
+        "end": 1.88,
+        "start": 1.45
+    },
+    {
+        "word": "de",
+        "end": 1.94,
+        "start": 1.89
+    },
+    {
+        "word": "la",
+        "end": 2.03,
+        "start": 1.95
+    },
+    {
+        "word": "generalitat",
+        "end": 2.74,
+        "start": 2.04
+    },
+    {
+        "word": "gr\u00e0cies",
+        "end": 4.01,
+        "start": 3.46
+    },
+    {
+        "word": "senyora",
+        "end": 5.16,
+        "start": 4.45
+    },
+    {
+        "word": "presidenta",
+        "end": 5.76,
+        "start": 5.17
+    },
+    {
+        "word": "senyor",
+        "end": 6.62,
+        "start": 6.35
+    },
+    {
+        "word": "diputat",
+        "end": 7.11,
+        "start": 6.63
+    },
+    {
+        "word": "si",
+        "end": 8.09,
+        "start": 7.92
+    },
+    {
+        "word": "no",
+        "end": 8.16,
+        "start": 8.1
+    },
+    {
+        "word": "ho",
+        "end": 8.19,
+        "start": 8.17
+    },
+    {
+        "word": "recordo",
+        "end": 8.56,
+        "start": 8.2
+    },
+    {
+        "word": "malament",
+        "end": 8.93,
+        "start": 8.57
+    },
+    {
+        "word": "el",
+        "end": 9.04,
+        "start": 8.94
+    },
+    {
+        "word": "conjunt",
+        "end": 9.43,
+        "start": 9.05
+    },
+    {
+        "word": "de",
+        "end": 9.51,
+        "start": 9.44
+    },
+    {
+        "word": "l'estat",
+        "end": 9.86,
+        "start": 9.52
+    },
+    {
+        "word": "espanyol",
+        "end": 10.57,
+        "start": 9.87
+    },
+    {
+        "word": "est\u00e0",
+        "end": 11.18,
+        "start": 10.58
+    },
+    {
+        "word": "en",
+        "end": 11.34,
+        "start": 11.19
+    },
+    {
+        "word": "una",
+        "end": 11.51,
+        "start": 11.35
+    },
+    {
+        "word": "situaci\u00f3",
+        "end": 11.97,
+        "start": 11.52
+    },
+    {
+        "word": "financera",
+        "end": 12.44,
+        "start": 11.98
+    },
+    {
+        "word": "molt",
+        "end": 12.67,
+        "start": 12.45
+    },
+    {
+        "word": "complicada",
+        "end": 13.59,
+        "start": 12.68
+    },
+    {
+        "word": "molt",
+        "end": 13.91,
+        "start": 13.6
+    },
+    {
+        "word": "per",
+        "end": 14.06,
+        "start": 13.92
+    },
+    {
+        "word": "sobre",
+        "end": 14.33,
+        "start": 14.07
+    },
+    {
+        "word": "dels",
+        "end": 14.54,
+        "start": 14.34
+    },
+    {
+        "word": "d\u00e8ficits",
+        "end": 15.03,
+        "start": 14.55
+    },
+    {
+        "word": "que",
+        "end": 15.14,
+        "start": 15.04
+    },
+    {
+        "word": "tenen",
+        "end": 15.44,
+        "start": 15.15
+    },
+    {
+        "word": "la",
+        "end": 15.54,
+        "start": 15.45
+    },
+    {
+        "word": "majoria",
+        "end": 15.91,
+        "start": 15.55
+    },
+    {
+        "word": "dels",
+        "end": 16.05,
+        "start": 15.92
+    },
+    {
+        "word": "estats",
+        "end": 16.33,
+        "start": 16.06
+    },
+    {
+        "word": "de",
+        "end": 16.4,
+        "start": 16.34
+    },
+    {
+        "word": "la",
+        "end": 16.48,
+        "start": 16.41
+    },
+    {
+        "word": "uni\u00f3",
+        "end": 16.66,
+        "start": 16.49
+    },
+    {
+        "word": "europea",
+        "end": 16.96,
+        "start": 16.67
+    },
+    {
+        "word": "\u00e9s",
+        "end": 17.05,
+        "start": 16.97
+    },
+    {
+        "word": "aix\u00ed",
+        "end": 17.28,
+        "start": 17.06
+    },
+    {
+        "word": "o",
+        "end": 17.34,
+        "start": 17.29
+    },
+    {
+        "word": "no",
+        "end": 18.16,
+        "start": 17.35
+    },
+    {
+        "word": "b\u00e9",
+        "end": 18.53,
+        "start": 18.2
+    },
+    {
+        "word": "vost\u00e8",
+        "end": 18.95,
+        "start": 18.54
+    },
+    {
+        "word": "ha",
+        "end": 19.01,
+        "start": 18.96
+    },
+    {
+        "word": "vist",
+        "end": 19.28,
+        "start": 19.02
+    },
+    {
+        "word": "que"
+    },
+    {
+        "word": "hagin",
+        "end": 19.53,
+        "start": 19.29
+    },
+    {
+        "word": "tancat",
+        "end": 19.95,
+        "start": 19.54
+    },
+    {
+        "word": "algun",
+        "end": 20.27,
+        "start": 19.99
+    },
+    {
+        "word": "centre",
+        "end": 20.59,
+        "start": 20.28
+    },
+    {
+        "word": "de",
+        "end": 20.65,
+        "start": 20.6
+    },
+    {
+        "word": "l'institut",
+        "end": 21.03,
+        "start": 20.66
+    },
+    {
+        "word": "cervantes",
+        "end": 22.08,
+        "start": 21.04
+    },
+    {
+        "word": "doncs"
+    },
+    {
+        "word": "miri"
+    },
+    {
+        "word": "l'institut",
+        "end": 24.56,
+        "start": 24.12
+    },
+    {
+        "word": "cervantes",
+        "end": 25.0,
+        "start": 24.57
+    },
+    {
+        "word": "serveix",
+        "end": 25.32,
+        "start": 25.01
+    },
+    {
+        "word": "per",
+        "end": 25.44,
+        "start": 25.33
+    },
+    {
+        "word": "promocionar",
+        "end": 25.91,
+        "start": 25.45
+    },
+    {
+        "word": "la",
+        "end": 26.01,
+        "start": 25.92
+    },
+    {
+        "word": "llengua",
+        "end": 26.26,
+        "start": 26.02
+    },
+    {
+        "word": "espanyola",
+        "end": 27.03,
+        "start": 26.27
+    },
+    {
+        "word": "i",
+        "end": 27.78,
+        "start": 27.67
+    },
+    {
+        "word": "per",
+        "end": 27.93,
+        "start": 27.79
+    },
+    {
+        "word": "tant",
+        "end": 28.09,
+        "start": 27.94
+    },
+    {
+        "word": "si",
+        "end": 28.24,
+        "start": 28.1
+    },
+    {
+        "word": "del",
+        "end": 28.37,
+        "start": 28.25
+    },
+    {
+        "word": "que",
+        "end": 28.44,
+        "start": 28.38
+    },
+    {
+        "word": "es",
+        "end": 28.53,
+        "start": 28.45
+    },
+    {
+        "word": "tracta",
+        "end": 28.77,
+        "start": 28.54
+    },
+    {
+        "word": "\u00e9s",
+        "end": 28.84,
+        "start": 28.78
+    },
+    {
+        "word": "de",
+        "end": 28.91,
+        "start": 28.85
+    },
+    {
+        "word": "no",
+        "end": 29.03,
+        "start": 28.92
+    },
+    {
+        "word": "promocionar",
+        "end": 29.47,
+        "start": 29.04
+    },
+    {
+        "word": "cap",
+        "end": 29.66,
+        "start": 29.48
+    },
+    {
+        "word": "llengua",
+        "end": 30.08,
+        "start": 29.67
+    },
+    {
+        "word": "que",
+        "end": 30.51,
+        "start": 30.09
+    },
+    {
+        "word": "tanquin",
+        "end": 30.9,
+        "start": 30.52
+    },
+    {
+        "word": "tots",
+        "end": 31.2,
+        "start": 30.91
+    },
+    {
+        "word": "els",
+        "end": 31.3,
+        "start": 31.21
+    },
+    {
+        "word": "cervantes",
+        "end": 31.69,
+        "start": 31.31
+    },
+    {
+        "word": "per\u00f2"
+    },
+    {
+        "word": "aix\u00f2",
+        "end": 31.96,
+        "start": 31.78
+    },
+    {
+        "word": "evidentment",
+        "end": 32.31,
+        "start": 31.97
+    },
+    {
+        "word": "vost\u00e8",
+        "end": 32.55,
+        "start": 32.32
+    },
+    {
+        "word": "no",
+        "end": 32.65,
+        "start": 32.56
+    },
+    {
+        "word": "ho",
+        "end": 32.71,
+        "start": 32.66
+    },
+    {
+        "word": "dir\u00e0",
+        "end": 33.21,
+        "start": 32.72
+    },
+    {
+        "word": "sap",
+        "end": 33.64,
+        "start": 33.44
+    },
+    {
+        "word": "per",
+        "end": 33.77,
+        "start": 33.65
+    },
+    {
+        "word": "qu\u00e8",
+        "end": 33.89,
+        "start": 33.78
+    },
+    {
+        "word": "no",
+        "end": 33.98,
+        "start": 33.9
+    },
+    {
+        "word": "ho",
+        "end": 34.04,
+        "start": 33.99
+    },
+    {
+        "word": "dir\u00e0",
+        "end": 34.61,
+        "start": 34.05
+    },
+    {
+        "word": "sap",
+        "end": 34.84,
+        "start": 34.62
+    },
+    {
+        "word": "per",
+        "end": 34.97,
+        "start": 34.85
+    },
+    {
+        "word": "qu\u00e8",
+        "end": 35.07,
+        "start": 34.98
+    },
+    {
+        "word": "no",
+        "end": 35.15,
+        "start": 35.08
+    },
+    {
+        "word": "ho",
+        "end": 35.19,
+        "start": 35.16
+    },
+    {
+        "word": "dir\u00e0",
+        "end": 35.38,
+        "start": 35.2
+    },
+    {
+        "word": "senyor",
+        "end": 35.66,
+        "start": 35.39
+    },
+    {
+        "word": "rivera",
+        "end": 36.27,
+        "start": 35.67
+    },
+    {
+        "word": "perqu\u00e8",
+        "end": 36.7,
+        "start": 36.31
+    },
+    {
+        "word": "en",
+        "end": 36.77,
+        "start": 36.71
+    },
+    {
+        "word": "el",
+        "end": 36.87,
+        "start": 36.78
+    },
+    {
+        "word": "fons",
+        "end": 37.14,
+        "start": 36.88
+    },
+    {
+        "word": "a"
+    },
+    {
+        "word": "vost\u00e8",
+        "end": 37.37,
+        "start": 37.15
+    },
+    {
+        "word": "el"
+    },
+    {
+        "word": "que"
+    },
+    {
+        "word": "el",
+        "end": 37.45,
+        "start": 37.38
+    },
+    {
+        "word": "molesta"
+    },
+    {
+        "word": "\u00e9s"
+    },
+    {
+        "word": "que",
+        "end": 37.57,
+        "start": 37.46
+    },
+    {
+        "word": "es"
+    },
+    {
+        "word": "promocioni",
+        "end": 38.91,
+        "start": 38.32
+    },
+    {
+        "word": "la",
+        "end": 39.06,
+        "start": 38.92
+    },
+    {
+        "word": "llengua",
+        "end": 39.41,
+        "start": 39.07
+    },
+    {
+        "word": "catalana",
+        "end": 39.91,
+        "start": 39.42
+    },
+    {
+        "word": "probablement",
+        "end": 40.52,
+        "start": 39.92
+    },
+    {
+        "word": "i",
+        "end": 41.31,
+        "start": 41.21
+    },
+    {
+        "word": "entre",
+        "end": 41.52,
+        "start": 41.32
+    },
+    {
+        "word": "altres",
+        "end": 41.8,
+        "start": 41.53
+    },
+    {
+        "word": "coses",
+        "end": 42.13,
+        "start": 41.81
+    },
+    {
+        "word": "voldria",
+        "end": 42.47,
+        "start": 42.14
+    },
+    {
+        "word": "recordar",
+        "end": 42.89,
+        "start": 42.48
+    },
+    {
+        "word": "que",
+        "end": 43.0,
+        "start": 42.9
+    },
+    {
+        "word": "l'origen",
+        "end": 43.43,
+        "start": 43.01
+    },
+    {
+        "word": "de",
+        "end": 43.5,
+        "start": 43.44
+    },
+    {
+        "word": "la",
+        "end": 43.58,
+        "start": 43.51
+    },
+    {
+        "word": "seva",
+        "end": 43.81,
+        "start": 43.59
+    },
+    {
+        "word": "formaci\u00f3",
+        "end": 44.23,
+        "start": 43.82
+    },
+    {
+        "word": "\u00e9s",
+        "end": 44.32,
+        "start": 44.24
+    },
+    {
+        "word": "precisament",
+        "end": 44.9,
+        "start": 44.33
+    },
+    {
+        "word": "aquest",
+        "end": 45.79,
+        "start": 44.91
+    },
+    {
+        "word": "la",
+        "end": 46.31,
+        "start": 46.24
+    },
+    {
+        "word": "seva",
+        "end": 46.48,
+        "start": 46.32
+    },
+    {
+        "word": "formaci\u00f3",
+        "end": 46.91,
+        "start": 46.49
+    },
+    {
+        "word": "va",
+        "end": 47.02,
+        "start": 46.92
+    },
+    {
+        "word": "n\u00e9ixer",
+        "end": 47.34,
+        "start": 47.03
+    },
+    {
+        "word": "uns"
+    },
+    {
+        "word": "quants",
+        "end": 47.82,
+        "start": 47.61
+    },
+    {
+        "word": "anys",
+        "end": 48.0,
+        "start": 47.83
+    },
+    {
+        "word": "enrere",
+        "end": 48.33,
+        "start": 48.01
+    },
+    {
+        "word": "perqu\u00e8",
+        "end": 48.56,
+        "start": 48.34
+    },
+    {
+        "word": "a"
+    },
+    {
+        "word": "catalunya",
+        "end": 48.95,
+        "start": 48.57
+    },
+    {
+        "word": "ja",
+        "end": 49.02,
+        "start": 48.96
+    },
+    {
+        "word": "els",
+        "end": 49.14,
+        "start": 49.03
+    },
+    {
+        "word": "coneixen",
+        "end": 49.47,
+        "start": 49.15
+    },
+    {
+        "word": "molt",
+        "end": 49.9,
+        "start": 49.48
+    },
+    {
+        "word": "a"
+    },
+    {
+        "word": "espanya",
+        "end": 50.23,
+        "start": 49.91
+    },
+    {
+        "word": "encara"
+    },
+    {
+        "word": "els",
+        "end": 50.48,
+        "start": 50.33
+    },
+    {
+        "word": "coneixen",
+        "end": 50.88,
+        "start": 50.49
+    },
+    {
+        "word": "poc",
+        "end": 51.22,
+        "start": 50.89
+    },
+    {
+        "word": "per\u00f2",
+        "end": 51.57,
+        "start": 51.23
+    },
+    {
+        "word": "a"
+    },
+    {
+        "word": "catalunya",
+        "end": 51.94,
+        "start": 51.58
+    },
+    {
+        "word": "els",
+        "end": 52.05,
+        "start": 51.95
+    },
+    {
+        "word": "coneixen",
+        "end": 52.39,
+        "start": 52.06
+    },
+    {
+        "word": "molt",
+        "end": 52.66,
+        "start": 52.4
+    },
+    {
+        "word": "vost\u00e8s",
+        "end": 53.22,
+        "start": 52.67
+    },
+    {
+        "word": "van",
+        "end": 53.36,
+        "start": 53.23
+    },
+    {
+        "word": "n\u00e9ixer",
+        "end": 53.6,
+        "start": 53.37
+    },
+    {
+        "word": "per",
+        "end": 53.77,
+        "start": 53.61
+    },
+    {
+        "word": "carregar-se",
+        "end": 54.4,
+        "start": 53.78
+    },
+    {
+        "word": "el",
+        "end": 54.49,
+        "start": 54.41
+    },
+    {
+        "word": "sistema",
+        "end": 54.87,
+        "start": 54.5
+    },
+    {
+        "word": "d'immersi\u00f3",
+        "end": 55.31,
+        "start": 54.88
+    },
+    {
+        "word": "ling\u00fc\u00edstica",
+        "end": 56.57,
+        "start": 55.32
+    },
+    {
+        "word": "i",
+        "end": 57.63,
+        "start": 57.49
+    },
+    {
+        "word": "ara",
+        "end": 57.77,
+        "start": 57.64
+    },
+    {
+        "word": "evidentment",
+        "end": 58.35,
+        "start": 57.78
+    },
+    {
+        "word": "com",
+        "end": 58.53,
+        "start": 58.36
+    },
+    {
+        "word": "que",
+        "end": 58.62,
+        "start": 58.54
+    },
+    {
+        "word": "s\u00f3n",
+        "end": 58.82,
+        "start": 58.63
+    },
+    {
+        "word": "fidels",
+        "end": 59.15,
+        "start": 58.83
+    },
+    {
+        "word": "als",
+        "end": 59.28,
+        "start": 59.16
+    },
+    {
+        "word": "seus",
+        "end": 59.45,
+        "start": 59.29
+    },
+    {
+        "word": "or\u00edgens",
+        "end": 60.29,
+        "start": 59.46
+    },
+    {
+        "word": "segueixen",
+        "end": 60.77,
+        "start": 60.3
+    },
+    {
+        "word": "insistint",
+        "end": 61.22,
+        "start": 60.78
+    },
+    {
+        "word": "exactament",
+        "end": 61.77,
+        "start": 61.23
+    },
+    {
+        "word": "en",
+        "end": 61.86,
+        "start": 61.78
+    },
+    {
+        "word": "la",
+        "end": 61.94,
+        "start": 61.87
+    },
+    {
+        "word": "mateixa",
+        "end": 62.32,
+        "start": 61.95
+    },
+    {
+        "word": "l\u00ednia",
+        "end": 62.9,
+        "start": 62.33
+    },
+    {
+        "word": "aix\u00f2",
+        "end": 63.11,
+        "start": 62.91
+    },
+    {
+        "word": "que",
+        "end": 63.2,
+        "start": 63.12
+    },
+    {
+        "word": "vost\u00e8",
+        "end": 63.48,
+        "start": 63.21
+    },
+    {
+        "word": "denuncia",
+        "end": 64.04,
+        "start": 63.49
+    },
+    {
+        "word": "ho",
+        "end": 64.2,
+        "start": 64.13
+    },
+    {
+        "word": "hem",
+        "end": 64.32,
+        "start": 64.21
+    },
+    {
+        "word": "fet",
+        "end": 64.51,
+        "start": 64.33
+    },
+    {
+        "word": "sempre",
+        "end": 64.94,
+        "start": 64.52
+    },
+    {
+        "word": "senyor",
+        "end": 65.21,
+        "start": 64.95
+    },
+    {
+        "word": "rivera",
+        "end": 65.72,
+        "start": 65.22
+    },
+    {
+        "word": "s'ha",
+        "end": 65.87,
+        "start": 65.73
+    },
+    {
+        "word": "fet",
+        "end": 66.05,
+        "start": 65.88
+    },
+    {
+        "word": "sempre",
+        "end": 66.59,
+        "start": 66.06
+    },
+    {
+        "word": "quan",
+        "end": 67.3,
+        "start": 67.04
+    },
+    {
+        "word": "vost\u00e8s",
+        "end": 67.62,
+        "start": 67.31
+    },
+    {
+        "word": "van",
+        "end": 67.76,
+        "start": 67.63
+    },
+    {
+        "word": "comen\u00e7ar",
+        "end": 68.43,
+        "start": 67.77
+    },
+    {
+        "word": "la",
+        "end": 68.55,
+        "start": 68.44
+    },
+    {
+        "word": "seva",
+        "end": 68.75,
+        "start": 68.56
+    },
+    {
+        "word": "acci\u00f3",
+        "end": 68.99,
+        "start": 68.76
+    },
+    {
+        "word": "pol\u00edtica",
+        "end": 69.42,
+        "start": 69.0
+    },
+    {
+        "word": "a"
+    },
+    {
+        "word": "catalunya",
+        "end": 70.31,
+        "start": 69.43
+    },
+    {
+        "word": "aix\u00f2",
+        "end": 70.53,
+        "start": 70.32
+    },
+    {
+        "word": "ja",
+        "end": 70.64,
+        "start": 70.54
+    },
+    {
+        "word": "es",
+        "end": 70.74,
+        "start": 70.65
+    },
+    {
+        "word": "feia",
+        "end": 71.06,
+        "start": 70.75
+    },
+    {
+        "word": "i",
+        "end": 71.16,
+        "start": 71.07
+    },
+    {
+        "word": "es",
+        "end": 71.27,
+        "start": 71.17
+    },
+    {
+        "word": "continua",
+        "end": 71.68,
+        "start": 71.28
+    },
+    {
+        "word": "fent",
+        "end": 71.85,
+        "start": 71.69
+    },
+    {
+        "word": "exactament",
+        "end": 72.57,
+        "start": 71.86
+    },
+    {
+        "word": "igual",
+        "end": 72.93,
+        "start": 72.58
+    },
+    {
+        "word": "que",
+        "end": 73.13,
+        "start": 72.94
+    },
+    {
+        "word": "l'estat",
+        "end": 73.49,
+        "start": 73.14
+    },
+    {
+        "word": "espanyol",
+        "end": 73.93,
+        "start": 73.5
+    },
+    {
+        "word": "promociona",
+        "end": 74.5,
+        "start": 73.94
+    },
+    {
+        "word": "la",
+        "end": 74.59,
+        "start": 74.51
+    },
+    {
+        "word": "llengua",
+        "end": 74.86,
+        "start": 74.6
+    },
+    {
+        "word": "espanyola",
+        "end": 75.64,
+        "start": 74.87
+    },
+    {
+        "word": "exactament",
+        "end": 76.54,
+        "start": 75.65
+    },
+    {
+        "word": "igual",
+        "end": 77.24,
+        "start": 76.55
+    },
+    {
+        "word": "exactament",
+        "end": 78.6,
+        "start": 77.83
+    },
+    {
+        "word": "igual",
+        "end": 78.87,
+        "start": 78.61
+    },
+    {
+        "word": "ara",
+        "end": 79.55,
+        "start": 78.91
+    },
+    {
+        "word": "si",
+        "end": 79.81,
+        "start": 79.56
+    },
+    {
+        "word": "vost\u00e8",
+        "end": 80.14,
+        "start": 79.82
+    },
+    {
+        "word": "considera",
+        "end": 81.02,
+        "start": 80.15
+    },
+    {
+        "word": "que",
+        "end": 81.82,
+        "start": 81.7
+    },
+    {
+        "word": "el",
+        "end": 81.94,
+        "start": 81.83
+    },
+    {
+        "word": "fet",
+        "end": 82.31,
+        "start": 81.95
+    },
+    {
+        "word": "de",
+        "end": 82.41,
+        "start": 82.32
+    },
+    {
+        "word": "posar",
+        "end": 82.71,
+        "start": 82.42
+    },
+    {
+        "word": "publicitat",
+        "end": 83.38,
+        "start": 82.72
+    },
+    {
+        "word": "en",
+        "end": 83.49,
+        "start": 83.39
+    },
+    {
+        "word": "determinats",
+        "end": 84.03,
+        "start": 83.5
+    },
+    {
+        "word": "mitjans",
+        "end": 84.35,
+        "start": 84.04
+    },
+    {
+        "word": "de",
+        "end": 84.44,
+        "start": 84.36
+    },
+    {
+        "word": "comunicaci\u00f3",
+        "end": 85.16,
+        "start": 84.45
+    },
+    {
+        "word": "els",
+        "end": 85.39,
+        "start": 85.17
+    },
+    {
+        "word": "condiciona",
+        "end": 86.29,
+        "start": 85.4
+    },
+    {
+        "word": "deixi'm",
+        "end": 87.07,
+        "start": 86.3
+    },
+    {
+        "word": "dir-li",
+        "end": 87.28,
+        "start": 87.08
+    },
+    {
+        "word": "aleshores",
+        "end": 87.66,
+        "start": 87.29
+    },
+    {
+        "word": "una",
+        "end": 87.82,
+        "start": 87.67
+    },
+    {
+        "word": "cosa",
+        "end": 88.42,
+        "start": 87.83
+    },
+    {
+        "word": "aix\u00f2",
+        "end": 88.68,
+        "start": 88.43
+    },
+    {
+        "word": "diu",
+        "end": 88.93,
+        "start": 88.69
+    },
+    {
+        "word": "molt",
+        "end": 89.42,
+        "start": 88.94
+    },
+    {
+        "word": "poc",
+        "end": 89.83,
+        "start": 89.43
+    },
+    {
+        "word": "a",
+        "end": 89.95,
+        "start": 89.84
+    },
+    {
+        "word": "favor",
+        "end": 90.47,
+        "start": 89.96
+    },
+    {
+        "word": "de",
+        "end": 91.03,
+        "start": 90.48
+    },
+    {
+        "word": "la",
+        "end": 91.28,
+        "start": 91.04
+    },
+    {
+        "word": "professionalitat",
+        "end": 92.23,
+        "start": 91.29
+    },
+    {
+        "word": "period\u00edstica",
+        "end": 92.92,
+        "start": 92.24
+    },
+    {
+        "word": "d'aquest",
+        "end": 93.17,
+        "start": 92.93
+    },
+    {
+        "word": "pa\u00eds",
+        "end": 93.69,
+        "start": 93.18
+    },
+    {
+        "word": "que",
+        "end": 94.11,
+        "start": 93.88
+    },
+    {
+        "word": "veig",
+        "end": 94.32,
+        "start": 94.12
+    },
+    {
+        "word": "que",
+        "end": 94.42,
+        "start": 94.33
+    },
+    {
+        "word": "vost\u00e8",
+        "end": 94.68,
+        "start": 94.43
+    },
+    {
+        "word": "posa",
+        "end": 95.02,
+        "start": 94.69
+    },
+    {
+        "word": "en",
+        "end": 95.19,
+        "start": 95.03
+    },
+    {
+        "word": "dubte",
+        "end": 95.53,
+        "start": 95.2
+    },
+    {
+        "word": "totalment",
+        "end": 96.31,
+        "start": 95.54
+    },
+    {
+        "word": "perqu\u00e8",
+        "end": 96.69,
+        "start": 96.39
+    },
+    {
+        "word": "si",
+        "end": 96.84,
+        "start": 96.7
+    },
+    {
+        "word": "resulta",
+        "end": 97.17,
+        "start": 96.85
+    },
+    {
+        "word": "que",
+        "end": 97.27,
+        "start": 97.18
+    },
+    {
+        "word": "per",
+        "end": 97.4,
+        "start": 97.28
+    },
+    {
+        "word": "fer",
+        "end": 97.52,
+        "start": 97.41
+    },
+    {
+        "word": "publicitat",
+        "end": 98.0,
+        "start": 97.53
+    },
+    {
+        "word": "en",
+        "end": 98.09,
+        "start": 98.01
+    },
+    {
+        "word": "un",
+        "end": 98.15,
+        "start": 98.1
+    },
+    {
+        "word": "mitj\u00e0",
+        "end": 98.47,
+        "start": 98.16
+    },
+    {
+        "word": "com",
+        "end": 98.84,
+        "start": 98.48
+    },
+    {
+        "word": "tanta",
+        "end": 99.11,
+        "start": 98.85
+    },
+    {
+        "word": "publicitat",
+        "end": 99.51,
+        "start": 99.12
+    },
+    {
+        "word": "tenen",
+        "end": 99.73,
+        "start": 99.52
+    },
+    {
+        "word": "aquests"
+    },
+    {
+        "word": "mitjans",
+        "end": 100.19,
+        "start": 99.95
+    },
+    {
+        "word": "per",
+        "end": 100.27,
+        "start": 100.2
+    },
+    {
+        "word": "altra",
+        "end": 100.45,
+        "start": 100.28
+    },
+    {
+        "word": "banda",
+        "end": 100.63,
+        "start": 100.46
+    },
+    {
+        "word": "d'empreses",
+        "end": 101.01,
+        "start": 100.64
+    },
+    {
+        "word": "privades",
+        "end": 101.73,
+        "start": 101.02
+    },
+    {
+        "word": "els",
+        "end": 101.99,
+        "start": 101.74
+    },
+    {
+        "word": "condiciona",
+        "end": 102.87,
+        "start": 102.0
+    },
+    {
+        "word": "en",
+        "end": 103.0,
+        "start": 102.88
+    },
+    {
+        "word": "la",
+        "end": 103.13,
+        "start": 103.01
+    },
+    {
+        "word": "seva",
+        "end": 103.53,
+        "start": 103.14
+    },
+    {
+        "word": "acci\u00f3",
+        "end": 104.0,
+        "start": 103.54
+    },
+    {
+        "word": "period\u00edstica",
+        "end": 104.81,
+        "start": 104.01
+    },
+    {
+        "word": "diu",
+        "end": 105.37,
+        "start": 104.82
+    },
+    {
+        "word": "molt",
+        "end": 105.59,
+        "start": 105.38
+    },
+    {
+        "word": "poc",
+        "end": 105.87,
+        "start": 105.6
+    },
+    {
+        "word": "segurament",
+        "end": 106.33,
+        "start": 105.88
+    },
+    {
+        "word": "del",
+        "end": 106.46,
+        "start": 106.34
+    },
+    {
+        "word": "judici",
+        "end": 106.82,
+        "start": 106.47
+    },
+    {
+        "word": "que",
+        "end": 106.88,
+        "start": 106.83
+    },
+    {
+        "word": "vost\u00e8s",
+        "end": 107.25,
+        "start": 106.89
+    },
+    {
+        "word": "tenen",
+        "end": 107.66,
+        "start": 107.26
+    },
+    {
+        "word": "del",
+        "end": 108.42,
+        "start": 108.16
+    },
+    {
+        "word": "m\u00f3n",
+        "end": 108.58,
+        "start": 108.43
+    },
+    {
+        "word": "period\u00edstic",
+        "end": 109.21,
+        "start": 108.59
+    },
+    {
+        "word": "d'aquest"
+    },
+    {
+        "word": "pa\u00eds"
+    }
+]
