@@ -12,8 +12,10 @@ class Beam(object):
         beam_width
         TODO function (currently implemented in the object itself)
     '''
-    def __init__(self, width):
+    def __init__(self, width, t_min, t_max):
         self.beam_width = width
+        self.t_min = t_min # for now useless
+        self.t_max = t_max
         self.sequences = []
 
     def add(self, segment):
@@ -81,10 +83,10 @@ class Beam(object):
         score = 0
         n_segment = len(sequence)
         for segment in sequence:
-            score += log(P_segment(segment))
+            score += log(P_segment(segment, self.t_max))
         return score/n_segment**alpha
 
-def P_segment(segment):
+def P_segment(segment, t_max):
     '''
     Accepts a dict with keys words, start, end, punctuation returns a value
     between [0,1]
@@ -92,8 +94,8 @@ def P_segment(segment):
     # TODO input t_min, t_max
     # beta is an emprical parameter which makes the result 0.9 at t_min
     # for f_punctuation = 1 and t_min = 5; beta = 0.5
+    # for these parameters t_max is 10
     beta = 0.5
-    t_max = 10
     duration = segment['end'] - segment['start']
     if duration < 0:
         msg = 'duration cannot be negative'
@@ -113,5 +115,5 @@ def P_segment(segment):
     val = f_punctuation*exp(-beta/duration)
     # Step function to reject segments with durations > t_max
     if duration > t_max:
-        val *= 0.005
+        val *= 0.01
     return val
