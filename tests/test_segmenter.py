@@ -26,11 +26,24 @@ class SegmenterTestCase(unittest.TestCase):
                                  '28fd6d0874eecbfdff35_mapped_align.json',
                                  '28fd6d0874eecbfdff35_best_segments.json',
                                  0.80]]
+
+        self.long_segments = [
+        {"end": 104.21,
+         "words": "no compartim que no puguin col\u00b7laborar amb els mossos d'acord amb la llei per evitar robatoris el partit popular no dir\u00e0 mai als ciutadans que han d'aguantar que els robin sense fer res i que s'ho quedin mirant",
+         "punctuation": 1.0,
+         "start": 92.55
+        },
+        {'words': "no compartim que no puguin col·laborar amb els mossos d'acord amb la llei per evitar robatoris el partit popular no dirà mai als ciutadans que han d'aguantar que els robin sense fer res i que s'ho quedin mirant direm als pagesos que d'acord amb la llei col·laborin amb la policia per evitar els robatoris i al govern li exigirem que augmenti els agents que destina a l'àmbit rural que incrementi les actuacions preventives i que garanteixi la seguretat que aquesta és la seva responsabilitat",
+        'start': 92.55,
+        'end': 122.5,
+        'punctuation': 1.0}]
+
         if not os.path.exists(TMP_PATH):
             os.mkdir(TMP_PATH)
 
     def tearDown(self):
-        os.popen('rm %s/*.*'%TMP_PATH)
+        pass
+        #os.popen('rm %s/*.*'%TMP_PATH)
 
     def test_segmenter(self):
 
@@ -76,8 +89,29 @@ class SegmenterTestCase(unittest.TestCase):
             #    json.dump(m.alignment, out, indent=2)
             self.assertEqual(m.alignment, self.comparison_mapped_alignment)
 
-            # get segments using silences
+            # initialize segmenter
             segmenter = Segmenter(m.alignment)
+
+            # test shorten_segment
+            if test_files[1] == 'c3d9d2a15a76a9fbb591_align.json':
+                for long_segment in self.long_segments:
+                    new_segments = segmenter.shorten_segment(long_segment)
+                    max_new_length = max([nsegment['end']-nsegment['start']\
+                                         for nsegment in new_segments])
+                    # check if it works
+                    self.assertTrue(max_new_length <= segmenter.t_max,
+                                    msg='shorten segment not working\n%s'
+                                        %str(new_segments))
+                    # check tokens are lost in the process
+                    total_duration = sum([n['end']-n['start']\
+                                         for n in new_segments])
+                    reference_duration = long_segment['end'] -\
+                                         long_segment['start']
+                    self.assertEqual(' '.join([n['words'] for n in new_segments]),
+                                     long_segment['words'],
+                                     msg="shorten_segment loses tokens")
+
+            # get segments using silences
             segmenter.get_segments()
 
             # check if results are consistent with the
@@ -90,6 +124,13 @@ class SegmenterTestCase(unittest.TestCase):
             # get segments before optimization
             with open(tmp_segments_file, 'w') as out:
                 json.dump(segmenter.segments, out, indent=2)
+            max_unoptimized_length = max([segment['end']-segment['start']\
+                                    for segment in segmenter.segments])
+            self.assertTrue(max_unoptimized_length <= segmenter.t_max,
+                            msg="for %s longest segment is longer than t_max:"\
+                                " %2.1f vs %2.1f"%(tmp_segments_file,
+                                                   max_unoptimized_length,
+                                                   segmenter.t_max))
 
             # optimize segments
             segmenter.optimize()
