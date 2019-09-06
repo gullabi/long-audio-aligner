@@ -12,6 +12,7 @@ class Segmenter(object):
         self.silence = silence
         self.t_min = t_min # TODO for now useless
         self.t_max = t_max
+        self.beam_width = 10
         self.get_target_blocks()
         self.segments = []
         self.best_segments = []
@@ -89,29 +90,6 @@ class Segmenter(object):
         start_index, end_index = indicies[0], indicies[-1]+1
         cropped_block = block[start_index:end_index]
         unit_segments = join_block(cropped_block, self.silence)
-        '''
-        unit_segments = []
-        # first segment
-        segment = {'words': '', 'start': cropped_block[0]['start']}
-        for i, element in enumerate(cropped_block):
-            if i < len(cropped_block)-1:
-                segment['words'] += element['word'] + ' '
-                next_element = cropped_block[i+1]
-                if element.get('end') and next_element.get('start'):
-                    if (float(next_element['start'])-float(element['end'])) > \
-                                                                  self.silence:
-                        segment['end'] = element['end']
-                        segment['words'] = segment['words'].strip()
-                        if element.get('punctuation'):
-                            segment['punctuation'] = element['punctuation']
-                        unit_segments.append(segment)
-                        # new segment
-                        segment = {'words': '', 'start':next_element['start']}
-            else:
-                segment['words'] += element['word']
-                segment['end'] = element['end']
-                unit_segments.append(segment)
-        '''
         return unit_segments
 
     def shorten_segment(self, segment):
@@ -166,10 +144,15 @@ class Segmenter(object):
                                 for nsegment in new_segments])
             if max_duration <= self.t_max:
                 break
-        return new_segments
 
-    def optimize(self, beam_width=10):
-        beam = Beam(beam_width, self.t_min, self.t_max)
+        # optimize the new segments since there could be many single token ones
+        sh_beam = Beam(5, self.t_min, self.t_max)
+        for segment in new_segments:
+            sh_beam.add(segment)
+        return sh_beam.sequences[0]
+
+    def optimize(self):
+        beam = Beam(self.beam_width, self.t_min, self.t_max)
         for segment in self.segments:
             beam.add(segment)
         # sequences are ordered according to the score

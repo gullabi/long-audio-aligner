@@ -110,6 +110,10 @@ class SegmenterTestCase(unittest.TestCase):
                     self.assertEqual(' '.join([n['words'] for n in new_segments]),
                                      long_segment['words'],
                                      msg="shorten_segment loses tokens")
+                    # check if there are many single tokens
+                    singles = len([1 for n in new_segments\
+                                     if len(n['words'].split()) == 1])
+                    self.assertTrue(singles < 2)
 
             # get segments using silences
             segmenter.get_segments()

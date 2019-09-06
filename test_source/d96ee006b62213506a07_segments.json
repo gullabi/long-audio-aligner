@@ -1,210 +1,113 @@
 [
   {
-    "words": "gr\u00e0cies",
+    "end": 4.01,
     "start": 3.46,
     "punctuation": 0.9,
-    "end": 4.01
+    "words": "gr\u00e0cies"
   },
   {
-    "words": "senyora presidenta",
+    "end": 5.76,
     "start": 4.45,
     "punctuation": 1.0,
-    "end": 5.76
+    "words": "senyora presidenta"
   },
   {
-    "words": "senyor diputat",
+    "end": 7.11,
     "start": 6.35,
     "punctuation": 0.9,
-    "end": 7.11
+    "words": "senyor diputat"
   },
   {
-    "words": "si no ho recordo malament el",
+    "end": 9.04,
     "start": 7.92,
-    "end": 9.04
+    "words": "si no ho recordo malament el"
   },
   {
-    "words": "conjunt de l'estat espanyol est\u00e0 en una situaci\u00f3 financera molt complicada molt per sobre dels d\u00e8ficits que tenen la majoria dels estats de la uni\u00f3 europea \u00e9s aix\u00ed o no",
+    "end": 18.16,
     "start": 9.05,
     "punctuation": 1.0,
-    "end": 18.16
+    "words": "conjunt de l'estat espanyol est\u00e0 en una situaci\u00f3 financera molt complicada molt per sobre dels d\u00e8ficits que tenen la majoria dels estats de la uni\u00f3 europea \u00e9s aix\u00ed o no"
   },
   {
-    "words": "b\u00e9 vost\u00e8 ha vist que hagin tancat",
+    "end": 27.03,
     "start": 18.2,
-    "end": 19.95
-  },
-  {
-    "words": "algun centre de l'institut cervantes doncs miri l'institut cervantes serveix per promocionar la llengua espanyola",
-    "start": 19.99,
     "punctuation": 1.0,
-    "end": 27.03
+    "words": "b\u00e9 vost\u00e8 ha vist que hagin tancat algun centre de l'institut cervantes doncs miri l'institut cervantes serveix per promocionar la llengua espanyola"
   },
   {
-    "words": "i per tant si del que es tracta \u00e9s de no promocionar cap llengua que tanquin tots els cervantes per\u00f2 aix\u00f2 evidentment vost\u00e8 no ho dir\u00e0",
+    "end": 33.21,
     "start": 27.67,
     "punctuation": 1.0,
-    "end": 33.21
+    "words": "i per tant si del que es tracta \u00e9s de no promocionar cap llengua que tanquin tots els cervantes per\u00f2 aix\u00f2 evidentment vost\u00e8 no ho dir\u00e0"
   },
   {
-    "words": "sap per qu\u00e8 no ho dir\u00e0 sap per qu\u00e8 no ho dir\u00e0 senyor rivera perqu\u00e8 en el fons a vost\u00e8 el que el molesta \u00e9s que es promocioni la llengua catalana probablement",
+    "end": 40.52,
     "start": 33.44,
     "punctuation": 1.0,
-    "end": 40.52
+    "words": "sap per qu\u00e8 no ho dir\u00e0 sap per qu\u00e8 no ho dir\u00e0 senyor rivera perqu\u00e8 en el fons a vost\u00e8 el que el molesta \u00e9s que es promocioni la llengua catalana probablement"
   },
   {
-    "words": "i entre altres coses voldria recordar que l'origen de la seva formaci\u00f3 \u00e9s precisament aquest",
+    "end": 45.79,
     "start": 41.21,
     "punctuation": 1.0,
-    "end": 45.79
+    "words": "i entre altres coses voldria recordar que l'origen de la seva formaci\u00f3 \u00e9s precisament aquest"
   },
   {
-    "words": "la seva",
+    "end": 46.91,
     "start": 46.24,
-    "end": 46.48
+    "words": "la seva formaci\u00f3"
   },
   {
-    "words": "formaci\u00f3",
-    "start": 46.49,
-    "end": 46.91
-  },
-  {
-    "words": "va n\u00e9ixer uns quants anys enrere perqu\u00e8 a catalunya ja els coneixen molt a espanya encara els coneixen poc per\u00f2 a catalunya els coneixen molt vost\u00e8s van n\u00e9ixer per carregar-se el sistema d'immersi\u00f3 ling\u00fc\u00edstica",
+    "end": 56.57,
     "start": 46.92,
     "punctuation": 1.0,
-    "end": 56.57
+    "words": "va n\u00e9ixer uns quants anys enrere perqu\u00e8 a catalunya ja els coneixen molt a espanya encara els coneixen poc per\u00f2 a catalunya els coneixen molt vost\u00e8s van n\u00e9ixer per carregar-se el sistema d'immersi\u00f3 ling\u00fc\u00edstica"
   },
   {
-    "words": "i ara evidentment com que s\u00f3n fidels als seus or\u00edgens segueixen insistint exactament en la mateixa l\u00ednia aix\u00f2 que vost\u00e8 denuncia ho hem fet sempre senyor rivera s'ha fet sempre",
+    "end": 66.59,
     "start": 57.49,
     "punctuation": 1.0,
-    "end": 66.59
+    "words": "i ara evidentment com que s\u00f3n fidels als seus or\u00edgens segueixen insistint exactament en la mateixa l\u00ednia aix\u00f2 que vost\u00e8 denuncia ho hem fet sempre senyor rivera s'ha fet sempre"
   },
   {
-    "words": "quan",
+    "end": 67.3,
     "start": 67.04,
-    "end": 67.3
+    "words": "quan"
   },
   {
-    "words": "vost\u00e8s van comen\u00e7ar la seva acci\u00f3 pol\u00edtica a catalunya aix\u00f2 ja es feia i es continua fent exactament igual que l'estat espanyol promociona la llengua espanyola exactament igual",
+    "end": 77.24,
     "start": 67.31,
-    "end": 77.24
+    "words": "vost\u00e8s van comen\u00e7ar la seva acci\u00f3 pol\u00edtica a catalunya aix\u00f2 ja es feia i es continua fent exactament igual que l'estat espanyol promociona la llengua espanyola exactament igual"
   },
   {
-    "words": "exactament igual ara si vost\u00e8 considera",
+    "end": 81.02,
     "start": 77.83,
-    "end": 81.02
+    "words": "exactament igual ara si vost\u00e8 considera"
   },
   {
-    "words": "que",
+    "end": 84.03,
     "start": 81.7,
-    "end": 81.82
+    "words": "que el fet de posar publicitat en determinats"
   },
   {
-    "words": "el",
-    "start": 81.83,
-    "end": 81.94
-  },
-  {
-    "words": "fet de",
-    "start": 81.95,
-    "end": 82.41
-  },
-  {
-    "words": "posar",
-    "start": 82.42,
-    "end": 82.71
-  },
-  {
-    "words": "publicitat",
-    "start": 82.72,
-    "end": 83.38
-  },
-  {
-    "words": "en",
-    "start": 83.39,
-    "end": 83.49
-  },
-  {
-    "words": "determinats",
-    "start": 83.5,
-    "end": 84.03
-  },
-  {
-    "words": "mitjans de comunicaci\u00f3 els condiciona deixi'm dir-li aleshores una cosa aix\u00f2 diu molt poc a favor de la professionalitat period\u00edstica d'aquest pa\u00eds",
+    "end": 93.69,
     "start": 84.04,
     "punctuation": 0.9,
-    "end": 93.69
+    "words": "mitjans de comunicaci\u00f3 els condiciona deixi'm dir-li aleshores una cosa aix\u00f2 diu molt poc a favor de la professionalitat period\u00edstica d'aquest pa\u00eds"
   },
   {
-    "words": "que",
+    "end": 98.0,
     "start": 93.88,
-    "end": 94.11
+    "words": "que veig que vost\u00e8 posa en dubte totalment perqu\u00e8 si resulta que per fer publicitat"
   },
   {
-    "words": "veig",
-    "start": 94.12,
-    "end": 94.32
-  },
-  {
-    "words": "que",
-    "start": 94.33,
-    "end": 94.42
-  },
-  {
-    "words": "vost\u00e8 posa",
-    "start": 94.43,
-    "end": 95.02
-  },
-  {
-    "words": "en",
-    "start": 95.03,
-    "end": 95.19
-  },
-  {
-    "words": "dubte",
-    "start": 95.2,
-    "end": 95.53
-  },
-  {
-    "words": "totalment",
-    "start": 95.54,
-    "punctuation": 1.0,
-    "end": 96.31
-  },
-  {
-    "words": "perqu\u00e8",
-    "start": 96.39,
-    "punctuation": 0.9,
-    "end": 96.69
-  },
-  {
-    "words": "si resulta",
-    "start": 96.7,
-    "end": 97.17
-  },
-  {
-    "words": "que",
-    "start": 97.18,
-    "end": 97.27
-  },
-  {
-    "words": "per fer",
-    "start": 97.28,
-    "end": 97.52
-  },
-  {
-    "words": "publicitat",
-    "start": 97.53,
-    "end": 98.0
-  },
-  {
-    "words": "en un mitj\u00e0 com tanta publicitat tenen aquests mitjans per altra banda d'empreses privades els condiciona en la seva acci\u00f3 period\u00edstica diu molt poc segurament del judici que vost\u00e8s tenen",
+    "end": 107.66,
     "start": 98.01,
-    "end": 107.66
+    "words": "en un mitj\u00e0 com tanta publicitat tenen aquests mitjans per altra banda d'empreses privades els condiciona en la seva acci\u00f3 period\u00edstica diu molt poc segurament del judici que vost\u00e8s tenen"
   },
   {
-    "words": "del m\u00f3n period\u00edstic",
+    "end": 109.21,
     "start": 108.16,
-    "end": 109.21
+    "words": "del m\u00f3n period\u00edstic"
   }
 ]
