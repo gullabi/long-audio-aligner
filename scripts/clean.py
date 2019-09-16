@@ -50,7 +50,15 @@ def get_clean_list():
             ('·los ','-los '),
             ('·se ','-se '),
             ('no·soluci','no-soluci'),
-            ('sánchez·camacho','sánchez camacho')]
+            ('sánchez·camacho','sánchez-camacho'),
+            ('·dos ','-dos '),
+            ('·tres ','-tres '),
+            ('·quatre ','-quatre '),
+            ('·cinc ','-cinc '),
+            ('·sis ','-sis '),
+            ('·set ','-set '),
+            ('·vuit ','-vuit '),
+            ('·nou ','-nou ')]
 
 def db_connect():
     client = MongoClient('localhost',27017)
