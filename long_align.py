@@ -81,6 +81,7 @@ def process_pipeline(intervention, outdir):
         logging.error(str(e))
         return []
     segs = cs.segs
+    intervention['words'] = cs.segs
 
     # TODO call decode functions in Align object
     decode_align = Text(align.sentences, segs, align.align_outfile)
@@ -167,6 +168,9 @@ def process_and_upsert(intervention, outdir, db):
         db.insert_one(int_code, intervention, upsert=True)
 
 def segments_db(collection, threads = 1, option='parlament'):
+    '''
+    evaluates the score of the already existing segments in the db
+    '''
     start = datetime.now()
     db = SegmentDB(collection, db_name=option)
     db.connect()
@@ -258,4 +262,5 @@ if __name__ == "__main__":
         else:
             from_db(args.outdir, threads = 1)
     elif args.collection:
+        # for segment decode score evaluation
         segments_db(args.collection, threads = 3)
