@@ -11,7 +11,7 @@ from multiprocessing.dummy import Pool
 from tqdm import tqdm
 from datetime import datetime
 from utils.align import Align, TMP
-from utils.sphinx import CMU
+from utils.sphinx import CMU, DICT_FILE
 from utils.text import Text
 from utils.map import Map
 from utils.segment import Segmenter
@@ -23,12 +23,14 @@ from utils.convert import get_new_key
 
 PROJECT_PATH = os.path.dirname(os.path.realpath(__file__)) 
 MODEL_PATH = os.path.join(PROJECT_PATH, '../cmusphinx-models/ca-es')
-DICT_PATH = os.path.join(MODEL_PATH, 'pronounciation-dictionary.dict')
+DICT_PATH = os.path.join(MODEL_PATH, DICT_FILE)
 
 def get_optimal_segments(intervention, alignment):
     # get punctuation and speaker information
     m = Map(intervention, alignment)
     m.prepare()
+
+    intervention['words'] = m.alignment
 
     # get segments using silences
     segmenter = Segmenter(m.alignment)
@@ -41,15 +43,16 @@ def get_optimal_segments(intervention, alignment):
 def multiple(jsonfile, outdir):
     logging.info('loading all speakers in all sessions')
     interventions = json.load(open(jsonfile))
-    for int_code, intervention in interventions.items():
-        if len(intervention['urls']) > 1:
-            msg = "%s multiple audio file, skipping"%intervention['urls']
-            logging.info(msg)
-        elif intervention['urls'][0][1] == None:
-            msg = 'no audio uri for %s'%int_code
-            logging.info(msg)
-        else:
-            intervention['results'] = process_pipeline(intervention, outdir)
+    for int_code, session in interventions.items():
+        for intervention in session.values():
+            if len(intervention['urls']) > 1:
+                msg = "%s multiple audio file, skipping"%intervention['urls']
+                logging.info(msg)
+            elif intervention['urls'][0][1] == None:
+                msg = 'no audio uri for %s'%int_code
+                logging.info(msg)
+            else:
+                intervention['results'] = process_pipeline(intervention, outdir)
     with open(jsonfile.replace('.json','_res.json'), 'w') as out:
         json.dump(interventions, out, indent=2)
 
@@ -81,7 +84,6 @@ def process_pipeline(intervention, outdir):
         logging.error(str(e))
         return []
     segs = cs.segs
-    intervention['words'] = cs.segs
 
     # TODO call decode functions in Align object
     decode_align = Text(align.sentences, segs, align.align_outfile)
@@ -113,7 +115,7 @@ def process_pipeline(intervention, outdir):
     subprocess.call('rm {0}*.jsgf {0}*.raw'.format(outpath), shell=True)
     return segmenter.best_segments
 
-def from_db(outdir, threads = 1):
+def from_db(outdir, threads = 1, overwrite=False):
     if not os.path.isdir(outdir):
         msg = '%s is not a directory'%outdir
         raise IOError(msg)
@@ -137,7 +139,7 @@ def from_db(outdir, threads = 1):
             msg = 'no audio uri for %s'%int_code
             logging.info(msg)
         else:
-            if intervention.get('results'):
+            if not overwrite and intervention.get('results'):
                 msg = '%s already processed in db, skipping'%int_code
                 logging.info(msg)
             else:
@@ -241,6 +243,9 @@ if __name__ == "__main__":
                         default=None,
                         help="collection name for the db segments",
                         type=str)
+    parser.add_argument("-r", "-overwrite", dest="overwrite",\
+                        action="store_true",\
+                        help="overwrite results")
 
     args = parser.parse_args()
     if args.collection and args.jsonfile:
@@ -258,9 +263,10 @@ if __name__ == "__main__":
                         filemode='a')
     if args.outdir:
         if args.jsonfile:
+            # from file
             multiple(args.jsonfile, args.outdir)
         else:
-            from_db(args.outdir, threads = 1)
+            from_db(args.outdir, threads = 1, overwrite=args.overwrite)
     elif args.collection:
         # for segment decode score evaluation
         segments_db(args.collection, threads = 3)
