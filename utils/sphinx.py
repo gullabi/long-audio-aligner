@@ -4,14 +4,15 @@ import logging
 import subprocess
 import pocketsphinx.pocketsphinx as ps
 
+DICT_FILE = 'pronunciation-dictionary.dict'
+
 class CMU(object):
     def __init__(self, model_path):
         self.model_path = model_path
         self.config = ps.Decoder.default_config()
         self.config.set_string('-hmm', os.path.join(model_path,
                                                  'acoustic-model-ptm'))
-        self.config.set_string('-dict', os.path.join(model_path,
-                                       'pronounciation-dictionary.dict'))
+        self.config.set_string('-dict', os.path.join(model_path, DICT_FILE))
         self.config.set_string('-logfn', '/dev/null')
 
     def decode(self, raw, lm_file):
