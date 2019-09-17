@@ -136,6 +136,9 @@ class SegmenterTestCase(unittest.TestCase):
                                                    max_unoptimized_length,
                                                    segmenter.t_max))
 
+            # assert that segments have original_words
+            self.assertTrue(segmenter.segments[0].get('original_words') != None)
+
             # optimize segments
             segmenter.optimize()
             with open(tmp_best_segments_file, 'w') as out:

@@ -1,153 +1,180 @@
 [
   {
-    "end": 16.0,
     "start": 6.09,
-    "words": "miri conseller en el darrer ple vost\u00e8 va compartir que s'aprov\u00e9s el seg\u00fcent acord prohibir de manera immediata els sometents ens referim a aquells pagesos que de forma peri\u00f2dica"
+    "original_words": "Miri, conseller, en el darrer Ple vost\u00e8 va compartir que s'aprov\u00e9s el seg\u00fcent acord: Prohibir de manera immediata els sometents. Ens referim a aquells pagesos que de forma peri\u00f2dica",
+    "words": "miri conseller en el darrer ple vost\u00e8 va compartir que s'aprov\u00e9s el seg\u00fcent acord prohibir de manera immediata els sometents ens referim a aquells pagesos que de forma peri\u00f2dica",
+    "end": 16.0
   },
   {
-    "end": 23.34,
     "start": 16.65,
+    "original_words": "els roben en les seves propietats i que volen col\u00b7laborar amb els Mossos d'esquadra per evitar precisament aix\u00f2, que els robin.",
     "punctuation": 1.0,
-    "words": "els roben en les seves propietats i que volen col\u00b7laborar amb els mossos d'esquadra per evitar precisament aix\u00f2 que els robin"
+    "words": "els roben en les seves propietats i que volen col\u00b7laborar amb els mossos d'esquadra per evitar precisament aix\u00f2 que els robin",
+    "end": 23.34
   },
   {
-    "end": 29.99,
     "start": 24.06,
-    "words": "miri conseller la policia est\u00e0 per enxampar els lladres i evitar els robatoris i vost\u00e8 amb la seva"
+    "original_words": "Miri, conseller, la policia est\u00e0 per enxampar els lladres i evitar els robatoris, i vost\u00e8, amb la seva",
+    "words": "miri conseller la policia est\u00e0 per enxampar els lladres i evitar els robatoris i vost\u00e8 amb la seva",
+    "end": 29.99
   },
   {
-    "end": 34.22,
     "start": 30.41,
+    "original_words": "decisi\u00f3, dedicar\u00e0 els Mossos d'Esquadra a vigilar els pagesos,",
     "punctuation": 0.9,
-    "words": "decisi\u00f3 dedicar\u00e0 els mossos d'esquadra a vigilar els pagesos"
+    "words": "decisi\u00f3 dedicar\u00e0 els mossos d'esquadra a vigilar els pagesos",
+    "end": 34.22
   },
   {
-    "end": 38.45,
     "start": 34.38,
+    "original_words": "que nom\u00e9s demanen que no els robin. Tots els grups parlamentaris,",
     "punctuation": 0.9,
-    "words": "que nom\u00e9s demanen que no els robin tots els grups parlamentaris"
+    "words": "que nom\u00e9s demanen que no els robin tots els grups parlamentaris",
+    "end": 38.45
   },
   {
-    "end": 48.35,
     "start": 39.09,
+    "original_words": "excepte el Partit Popular, es preocupen molt de criminalitzar els pagesos per\u00f2 parlen molt poc dels lladres i del que hem de fer perqu\u00e8 aquests vagin a la pres\u00f3.",
     "punctuation": 1.0,
-    "words": "excepte el partit popular es preocupen molt de criminalitzar els pagesos per\u00f2 parlen molt poc dels lladres i del que hem de fer perqu\u00e8 aquests vagin a la pres\u00f3"
+    "words": "excepte el partit popular es preocupen molt de criminalitzar els pagesos per\u00f2 parlen molt poc dels lladres i del que hem de fer perqu\u00e8 aquests vagin a la pres\u00f3",
+    "end": 48.35
   },
   {
-    "end": 51.23,
     "start": 48.81,
+    "original_words": "Ara resulta que els dolents s\u00f3n els pagesos.",
     "punctuation": 1.0,
-    "words": "ara resulta que els dolents s\u00f3n els pagesos"
+    "words": "ara resulta que els dolents s\u00f3n els pagesos",
+    "end": 51.23
   },
   {
-    "end": 52.6,
     "start": 51.61,
-    "words": "miri el m\u00f3n"
+    "original_words": "Miri, el m\u00f3n",
+    "words": "miri el m\u00f3n",
+    "end": 52.6
   },
   {
-    "end": 53.55,
     "start": 52.71,
+    "original_words": "al rev\u00e9s.",
     "punctuation": 1.0,
-    "words": "al rev\u00e9s"
+    "words": "al rev\u00e9s",
+    "end": 53.55
   },
   {
-    "end": 57.13,
     "start": 54.08,
+    "original_words": "Tornen les pol\u00edtiques de seguretat del tripartit.",
     "punctuation": 1.0,
-    "words": "tornen les pol\u00edtiques de seguretat del tripartit"
+    "words": "tornen les pol\u00edtiques de seguretat del tripartit",
+    "end": 57.13
   },
   {
-    "end": 58.99,
     "start": 57.86,
-    "words": "conseller vost\u00e8"
+    "original_words": "Conseller, vost\u00e8",
+    "words": "conseller vost\u00e8",
+    "end": 58.99
   },
   {
-    "end": 67.23,
     "start": 59.09,
+    "original_words": "pren decisions molt r\u00e0pidament perqu\u00e8 es vegi que adopta pol\u00edtiques contr\u00e0ries a les que va impulsar el conseller Puig.",
     "punctuation": 1.0,
-    "words": "pren decisions molt r\u00e0pidament perqu\u00e8 es vegi que adopta pol\u00edtiques contr\u00e0ries a les que va impulsar el conseller puig"
+    "words": "pren decisions molt r\u00e0pidament perqu\u00e8 es vegi que adopta pol\u00edtiques contr\u00e0ries a les que va impulsar el conseller puig",
+    "end": 67.23
   },
   {
-    "end": 75.92,
     "start": 67.5,
+    "original_words": "Vost\u00e8 s'apropa a les pol\u00edtiques del conseller Saura i fuig com gat escaldat de les pol\u00edtiques del conseller Puig.",
     "punctuation": 1.0,
-    "words": "vost\u00e8 s'apropa a les pol\u00edtiques del conseller saura i fuig com gat escaldat de les pol\u00edtiques del conseller puig"
+    "words": "vost\u00e8 s'apropa a les pol\u00edtiques del conseller saura i fuig com gat escaldat de les pol\u00edtiques del conseller puig",
+    "end": 75.92
   },
   {
-    "end": 83.1,
     "start": 76.12,
+    "original_words": "Compartim que la responsabilitat de la seguretat \u00e9s de la policia, que cal incrementar els agents destinats a l'\u00e0mbit rural,",
     "punctuation": 0.9,
-    "words": "compartim que la responsabilitat de la seguretat \u00e9s de la policia que cal incrementar els agents destinats a l'\u00e0mbit rural"
+    "words": "compartim que la responsabilitat de la seguretat \u00e9s de la policia que cal incrementar els agents destinats a l'\u00e0mbit rural",
+    "end": 83.1
   },
   {
-    "end": 87.53,
     "start": 83.71,
+    "original_words": "que \u00e9s imprescindible una actuaci\u00f3 preventiva i no nom\u00e9s reactiva,",
     "punctuation": 0.9,
-    "words": "que \u00e9s imprescindible una actuaci\u00f3 preventiva i no nom\u00e9s reactiva"
+    "words": "que \u00e9s imprescindible una actuaci\u00f3 preventiva i no nom\u00e9s reactiva",
+    "end": 87.53
   },
   {
-    "end": 91.98,
     "start": 87.83,
+    "original_words": "per\u00f2 no compartim, conseller, que els ciutadans no puguin vetllar perqu\u00e8 no els robin.",
     "punctuation": 1.0,
-    "words": "per\u00f2 no compartim conseller que els ciutadans no puguin vetllar perqu\u00e8 no els robin"
+    "words": "per\u00f2 no compartim conseller que els ciutadans no puguin vetllar perqu\u00e8 no els robin",
+    "end": 91.98
   },
   {
-    "end": 94.27,
     "start": 92.55,
-    "words": "no compartim que no puguin col\u00b7laborar amb"
+    "original_words": "No compartim que no puguin col\u00b7laborar amb",
+    "words": "no compartim que no puguin col\u00b7laborar amb",
+    "end": 94.27
   },
   {
-    "end": 104.21,
     "start": 94.28,
+    "original_words": "els Mossos d'acord amb la llei per evitar robatoris. El Partit Popular no dir\u00e0 mai als ciutadans que han d'aguantar que els robin sense fer res i que s'ho quedin mirant.",
     "punctuation": 1.0,
-    "words": "els mossos d'acord amb la llei per evitar robatoris el partit popular no dir\u00e0 mai als ciutadans que han d'aguantar que els robin sense fer res i que s'ho quedin mirant"
+    "words": "els mossos d'acord amb la llei per evitar robatoris el partit popular no dir\u00e0 mai als ciutadans que han d'aguantar que els robin sense fer res i que s'ho quedin mirant",
+    "end": 104.21
   },
   {
-    "end": 109.71,
     "start": 104.53,
-    "words": "direm als pagesos que d'acord amb la llei col\u00b7laborin amb la policia per evitar"
+    "original_words": "Direm als pagesos que, d'acord amb la llei, col\u00b7laborin amb la policia per evitar",
+    "words": "direm als pagesos que d'acord amb la llei col\u00b7laborin amb la policia per evitar",
+    "end": 109.71
   },
   {
-    "end": 112.71,
     "start": 109.83,
-    "words": "els robatoris i al govern li exigirem"
+    "original_words": "els robatoris, i al Govern li exigirem",
+    "words": "els robatoris i al govern li exigirem",
+    "end": 112.71
   },
   {
-    "end": 113.8,
     "start": 113.27,
-    "words": "que augmenti"
+    "original_words": "que augmenti",
+    "words": "que augmenti",
+    "end": 113.8
   },
   {
-    "end": 122.5,
     "start": 114.32,
+    "original_words": "els agents que destina a l'\u00e0mbit rural, que incrementi les actuacions preventives i que garanteixi la seguretat, que aquesta \u00e9s la seva responsabilitat.",
     "punctuation": 1.0,
-    "words": "els agents que destina a l'\u00e0mbit rural que incrementi les actuacions preventives i que garanteixi la seguretat que aquesta \u00e9s la seva responsabilitat"
+    "words": "els agents que destina a l'\u00e0mbit rural que incrementi les actuacions preventives i que garanteixi la seguretat que aquesta \u00e9s la seva responsabilitat",
+    "end": 122.5
   },
   {
-    "end": 125.45,
     "start": 123.13,
-    "words": "mirin quan han treballat conjuntament"
+    "original_words": "Mirin, quan han treballat conjuntament",
+    "words": "mirin quan han treballat conjuntament",
+    "end": 125.45
   },
   {
-    "end": 132.07,
     "start": 125.61,
+    "original_words": "dins la legalitat la policia i els pagesos, les coses han millorat substancialment. Per aix\u00f2, la pregunta \u00e9s clara:",
     "punctuation": 1.0,
-    "words": "dins la legalitat la policia i els pagesos les coses han millorat substancialment per aix\u00f2 la pregunta \u00e9s clara"
+    "words": "dins la legalitat la policia i els pagesos les coses han millorat substancialment per aix\u00f2 la pregunta \u00e9s clara",
+    "end": 132.07
   },
   {
-    "end": 139.58,
     "start": 132.31,
-    "words": "per qu\u00e8 prohibeixen als pagesos que col\u00b7laborin amb la policia per evitar robatoris mentre els pagesos els reclamen di\u00e0leg"
+    "original_words": "per qu\u00e8 prohibeixen als pagesos que col\u00b7laborin amb la policia per evitar robatoris? Mentre els pagesos els reclamen di\u00e0leg",
+    "words": "per qu\u00e8 prohibeixen als pagesos que col\u00b7laborin amb la policia per evitar robatoris mentre els pagesos els reclamen di\u00e0leg",
+    "end": 139.58
   },
   {
-    "end": 141.55,
     "start": 139.8,
+    "original_words": "\u2013li reclamen di\u00e0leg, conseller, a vost\u00e8\u2013,",
     "punctuation": 0.9,
-    "words": "li reclamen di\u00e0leg conseller a vost\u00e8"
+    "words": "li reclamen di\u00e0leg conseller a vost\u00e8",
+    "end": 141.55
   },
   {
-    "end": 144.79,
     "start": 142.01,
-    "words": "vost\u00e8s els el prohibeixen gr\u00e0cies senyora presidenta"
+    "original_words": "vost\u00e8s els el prohibeixen. Gr\u00e0cies, senyora presidenta.",
+    "words": "vost\u00e8s els el prohibeixen gr\u00e0cies senyora presidenta",
+    "end": 144.79
   }
 ]

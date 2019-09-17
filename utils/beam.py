@@ -53,8 +53,10 @@ class Beam(object):
         # TODO assert second comes after first
         try:
             added = {'words': ' '.join([first['words'], second['words']]),
-                 'start': first['start'],
-                 'end': second['end']}
+                     'original_words': ' '.join([first['original_words'],
+                                                 second['original_words']]),
+                     'start': first['start'],
+                     'end': second['end']}
         except Exception as e:
             logging.error(first, second)
             raise e

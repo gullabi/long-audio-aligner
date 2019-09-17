@@ -197,23 +197,28 @@ class Segmenter(object):
 
 def join_block(cropped_block, silence):
     unit_segments = []
-    segment = {'words': '', 'start': cropped_block[0]['start']}
+    segment = {'words': '', 'original_words': '',
+               'start': cropped_block[0]['start']}
     for i, element in enumerate(cropped_block):
         if i < len(cropped_block)-1:
             segment['words'] += element['word'] + ' '
+            segment['original_words'] += element['original_word'] + ' '
             next_element = cropped_block[i+1]
             if element.get('end') and next_element.get('start'):
                 if (float(next_element['start'])-float(element['end'])) >= \
                                                                        silence:
                     segment['end'] = element['end']
                     segment['words'] = segment['words'].strip()
+                    segment['original_words'] = segment['original_words'].strip()
                     if element.get('punctuation'):
                         segment['punctuation'] = element['punctuation']
                     unit_segments.append(segment)
                     # new segment
-                    segment = {'words': '', 'start':next_element['start']}
+                    segment = {'words': '', 'original_words': '',
+                               'start':next_element['start']}
         else:
             segment['words'] += element['word']
+            segment['original_words'] += element['original_word']
             segment['end'] = element['end']
             unit_segments.append(segment)
     return unit_segments
@@ -240,12 +245,15 @@ def join_tokens(tokens, indicies):
     return segments
 
 def add_tokens(tokens):
-    segment = {'words': '', 'start': tokens[0]['start']}
+    segment = {'words': '', 'original_words': '',
+               'start': tokens[0]['start']}
     for i, token in enumerate(tokens):
         if i < len(tokens)-1:
             segment['words'] += token['word'] + ' '
+            segment['original_words'] += token['original_word'] + ' '
         else:
             segment['words'] += token['word']
+            segment['original_words'] += token['original_word']
             segment['end'] = token['end']
             if token.get('punctuation'):
                 segment['punctuation'] = token['punctuation']

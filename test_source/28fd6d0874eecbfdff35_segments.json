@@ -1,104 +1,122 @@
 [
   {
-    "end": 13.7,
     "start": 4.52,
-    "words": "gr\u00e0cies senyora presidenta senyor lucena li repeteixo el mateix no pot ser m\u00e9s transparent ja li dic hi ha una reivindicaci\u00f3 pol\u00edtica que aquests ingressos s\u00f3n deutes de"
+    "original_words": "Gr\u00e0cies, senyora presidenta. Senyor Lucena, li repeteixo el mateix: no pot ser m\u00e9s transparent, ja li dic, hi ha una reivindicaci\u00f3 pol\u00edtica que aquests ingressos s\u00f3n deutes de",
+    "words": "gr\u00e0cies senyora presidenta senyor lucena li repeteixo el mateix no pot ser m\u00e9s transparent ja li dic hi ha una reivindicaci\u00f3 pol\u00edtica que aquests ingressos s\u00f3n deutes de",
+    "end": 13.7
   },
   {
-    "end": 20.49,
     "start": 13.71,
+    "original_words": "l'Estat espanyol amb Catalunya. Els hem de posar o no els hem de posar? I ho saben ells perfectament, i ens han aprovat el Pla econ\u00f2mic i financer.",
     "punctuation": 1.0,
-    "words": "l'estat espanyol amb catalunya els hem de posar o no els hem de posar i ho saben ells perfectament i ens han aprovat el pla econ\u00f2mic i financer"
+    "words": "l'estat espanyol amb catalunya els hem de posar o no els hem de posar i ho saben ells perfectament i ens han aprovat el pla econ\u00f2mic i financer",
+    "end": 20.49
   },
   {
-    "end": 23.04,
     "start": 21.37,
-    "words": "aleshores senyor lucena de qu\u00e8 estem parlant"
+    "original_words": "Aleshores, senyor Lucena, de qu\u00e8 estem parlant?",
+    "words": "aleshores senyor lucena de qu\u00e8 estem parlant",
+    "end": 23.04
   },
   {
-    "end": 34.12,
     "start": 33.8,
+    "original_words": "Ara,",
     "punctuation": 0.9,
-    "words": "ara"
+    "words": "ara",
+    "end": 34.12
   },
   {
-    "end": 39.43,
     "start": 34.95,
+    "original_words": "hi hauria engany si jo li estigu\u00e9s explicant una altra hist\u00f2ria, per\u00f2 li estic explicant la veritat,",
     "punctuation": 0.9,
-    "words": "hi hauria engany si jo li estigu\u00e9s explicant una altra hist\u00f2ria per\u00f2 li estic explicant la veritat"
+    "words": "hi hauria engany si jo li estigu\u00e9s explicant una altra hist\u00f2ria per\u00f2 li estic explicant la veritat",
+    "end": 39.43
   },
   {
-    "end": 39.79,
     "start": 39.71,
-    "words": "i"
+    "original_words": "i",
+    "words": "i",
+    "end": 39.79
   },
   {
-    "end": 43.61,
     "start": 39.89,
+    "original_words": "el conseller Mas-colell, quan ho escriu, escriu exactament aix\u00f2.",
     "punctuation": 1.0,
-    "words": "el conseller mas-colell quan ho escriu escriu exactament aix\u00f2"
+    "words": "el conseller mas-colell quan ho escriu escriu exactament aix\u00f2",
+    "end": 43.61
   },
   {
-    "end": 49.57,
     "start": 44.04,
+    "original_words": "Ara, aleshores parlem d'aquestes coses que vost\u00e8 diu que s\u00f3n grav\u00edssims incompliments o enganys colossals, etc\u00e8tera.",
     "punctuation": 1.0,
-    "words": "ara aleshores parlem d'aquestes coses que vost\u00e8 diu que s\u00f3n grav\u00edssims incompliments o enganys colossals etc\u00e8tera"
+    "words": "ara aleshores parlem d'aquestes coses que vost\u00e8 diu que s\u00f3n grav\u00edssims incompliments o enganys colossals etc\u00e8tera",
+    "end": 49.57
   },
   {
-    "end": 56.18,
     "start": 49.91,
+    "original_words": "Miri, jo recordo a finals de l'any dos mil deu, quan jo vaig arribar a la presid\u00e8ncia de la Generalitat... \u2013perdoni, nom\u00e9s fa quatre anys d'aix\u00f2, home\u2013,",
     "punctuation": 0.9,
-    "words": "miri jo recordo a finals de l'any dos mil deu quan jo vaig arribar a la presid\u00e8ncia de la generalitat perdoni nom\u00e9s fa quatre anys d'aix\u00f2 home"
+    "words": "miri jo recordo a finals de l'any dos mil deu quan jo vaig arribar a la presid\u00e8ncia de la generalitat perdoni nom\u00e9s fa quatre anys d'aix\u00f2 home",
+    "end": 56.18
   },
   {
-    "end": 59.49,
     "start": 56.59,
-    "words": "resulta que en aquell moment s'havia de complir un objectiu de d\u00e8ficit"
+    "original_words": "resulta que en aquell moment s'havia de complir un objectiu de d\u00e8ficit",
+    "words": "resulta que en aquell moment s'havia de complir un objectiu de d\u00e8ficit",
+    "end": 59.49
   },
   {
-    "end": 62.17,
     "start": 60.06,
+    "original_words": "i van dir que el complirien, l'objectiu de d\u00e8ficit,",
     "punctuation": 0.9,
-    "words": "i van dir que el complirien l'objectiu de d\u00e8ficit"
+    "words": "i van dir que el complirien l'objectiu de d\u00e8ficit",
+    "end": 62.17
   },
   {
-    "end": 66.7,
     "start": 62.96,
+    "original_words": "i quan v\u00e0rem arribar all\u00e0 resulta que s'havien equivocat no una mica,",
     "punctuation": 0.9,
-    "words": "i quan v\u00e0rem arribar all\u00e0 resulta que s'havien equivocat no una mica"
+    "words": "i quan v\u00e0rem arribar all\u00e0 resulta que s'havien equivocat no una mica",
+    "end": 66.7
   },
   {
-    "end": 70.35,
     "start": 67.05,
+    "original_words": "sin\u00f3 pel doble, \u00e9s a dir, l'havien doblat.",
     "punctuation": 1.0,
-    "words": "sin\u00f3 pel doble \u00e9s a dir l'havien doblat"
+    "words": "sin\u00f3 pel doble \u00e9s a dir l'havien doblat",
+    "end": 70.35
   },
   {
-    "end": 72.88,
     "start": 70.88,
-    "words": "vost\u00e8s van fer un engany colossal"
+    "original_words": "Vost\u00e8s van fer un engany colossal",
+    "words": "vost\u00e8s van fer un engany colossal",
+    "end": 72.88
   },
   {
-    "end": 73.58,
     "start": 73.01,
-    "words": "a tothom"
+    "original_words": "a tothom",
+    "words": "a tothom",
+    "end": 73.58
   },
   {
-    "end": 75.15,
     "start": 74.12,
+    "original_words": "en aquell moment?",
     "punctuation": 1.0,
-    "words": "en aquell moment"
+    "words": "en aquell moment",
+    "end": 75.15
   },
   {
-    "end": 85.01,
     "start": 75.99,
-    "punctuation": 0.9,
-    "words": "perqu\u00e8 vost\u00e8s ja havien fet els comptes d'aquell any ja s'estava acabant per tant no ens parli d'enganys colossals estic disposat a encaixar moltes coses per\u00f2 algunes senyor lucena"
+    "original_words": "Perqu\u00e8 vost\u00e8s ja havien fet els comptes d'aquell any, ja s'estava acabant. Per tant, no ens parli d'enganys colossals; estic disposat a encaixar moltes coses, per\u00f2 algunes, senyor Lucena,",
+    "end": 85.01,
+    "words": "perqu\u00e8 vost\u00e8s ja havien fet els comptes d'aquell any ja s'estava acabant per tant no ens parli d'enganys colossals estic disposat a encaixar moltes coses per\u00f2 algunes senyor lucena",
+    "punctuation": 0.9
   },
   {
-    "end": 87.56,
     "start": 85.07,
+    "original_words": "encara tinc una mica de mem\u00f2ria per recordar com estaven.",
     "punctuation": 1.0,
-    "words": "encara tinc una mica de mem\u00f2ria per recordar com estaven"
+    "words": "encara tinc una mica de mem\u00f2ria per recordar com estaven",
+    "end": 87.56
   }
 ]
