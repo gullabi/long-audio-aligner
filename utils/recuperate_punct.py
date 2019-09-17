@@ -174,6 +174,42 @@ def get_original_segments(segments, aligned_tuples):
         segment['original_words'] = ' '.join(original_words_clean)
         #print('%s\n%s'%(segment['words'],segment['original_words']))
 
+def get_original_alignment(initial_alignment, aligned_tuples):
+    for token in initial_alignment:
+        word = token['word']
+        # first check if there are missing alignments
+        # if so merge them
+        if aligned_tuples[0][1] == '--':
+            #print('** new implementation for')
+            #print(segment['words'], aligned_tuples[:5])
+            # merge all the non-matched tokens into one
+            # first create the merged 
+            for i, tup in enumerate(aligned_tuples):
+                merged_original = aligned_tuples[0][0]
+                if i != 0:
+                    merged_original += tup[0]
+                    if tup[1] != '--':
+                        merge_index = i
+                        aligned_tuples[i] = (merged_original, tup[1])
+                        break
+            # remove the empty alignment token tuples
+            for i in range(merge_index):
+                aligned_tuples.pop(0)
+            #print('result ', aligned_tuples[:5])
+        # now check for correspondance
+        if word == aligned_tuples[0][1]:
+            original_word = aligned_tuples[0][0]
+            original_word_clean = recover_punc(aligned_tuples[0][0], word)
+            token['original_word'] = original_word_clean
+            if original_word != original_word_clean:
+                logging.debug(original_word_clean, aligned_tuples[0][0])
+            aligned_tuples.pop(0)
+        else:
+            msg = 'word not found in the following index\n%s %s'\
+                  %(word, aligned_tuples[:5])
+            logging.error(msg)
+            raise ValueError(msg)
+
 def recover_punc(original, clean):
     # recovers punctuation from aligned tokens
     # cases:

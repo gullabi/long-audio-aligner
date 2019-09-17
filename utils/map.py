@@ -2,6 +2,8 @@ import operator
 import re
 import logging
 
+from utils import recuperate_punct
+
 class Map(object):
     '''
     Post processes the word sequence with time stamps to add the
@@ -30,6 +32,7 @@ class Map(object):
         self.check()
         self.find_speaker()
         self.enrich_alignment()
+        self.align()
 
     def check(self):
         if len(self.full_text.split()) != len(self.alignment):
@@ -105,3 +108,28 @@ class Map(object):
             for key in ['target_speaker', 'punctuation']:
                 if reference.get(key):
                     target[key] = reference[key]
+
+    def align(self):
+        alignment_words = [token['word'] for token in self.alignment]
+        # create a list of tuples cleaned vs original word
+        text_clean_tuples = recuperate_punct.clean(self.full_text)
+        clean_words =  [cl for cl, tx in text_clean_tuples]
+
+        diff_wc = abs(len(text_clean_tuples)-len(alignment_words))
+        if diff_wc > 5:
+            logging.warning('word count difference is large: %i'%diff_wc)
+
+        # align words from decode with the clean_words
+        # first do the alignment with the clean versions in the text_clean_tuples
+        align_seq = recuperate_punct.needle(clean_words, alignment_words)
+        clean_aligned, full_text_aligned = align_seq
+        # create the aligned version with the original words using text_clean_tuples
+        original_aligned = recuperate_punct.get_original(clean_aligned,
+                                                         text_clean_tuples)
+        # no of decoded words will always be greater or equal to the original
+        # hence it is necessary to find where the decode starts and ends
+        # TODO might be unnecessary bcs alignment already has non decoded words
+        i_start, i_end = recuperate_punct.get_start_end_indices(full_text_aligned)
+        self.original_align_seq = list(zip(original_aligned[i_start:i_end+1],
+                                      full_text_aligned[i_start:i_end+1]))
+        recuperate_punct.get_original_alignment(self.alignment, self.original_align_seq)

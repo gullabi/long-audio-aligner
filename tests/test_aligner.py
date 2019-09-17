@@ -8,7 +8,7 @@ from utils.sphinx import CMU
 TEST_PATH = os.path.dirname(os.path.realpath(__file__))
 TEST_FILES_PATH = os.path.join(TEST_PATH, '../test_source')
 MODEL_PATH = os.path.join(TEST_PATH, '../../cmusphinx-models/ca-es')
-DICT_PATH = os.path.join(MODEL_PATH, 'pronounciation-dictionary.dict')
+DICT_PATH = os.path.join(MODEL_PATH, 'pronunciation-dictionary.dict')
 TMP_PATH = os.path.join(TEST_PATH, '../tmp_test')
 
 class AlignerTestCase(unittest.TestCase):

@@ -24,6 +24,9 @@ class SegmenterTestCase(unittest.TestCase):
                                  '28fd6d0874eecbfdff35_mapped_align.json',
                                  'El president de la Generalitat']]
 
+        if not os.path.exists(TMP_PATH):
+            os.mkdir(TMP_PATH)
+
     def tearDown(self):
         pass
 
@@ -49,4 +52,15 @@ class SegmenterTestCase(unittest.TestCase):
 
             # test enrich alignment
             map_test.enrich_alignment()
+            target_in_list = False
+            for al in map_test.alignment:
+                if al.get('target_speaker'):
+                    target_in_list = True
+            self.assertTrue(target_in_list)
+
+            # test alignment with original words
+            map_test.align()
+            with open(os.path.join(TMP_PATH, test_files[2]), 'w') as out:
+                json.dump(map_test.alignment, out, indent=2)
+
             self.assertEqual(map_test.alignment, m_alignment)
