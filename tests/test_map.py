@@ -13,13 +13,16 @@ class SegmenterTestCase(unittest.TestCase):
     def setUp(self):
         self.test_files_list = [['2013_06_05_57807-14-c3d9d2a15a76a9fbb591.json',
                                  'c3d9d2a15a76a9fbb591_align.json',
-                                 'c3d9d2a15a76a9fbb591_mapped_align.json'],
+                                 'c3d9d2a15a76a9fbb591_mapped_align.json',
+                                 'Pere Calbó i Roca'],
                                 ['2015_06_03_59079_47.json',
                                  'd96ee006b62213506a07_align.json',
-                                 'd96ee006b62213506a07_mapped_align.json'],
+                                 'd96ee006b62213506a07_mapped_align.json',
+                                 'El president de la Generalitat'],
                                 ['2015_02_04_57900_59.json',
                                  '28fd6d0874eecbfdff35_align.json',
-                                 '28fd6d0874eecbfdff35_mapped_align.json']]
+                                 '28fd6d0874eecbfdff35_mapped_align.json',
+                                 'El president de la Generalitat']]
 
     def tearDown(self):
         pass
@@ -42,6 +45,7 @@ class SegmenterTestCase(unittest.TestCase):
 
             # test find speaker
             map_test.find_speaker()
+            self.assertEqual(test_files[3], map_test.target_speaker)
 
             # test enrich alignment
             map_test.enrich_alignment()
