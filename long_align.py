@@ -246,6 +246,9 @@ if __name__ == "__main__":
     parser.add_argument("-r", "-overwrite", dest="overwrite",\
                         action="store_true",\
                         help="overwrite results")
+    parser.add_argument("-t", "-threads", dest="threads",\
+                        help="number of threads", type=int,
+                        default=1)
 
     args = parser.parse_args()
     if args.collection and args.jsonfile:
@@ -266,7 +269,7 @@ if __name__ == "__main__":
             # from file
             multiple(args.jsonfile, args.outdir)
         else:
-            from_db(args.outdir, threads = 1, overwrite=args.overwrite)
+            from_db(args.outdir, threads = args.threads, overwrite=args.overwrite)
     elif args.collection:
         # for segment decode score evaluation
         segments_db(args.collection, threads = 3)
