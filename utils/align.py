@@ -17,7 +17,7 @@ class Align(object):
             raise IOError(msg)
 
         if not text:
-            msg = 'input text is empy'
+            msg = 'input text is empty'
             logging.error(msg)
             raise IOError(msg)
 

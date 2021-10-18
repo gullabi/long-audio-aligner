@@ -10,6 +10,7 @@ from itertools import repeat
 from multiprocessing.dummy import Pool
 from tqdm import tqdm
 from datetime import datetime
+from copy import deepcopy
 from utils.align import Align, TMP
 from utils.sphinx import CMU, DICT_FILE
 from utils.text import Text
@@ -25,15 +26,9 @@ PROJECT_PATH = os.path.dirname(os.path.realpath(__file__))
 MODEL_PATH = os.path.join(PROJECT_PATH, '../cmusphinx-models/ca-es')
 DICT_PATH = os.path.join(MODEL_PATH, DICT_FILE)
 
-def get_optimal_segments(intervention, alignment):
-    # get punctuation and speaker information
-    m = Map(intervention, alignment)
-    m.prepare()
-
-    intervention['words'] = m.alignment
-
+def get_optimal_segments(intervention, mapped_alignment):
     # get segments using silences
-    segmenter = Segmenter(m.alignment)
+    segmenter = Segmenter(mapped_alignment, t_min=4, t_max=15)
     segmenter.get_segments()
 
     # optimize segments using punctuation
@@ -67,35 +62,52 @@ def process_pipeline(intervention, outdir):
         logging.error(msg)
         return []
 
-    # create lm and convert audio
-    align = Align(audiofile, text, DICT_PATH)
-    align.create_textcorpus()
-    align.create_lm()
-    align.convert_audio()
+    if not intervention.get('words'):
+        # create lm and convert audio
+        align = Align(audiofile, text, DICT_PATH)
+        if not align.results_exist():
+            # if tmp exists uses the decode results from there
+            align.create_textcorpus()
+            align.create_lm()
+            align.convert_audio()
 
-    # run pocketsphinx
-    cs = CMU(MODEL_PATH)
-    logging.info('decoding for long alignment')
-    try:
-        cs.decode(align.audio_raw, align.lm)
-    except Exception as e:
-        msg = '%s decoding failed'%audiofile
-        logging.error(msg)
-        logging.error(str(e))
-        return []
-    segs = cs.segs
+            # run pocketsphinx
+            cs = CMU(MODEL_PATH)
+            logging.info('decoding for long alignment')
+            try:
+                cs.decode(align.audio_raw, align.lm)
+            except Exception as e:
+                msg = '%s decoding failed'%audiofile
+                logging.error(msg)
+                logging.error(str(e))
+                return []
+            segs = cs.segs
 
-    # TODO call decode functions in Align object
-    decode_align = Text(align.sentences, segs, align.align_outfile)
-    decode_align.align()
-    alignment = decode_align.align_results
+            # TODO call decode functions in Align object
+            decode_align = Text(align.sentences, segs, align.align_outfile)
+            decode_align.align()
+            alignment = decode_align.align_results
+        else:
+            with open(align.align_outfile) as res_file:
+                alignment = json.load(res_file)
+
+        # get punctuation and speaker information
+        try:
+            m = Map(intervention, alignment)
+            m.prepare()
+
+            intervention['words'] = m.alignment
+        except Exception as e:
+            msg = 'mapping alignment failed for %s'%audiofile
+            logging.error(msg)
+            logging.error(str(e))
 
     # unit segments from silences are combined into optimal segments btw 5-19 s
     # exception handling needed since multiple block per speaker not implemented
     # if the speaker does not speak most of his/her text in the first block it
     # is possible to end up with 0 segments
     try:
-        segmenter = get_optimal_segments(intervention, alignment)
+        segmenter = get_optimal_segments(intervention, intervention['words'])
     except Exception as e:
         msg = 'segmentation not possible for %s'%audiofile
         logging.error(msg)
@@ -115,14 +127,15 @@ def process_pipeline(intervention, outdir):
     subprocess.call('rm {0}*.jsgf {0}*.raw'.format(outpath), shell=True)
     return segmenter.best_segments
 
-def from_db(outdir, threads = 1, overwrite=False):
+
+def from_db(outdir, threads = 1, overwrite=False, collection='mas_v5'):
     if not os.path.isdir(outdir):
         msg = '%s is not a directory'%outdir
         raise IOError(msg)
     start = datetime.now()
-    db = ParlaDB()
+    db = ParlaDB(collection_name=collection)
     db.connect()
-    logging.info('loading the speakers from the db')
+    logging.info('loading the speakers from the db: %s'%collection)
     process_list = []
     for value in db.collection.find():
         ple_code = value['value']['ple_code']
@@ -139,7 +152,8 @@ def from_db(outdir, threads = 1, overwrite=False):
             msg = 'no audio uri for %s'%int_code
             logging.info(msg)
         else:
-            if not overwrite and intervention.get('results'):
+            #if not overwrite and intervention.get('results'):
+            if not overwrite and (intervention.get('words') and intervention.get('results')):
                 msg = '%s already processed in db, skipping'%int_code
                 logging.info(msg)
             else:
@@ -239,9 +253,13 @@ if __name__ == "__main__":
                         help="output directory", type=str)
     parser.add_argument("-f", "--file", dest="jsonfile", default=None,\
                         help="input file (json)", type=str)
-    parser.add_argument("-s", "-segment_collection", dest="collection",\
+    parser.add_argument("-s", "-segment_collection", dest="s_collection",\
                         default=None,
                         help="collection name for the db segments",
+                        type=str)
+    parser.add_argument("-c", "-collection", dest="collection",\
+                        default=None,
+                        help="collection name for the db interventions",
                         type=str)
     parser.add_argument("-r", "-overwrite", dest="overwrite",\
                         action="store_true",\
@@ -268,8 +286,11 @@ if __name__ == "__main__":
         if args.jsonfile:
             # from file
             multiple(args.jsonfile, args.outdir)
+        elif args.collection:
+            from_db(args.outdir, threads = args.threads,
+                    collection=args.collection, overwrite=args.overwrite)
         else:
-            from_db(args.outdir, threads = args.threads, overwrite=args.overwrite)
-    elif args.collection:
+            print('either collection name or jsonfile necessary')
+    elif args.s_collection:
         # for segment decode score evaluation
-        segments_db(args.collection, threads = 3)
+        segments_db(args.s_collection, threads = 3)

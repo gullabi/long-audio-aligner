@@ -1,6 +1,8 @@
 import operator
 import re
 import logging
+import pickle
+import utils.clean as cl
 
 from utils import recuperate_punct
 
@@ -27,6 +29,11 @@ class Map(object):
 
         self.re_stop = re.compile('\.|:|\?|!')
         self.re_comma = re.compile(',|;')
+        self.dash = re.compile('-|‑|–') 
+        self.non_std_dash = re.compile('‑|–')
+        lexicon = '../parlament-scrape/utils/lexicon_set_ca3.bin'
+        with open(lexicon, 'rb') as lexicon_file:
+            self.lexicon_set = pickle.load(lexicon_file)
 
     def prepare(self):
         self.check()
@@ -48,16 +55,28 @@ class Map(object):
             new_int_text = []
             for speaker, text in self.intervention['text']:
                 int_text = ''
+                #TODO pre alignment standardized cleaning for the original text
+                text = self.non_std_dash.sub('-', text)
+                text = re.sub('(\xad| (?=,)|)', '', text)
+                text = cl.dash.sub(' ', text)
+                text = cl.hyphenfix(text, self.lexicon_set)
                 for word in text.split():
-                    if re.search(self.alignment[i+skip]['word'], word.lower()):
+                    al_word = self.alignment[i+skip]['word']
+                    if re.search(al_word, word.lower()) or\
+                       re.search(self.dash.sub('',al_word),
+                                 self.dash.sub('',word.lower())):
                         int_text += ' %s'%word
                     else:
-                        msg = "%s does not appear in clean text"%word
-                        logging.warning(msg)
+                        if skip > -5:
+                            msg = "%s does not appear in clean text"%word
+                            logging.warning(msg)
                         skip -= 1
                     i += 1
-                new_int_text.append((speaker, int_text))
+                msg = 'had to skip %i steps'%abs(skip)
+                logging.warning(msg)
+                new_int_text.append([speaker, text])
             self.intervention['text'] = new_int_text
+            self.full_text = int_text
 
     def find_speaker(self):
         '''
@@ -87,6 +106,9 @@ class Map(object):
             logging.error(msg)
             raise ValueError(msg)
         for speaker, text in self.intervention['text']:
+            # TODO cleaning needs to be treated consistently
+            #      this is a quick fix due to skips
+            #text = re.sub('(\xad| - |,)', '', text)
             for word in text.split():
                 token = {'word': word}
                 if speaker == self.target_speaker:
@@ -101,7 +123,8 @@ class Map(object):
 
         # assuming they are of the same length
         for reference, target in zip(reference_dicts, self.alignment):
-            if not re.search(target['word'], reference['word'].lower()):
+            if not re.search(self.dash.sub('',target['word']),
+                             self.dash.sub('',reference['word'].lower())):
                 msg = '%s vs %s target not in reference'\
                       %(target['word'], reference['word'])
                 logging.warning(msg)

@@ -69,13 +69,17 @@ class Segmenter(object):
         # check if all segments are shorter than t_max
         for segment in segments:
             if (segment['end'] - segment['start']) > self.t_max:
-                logging.warning('long segment found, cutting it\n%s'\
-                                 %segment['words'])
-                for shorter_segment in self.shorten_segment(segment):
-                    # TODO add beam join for joining the single token segments
-                    self.segments.append(shorter_segment)
-                    logging.warning('* resulting in: %s'\
-                                    %shorter_segment['words'])
+                #logging.warning('long segment found, cutting it\n%s'\
+                #                 %segment['words'])
+                shorter_segments = self.shorten_segment(segment)
+                # shorthen segment might fail
+                if shorter_segments:
+                    for shorter_segment in shorter_segments:
+                        self.segments.append(shorter_segment)
+                        #logging.warning('* resulting in: %s'\
+                        #                %shorter_segment['words'])
+                else:
+                    self.segments.append(segment)
             else:
                 self.segments.append(segment)
 
@@ -137,6 +141,7 @@ class Segmenter(object):
 
         # cut the segment starting from the longest silence interval
         final_cut_index = []
+        new_segments = []
         for index in cut_index:
             final_cut_index.append(index)
             new_segments = join_tokens(tokens, final_cut_index)
@@ -145,11 +150,15 @@ class Segmenter(object):
             if max_duration <= self.t_max:
                 break
 
-        # optimize the new segments since there could be many single token ones
-        sh_beam = Beam(5, self.t_min, self.t_max)
-        for segment in new_segments:
-            sh_beam.add(segment)
-        return sh_beam.sequences[0]
+        # cut_index and hence new_segments could end up empty
+        if new_segments:
+            # optimize the new segments since there could be many single token ones
+            sh_beam = Beam(5, 0.4*self.t_min, 0.72*self.t_max)
+            for segment in new_segments:
+                sh_beam.add(segment)
+            return sh_beam.sequences[0]
+        else:
+            return []
 
     def optimize(self):
         beam = Beam(self.beam_width, self.t_min, self.t_max)
@@ -186,7 +195,7 @@ class Segmenter(object):
                 '-t', str(duration), '-ac', '1', '-ar', '16000', \
                 cue['segment_path']]
         if os.path.isfile(cue['segment_path']):
-            logging.info("%s already exists skipping"%cue['segment'])
+            logging.debug("%s already exists skipping"%cue['segment'])
         else:
             subprocess.call(args)
             if not os.path.isfile(cue['segment_path']):
@@ -261,4 +270,4 @@ def add_tokens(tokens):
 
 def log_subprocess_output(pipe):
     for line in iter(pipe.readline, b''): # b'\n'-separated lines
-        logging.info('subprocess stderr: %r', line)
+        logging.debug('subprocess stderr: %r', line)

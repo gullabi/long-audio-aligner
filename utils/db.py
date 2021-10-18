@@ -12,7 +12,7 @@ def batch_insert(filename):
     pdb.insert(sessions)
 
 class ParlaDB(object):
-    def __init__(self, db_name='parlament', collection_name='v3'):
+    def __init__(self, db_name='parlament', collection_name='mas_v5'):
         self.db_name = db_name
         self.collection_name = collection_name
 

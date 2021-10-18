@@ -3,6 +3,7 @@ import re
 import logging
 import yaml
 import operator
+from itertools import zip_longest
 import utils.clean as cl
 from utils.seq_aligner import needle, water
 
@@ -60,7 +61,7 @@ def align(intervention):
     s_wc = get_segment_word_count(segment_list)
     dif_wc = abs(s_wc-len(text_clean_tuples))
     if dif_wc > 5:
-        print('WARNING: word count difference is large: %i'%dif_wc)
+        logging.warning('word count difference is large: %i'%dif_wc)
     else:
         clean_words = [cl for cl, tx in text_clean_tuples]
         segment_words = []
@@ -90,12 +91,33 @@ def clean(text):
     cl_text = cl.structure_clean(text)
     cl_text = cl.punctuation_normalize(cl_text)
     cl_text = cl.reject.sub('', cl_text.lower())
-    if len(cl_text.split()) != len(text.split()):
-        print('WARNING: cleaned worded count is not equal to original '\
-              '%i vs %i'%(len(cl_text.split()),len(text.split())))
+    cl_text_tokens = cl_text.strip().split()
+    if len(cl_text_tokens) != len(text.split()):
+        logging.warning('cleaned worded count is not equal to original '\
+                        'trying careful cleaning')
+        cl_text_tokens = careful_clean(text)
+    if len(cl_text_tokens) != len(text.split()):
+        logging.warning('cleaned worded count is still not equal to original '\
+              '%i vs %i'%(len(cl_text_tokens),len(text.split())))
+        with open('tokens.ls','w') as out:
+            for a, b in zip_longest(cl_text_tokens, text.split()):
+                out.write('%s\n'%'\t'.join([a,b]))
         raise NotImplementedError("no solution yet")
     else:
-        return list(zip(cl_text.strip().split(), text.split()))
+        return list(zip(cl_text_tokens, text.split()))
+
+def careful_clean(text):
+    # if clean token is empty it is discarded
+    # since we are aligning the clean texts, recovery is based on the
+    # clean elements and there shouldn't be a problem
+    cl_tokens = []
+    for token in text.split():
+        cl_token = cl.structure_clean(token)
+        cl_token = cl.punctuation_normalize(cl_token)
+        cl_token = cl.reject.sub('', cl_token.lower())
+        if cl_token:
+            cl_tokens.append(cl_token.strip())
+    return cl_tokens
 
 def get_segment_word_count(s_list):
     count = 0

@@ -6,4 +6,8 @@ test
 *.pyc
 *.swp
 *.log
+*.ls
 *.tar.gz
+*.csv
+*.tsv
+*.json

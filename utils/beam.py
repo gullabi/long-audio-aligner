@@ -85,10 +85,10 @@ class Beam(object):
         score = 0
         n_segment = len(sequence)
         for segment in sequence:
-            score += log(P_segment(segment, self.t_max))
-        return score/n_segment**alpha
+            score += log(P_segment(segment, self.t_max, self.t_min))
+        return score/n_segment#**alpha
 
-def P_segment(segment, t_max):
+def P_segment(segment, t_max, t_min):
     '''
     Accepts a dict with keys words, start, end, punctuation returns a value
     between [0,1]
@@ -110,12 +110,10 @@ def P_segment(segment, t_max):
                 f_punctuation = segment['punctuation']
             else:
                 f_punctuation = 1.0
-        #else:
-        #    f_punctuation = 0.5
-    #else:
-    #    f_punctuation = 0.5
     val = f_punctuation*exp(-beta/duration)
     # Step function to reject segments with durations > t_max
     if duration > t_max:
+        val *= 0.01/duration
+    elif duration < t_min:
         val *= 0.01
     return val

@@ -35,7 +35,7 @@ class CMU(object):
     def stream_decode(self, raw):
         if raw.endswith('.wav') and not os.path.isfile(raw.replace('.wav','.raw')):
                 msg = 'converting %s to raw'%raw
-                logging.info(msg)
+                logging.debug(msg)
                 self.convert2raw(raw)
                 raw = raw.replace('.wav','.raw')
         self.segs = []

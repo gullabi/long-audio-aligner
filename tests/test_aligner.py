@@ -30,7 +30,8 @@ class AlignerTestCase(unittest.TestCase):
             os.mkdir(TMP_PATH)
 
     def tearDown(self):
-        os.popen('rm -r %s'%TMP_PATH)
+        pass
+        #os.popen('rm -r %s'%TMP_PATH)
 
     def test_aligner(self):
         # create corpus

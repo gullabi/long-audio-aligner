@@ -11,6 +11,7 @@ formatting = re.compile('\<.{1,3}\>')
 in_cbrackets = re.compile('{.+}')
 in_paranthesis = re.compile('\(.+\)')
 w_spaces = re.compile(' {2,}')
+prev_dot = re.compile('\.{1,3}(?=(\w))') # for cleaning "...i despres"
 ws_dot = re.compile(' (?=(\.))')
 dash = re.compile(' - ')
 apostrophes = re.compile('`|’')
@@ -38,6 +39,7 @@ def structure_clean(text):
     text = in_cbrackets.sub('',text)
     text = w_spaces.sub(' ',text)
     text = dash.sub(' ',text)
+    text = prev_dot.sub('',text)
     text = ws_dot.sub('',text)
     text = formatting.sub('',text)
     return text
@@ -96,8 +98,9 @@ def hyphenfix(text, lexicon_set):
     replace_tasks = {}
     for word in text.strip().split():
         #clean_word = re.sub(token_clean, '', word)
-        m = re.search('.+-.+', word)
+        m = re.search('.+(-|‑).+', word)
         if m:
+            #print(word)
             clean_match = re.search(valid_word, word)
             if clean_match:
                 # this way we save the punctuation and change only the word
@@ -105,11 +108,14 @@ def hyphenfix(text, lexicon_set):
                 clean_word = clean_match.group()
             else:
                 logging.warning('%s is not a valid word?'%word)
-            replaced = clean_word.replace('-','').lower()
+                clean_word = word # just in case
+            replaced = re.sub('-|‑', '', word).lower()
             if clean_word.lower() in lexicon_set:
+                #print(clean_word.lower())
                 continue
             elif replaced in lexicon_set:
-                replace_tasks[clean_word] = replaced
+                #print(word,replaced)
+                replace_tasks[word] = replaced
             else:
                 logging.info("unknown hyphen %s"%word)
     for key, value in replace_tasks.items():
