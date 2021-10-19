@@ -28,7 +28,7 @@ DICT_PATH = os.path.join(MODEL_PATH, DICT_FILE)
 
 def get_optimal_segments(intervention, mapped_alignment):
     # get segments using silences
-    segmenter = Segmenter(mapped_alignment, t_min=4, t_max=15)
+    segmenter = Segmenter(mapped_alignment, t_min=4, t_max=10)
     segmenter.get_segments()
 
     # optimize segments using punctuation
@@ -302,4 +302,4 @@ if __name__ == "__main__":
             print('either collection name or jsonfile necessary')
     elif args.s_collection:
         # for segment decode score evaluation
-        segments_db(args.s_collection, threads = 3)
+        segments_db(args.s_collection, threads = args.threads)
