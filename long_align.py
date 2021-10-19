@@ -51,6 +51,15 @@ def multiple(jsonfile, outdir):
     with open(jsonfile.replace('.json','_res.json'), 'w') as out:
         json.dump(interventions, out, indent=2)
 
+def multiple_simple(jsonfile, outdir):
+    logging.info('loading simple file')
+    interventions = json.load(open(jsonfile))
+    interventions['results'] = []
+    for intervention in interventions['session']:
+        interventions['results'].append(process_pipeline(intervention, outdir))
+    with open(jsonfile.replace('.json','_res.json'), 'w') as out:
+        json.dump(interventions, out, indent=2)
+
 def process_pipeline(intervention, outdir):
     text = ' '.join([text for sp, text in intervention['text']])
 
@@ -285,7 +294,7 @@ if __name__ == "__main__":
     if args.outdir:
         if args.jsonfile:
             # from file
-            multiple(args.jsonfile, args.outdir)
+            multiple_simple(args.jsonfile, args.outdir)
         elif args.collection:
             from_db(args.outdir, threads = args.threads,
                     collection=args.collection, overwrite=args.overwrite)
